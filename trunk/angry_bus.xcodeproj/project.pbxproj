@@ -15,10 +15,13 @@
 		7C28524C1454EC3B00A83EBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C28524B1454EC3B00A83EBC /* main.m */; };
 		7C28524F1454EC3B00A83EBC /* angry_busAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C28524E1454EC3B00A83EBC /* angry_busAppDelegate.mm */; };
 		7C8222AB145CF2890034C429 /* EntityManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C8222A9145CF2880034C429 /* EntityManager.cpp */; };
+		7C822543145EE18100319628 /* ProgramManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C822541145EE18100319628 /* ProgramManager.cpp */; };
+		7C822547145EE40400319628 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C822545145EE40400319628 /* Shader.cpp */; };
+		7C82254A145EE57100319628 /* ShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C822548145EE57100319628 /* ShaderManager.cpp */; };
 		7C84D70C145B728E00397B7A /* simple.vert in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D70B145B728E00397B7A /* simple.vert */; };
 		7C84D70E145B72A500397B7A /* simple.frag in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D70D145B72A500397B7A /* simple.frag */; };
 		7C84D711145B779A00397B7A /* RenderES2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D70F145B779A00397B7A /* RenderES2.cpp */; };
-		7C84D714145B7AA900397B7A /* ProgramMaker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D712145B7AA900397B7A /* ProgramMaker.mm */; };
+		7C84D714145B7AA900397B7A /* Program.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D712145B7AA900397B7A /* Program.mm */; };
 		7C84D752145BA1F500397B7A /* bootstrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D750145BA1F500397B7A /* bootstrapper.cpp */; };
 		7C84D755145BA44700397B7A /* ServicesProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D753145BA44700397B7A /* ServicesProvider.cpp */; };
 		7C84D759145BA73A00397B7A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C84D758145BA73A00397B7A /* icon.png */; };
@@ -46,12 +49,18 @@
 		7C28524E1454EC3B00A83EBC /* angry_busAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = angry_busAppDelegate.mm; sourceTree = "<group>"; };
 		7C8222A9145CF2880034C429 /* EntityManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityManager.cpp; sourceTree = "<group>"; };
 		7C8222AA145CF2890034C429 /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityManager.h; sourceTree = "<group>"; };
+		7C822541145EE18100319628 /* ProgramManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProgramManager.cpp; sourceTree = "<group>"; };
+		7C822542145EE18100319628 /* ProgramManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramManager.h; sourceTree = "<group>"; };
+		7C822545145EE40400319628 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		7C822546145EE40400319628 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		7C822548145EE57100319628 /* ShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderManager.cpp; sourceTree = "<group>"; };
+		7C822549145EE57100319628 /* ShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderManager.h; sourceTree = "<group>"; };
 		7C84D70B145B728E00397B7A /* simple.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple.vert; sourceTree = "<group>"; };
 		7C84D70D145B72A500397B7A /* simple.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple.frag; sourceTree = "<group>"; };
 		7C84D70F145B779A00397B7A /* RenderES2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderES2.cpp; sourceTree = "<group>"; };
 		7C84D710145B779A00397B7A /* RenderES2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderES2.h; sourceTree = "<group>"; };
-		7C84D712145B7AA900397B7A /* ProgramMaker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProgramMaker.mm; sourceTree = "<group>"; };
-		7C84D713145B7AA900397B7A /* ProgramMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramMaker.h; sourceTree = "<group>"; };
+		7C84D712145B7AA900397B7A /* Program.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Program.mm; sourceTree = "<group>"; };
+		7C84D713145B7AA900397B7A /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 		7C84D750145BA1F500397B7A /* bootstrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bootstrapper.cpp; sourceTree = "<group>"; };
 		7C84D751145BA1F500397B7A /* bootstrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bootstrapper.h; sourceTree = "<group>"; };
 		7C84D753145BA44700397B7A /* ServicesProvider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ServicesProvider.cpp; sourceTree = "<group>"; };
@@ -169,11 +178,17 @@
 		7C84D708145B710C00397B7A /* ES2 */ = {
 			isa = PBXGroup;
 			children = (
+				7C84D70A145B723A00397B7A /* Shader */,
 				7C84D710145B779A00397B7A /* RenderES2.h */,
 				7C84D70F145B779A00397B7A /* RenderES2.cpp */,
-				7C84D713145B7AA900397B7A /* ProgramMaker.h */,
-				7C84D712145B7AA900397B7A /* ProgramMaker.mm */,
-				7C84D70A145B723A00397B7A /* Shader */,
+				7C84D713145B7AA900397B7A /* Program.h */,
+				7C84D712145B7AA900397B7A /* Program.mm */,
+				7C822541145EE18100319628 /* ProgramManager.cpp */,
+				7C822542145EE18100319628 /* ProgramManager.h */,
+				7C822545145EE40400319628 /* Shader.cpp */,
+				7C822546145EE40400319628 /* Shader.h */,
+				7C822548145EE57100319628 /* ShaderManager.cpp */,
+				7C822549145EE57100319628 /* ShaderManager.h */,
 			);
 			name = ES2;
 			sourceTree = "<group>";
@@ -316,13 +331,16 @@
 				7C84D70C145B728E00397B7A /* simple.vert in Sources */,
 				7C84D70E145B72A500397B7A /* simple.frag in Sources */,
 				7C84D711145B779A00397B7A /* RenderES2.cpp in Sources */,
-				7C84D714145B7AA900397B7A /* ProgramMaker.mm in Sources */,
+				7C84D714145B7AA900397B7A /* Program.mm in Sources */,
 				7C84D752145BA1F500397B7A /* bootstrapper.cpp in Sources */,
 				7C84D755145BA44700397B7A /* ServicesProvider.cpp in Sources */,
 				7C84D75F145C048100397B7A /* RenderComponent.cpp in Sources */,
 				7C84D762145C052800397B7A /* Entity.cpp in Sources */,
 				7C84D764145C0F6500397B7A /* IRender.cpp in Sources */,
 				7C8222AB145CF2890034C429 /* EntityManager.cpp in Sources */,
+				7C822543145EE18100319628 /* ProgramManager.cpp in Sources */,
+				7C822547145EE40400319628 /* Shader.cpp in Sources */,
+				7C82254A145EE57100319628 /* ShaderManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
