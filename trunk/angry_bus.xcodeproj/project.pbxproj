@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7C113B7A1459ADD200B581B6 /* RenderES1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C113B781459ADD200B581B6 /* RenderES1.cpp */; };
+		7C28523F1454EC3B00A83EBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C28523E1454EC3B00A83EBC /* UIKit.framework */; };
+		7C2852411454EC3B00A83EBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2852401454EC3B00A83EBC /* Foundation.framework */; };
+		7C2852431454EC3B00A83EBC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2852421454EC3B00A83EBC /* CoreGraphics.framework */; };
+		7C2852491454EC3B00A83EBC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C2852471454EC3B00A83EBC /* InfoPlist.strings */; };
+		7C28524C1454EC3B00A83EBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C28524B1454EC3B00A83EBC /* main.m */; };
+		7C28524F1454EC3B00A83EBC /* angry_busAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C28524E1454EC3B00A83EBC /* angry_busAppDelegate.mm */; };
+		7C8222AB145CF2890034C429 /* EntityManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C8222A9145CF2880034C429 /* EntityManager.cpp */; };
+		7C84D70C145B728E00397B7A /* simple.vert in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D70B145B728E00397B7A /* simple.vert */; };
+		7C84D70E145B72A500397B7A /* simple.frag in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D70D145B72A500397B7A /* simple.frag */; };
+		7C84D711145B779A00397B7A /* RenderES2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D70F145B779A00397B7A /* RenderES2.cpp */; };
+		7C84D714145B7AA900397B7A /* ProgramMaker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D712145B7AA900397B7A /* ProgramMaker.mm */; };
+		7C84D752145BA1F500397B7A /* bootstrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D750145BA1F500397B7A /* bootstrapper.cpp */; };
+		7C84D755145BA44700397B7A /* ServicesProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D753145BA44700397B7A /* ServicesProvider.cpp */; };
+		7C84D759145BA73A00397B7A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C84D758145BA73A00397B7A /* icon.png */; };
+		7C84D75F145C048100397B7A /* RenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D75D145C048000397B7A /* RenderComponent.cpp */; };
+		7C84D762145C052800397B7A /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D760145C052700397B7A /* Entity.cpp */; };
+		7C84D764145C0F6500397B7A /* IRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D763145C0F6500397B7A /* IRender.cpp */; };
+		7C8830F81455A71A0044D0FA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8830F61455A71A0044D0FA /* OpenGLES.framework */; };
+		7C8830F91455A71A0044D0FA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8830F71455A71A0044D0FA /* QuartzCore.framework */; };
+		7C8830FD1455A8050044D0FA /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C8830FC1455A8050044D0FA /* GLView.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7C113B761459A20D00B581B6 /* IRender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = IRender.h; sourceTree = "<group>"; };
+		7C113B781459ADD200B581B6 /* RenderES1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderES1.cpp; sourceTree = "<group>"; };
+		7C113B791459ADD200B581B6 /* RenderES1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderES1.h; sourceTree = "<group>"; };
+		7C28523A1454EC3B00A83EBC /* angry_bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = angry_bus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C28523E1454EC3B00A83EBC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7C2852401454EC3B00A83EBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7C2852421454EC3B00A83EBC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7C2852461454EC3B00A83EBC /* angry_bus-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "angry_bus-Info.plist"; sourceTree = "<group>"; };
+		7C2852481454EC3B00A83EBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7C28524A1454EC3B00A83EBC /* angry_bus-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "angry_bus-Prefix.pch"; sourceTree = "<group>"; };
+		7C28524B1454EC3B00A83EBC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7C28524D1454EC3B00A83EBC /* angry_busAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = angry_busAppDelegate.h; sourceTree = "<group>"; };
+		7C28524E1454EC3B00A83EBC /* angry_busAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = angry_busAppDelegate.mm; sourceTree = "<group>"; };
+		7C8222A9145CF2880034C429 /* EntityManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityManager.cpp; sourceTree = "<group>"; };
+		7C8222AA145CF2890034C429 /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityManager.h; sourceTree = "<group>"; };
+		7C84D70B145B728E00397B7A /* simple.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple.vert; sourceTree = "<group>"; };
+		7C84D70D145B72A500397B7A /* simple.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple.frag; sourceTree = "<group>"; };
+		7C84D70F145B779A00397B7A /* RenderES2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderES2.cpp; sourceTree = "<group>"; };
+		7C84D710145B779A00397B7A /* RenderES2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderES2.h; sourceTree = "<group>"; };
+		7C84D712145B7AA900397B7A /* ProgramMaker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProgramMaker.mm; sourceTree = "<group>"; };
+		7C84D713145B7AA900397B7A /* ProgramMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramMaker.h; sourceTree = "<group>"; };
+		7C84D750145BA1F500397B7A /* bootstrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bootstrapper.cpp; sourceTree = "<group>"; };
+		7C84D751145BA1F500397B7A /* bootstrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bootstrapper.h; sourceTree = "<group>"; };
+		7C84D753145BA44700397B7A /* ServicesProvider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ServicesProvider.cpp; sourceTree = "<group>"; };
+		7C84D754145BA44700397B7A /* ServicesProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesProvider.h; sourceTree = "<group>"; };
+		7C84D758145BA73A00397B7A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		7C84D75B145C032400397B7A /* IComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IComponent.h; sourceTree = "<group>"; };
+		7C84D75D145C048000397B7A /* RenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderComponent.cpp; sourceTree = "<group>"; };
+		7C84D75E145C048000397B7A /* RenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderComponent.h; sourceTree = "<group>"; };
+		7C84D760145C052700397B7A /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		7C84D761145C052700397B7A /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		7C84D763145C0F6500397B7A /* IRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IRender.cpp; sourceTree = "<group>"; };
+		7C84D766145C1B4600397B7A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		7C8830F61455A71A0044D0FA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		7C8830F71455A71A0044D0FA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7C8830FB1455A8050044D0FA /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
+		7C8830FC1455A8050044D0FA /* GLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLView.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7C2852371454EC3A00A83EBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C28523F1454EC3B00A83EBC /* UIKit.framework in Frameworks */,
+				7C2852411454EC3B00A83EBC /* Foundation.framework in Frameworks */,
+				7C2852431454EC3B00A83EBC /* CoreGraphics.framework in Frameworks */,
+				7C8830F81455A71A0044D0FA /* OpenGLES.framework in Frameworks */,
+				7C8830F91455A71A0044D0FA /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7C113B731459A17300B581B6 /* render */ = {
+			isa = PBXGroup;
+			children = (
+				7C84D708145B710C00397B7A /* ES2 */,
+				7C113B771459AB8200B581B6 /* ES1 */,
+				7C113B761459A20D00B581B6 /* IRender.h */,
+				7C84D763145C0F6500397B7A /* IRender.cpp */,
+			);
+			name = render;
+			sourceTree = "<group>";
+		};
+		7C113B751459A18D00B581B6 /* physics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = physics;
+			sourceTree = "<group>";
+		};
+		7C113B771459AB8200B581B6 /* ES1 */ = {
+			isa = PBXGroup;
+			children = (
+				7C113B781459ADD200B581B6 /* RenderES1.cpp */,
+				7C113B791459ADD200B581B6 /* RenderES1.h */,
+			);
+			name = ES1;
+			sourceTree = "<group>";
+		};
+		7C28522F1454EC3A00A83EBC = {
+			isa = PBXGroup;
+			children = (
+				7C2852441454EC3B00A83EBC /* angry_bus */,
+				7C8830FF1455C10E0044D0FA /* data */,
+				7C28523D1454EC3B00A83EBC /* Frameworks */,
+				7C28523B1454EC3B00A83EBC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7C28523B1454EC3B00A83EBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7C28523A1454EC3B00A83EBC /* angry_bus.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7C28523D1454EC3B00A83EBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C8830F61455A71A0044D0FA /* OpenGLES.framework */,
+				7C8830F71455A71A0044D0FA /* QuartzCore.framework */,
+				7C28523E1454EC3B00A83EBC /* UIKit.framework */,
+				7C2852401454EC3B00A83EBC /* Foundation.framework */,
+				7C2852421454EC3B00A83EBC /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C2852441454EC3B00A83EBC /* angry_bus */ = {
+			isa = PBXGroup;
+			children = (
+				7C84D765145C1B2600397B7A /* base */,
+				7C84D74F145BA13D00397B7A /* game */,
+				7C113B751459A18D00B581B6 /* physics */,
+				7C113B731459A17300B581B6 /* render */,
+				7C8830FE1455AA340044D0FA /* glue */,
+				7C2852451454EC3B00A83EBC /* Supporting Files */,
+			);
+			path = angry_bus;
+			sourceTree = "<group>";
+		};
+		7C2852451454EC3B00A83EBC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7C2852461454EC3B00A83EBC /* angry_bus-Info.plist */,
+				7C2852471454EC3B00A83EBC /* InfoPlist.strings */,
+				7C28524A1454EC3B00A83EBC /* angry_bus-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7C84D708145B710C00397B7A /* ES2 */ = {
+			isa = PBXGroup;
+			children = (
+				7C84D710145B779A00397B7A /* RenderES2.h */,
+				7C84D70F145B779A00397B7A /* RenderES2.cpp */,
+				7C84D713145B7AA900397B7A /* ProgramMaker.h */,
+				7C84D712145B7AA900397B7A /* ProgramMaker.mm */,
+				7C84D70A145B723A00397B7A /* Shader */,
+			);
+			name = ES2;
+			sourceTree = "<group>";
+		};
+		7C84D70A145B723A00397B7A /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				7C84D70B145B728E00397B7A /* simple.vert */,
+				7C84D70D145B72A500397B7A /* simple.frag */,
+			);
+			name = Shader;
+			sourceTree = "<group>";
+		};
+		7C84D74F145BA13D00397B7A /* game */ = {
+			isa = PBXGroup;
+			children = (
+				7C84D751145BA1F500397B7A /* bootstrapper.h */,
+				7C84D750145BA1F500397B7A /* bootstrapper.cpp */,
+				7C84D753145BA44700397B7A /* ServicesProvider.cpp */,
+				7C84D754145BA44700397B7A /* ServicesProvider.h */,
+				7C84D75B145C032400397B7A /* IComponent.h */,
+				7C84D75D145C048000397B7A /* RenderComponent.cpp */,
+				7C84D75E145C048000397B7A /* RenderComponent.h */,
+				7C84D760145C052700397B7A /* Entity.cpp */,
+				7C84D761145C052700397B7A /* Entity.h */,
+				7C8222A9145CF2880034C429 /* EntityManager.cpp */,
+				7C8222AA145CF2890034C429 /* EntityManager.h */,
+			);
+			name = game;
+			sourceTree = "<group>";
+		};
+		7C84D756145BA6D300397B7A /* image */ = {
+			isa = PBXGroup;
+			children = (
+				7C84D758145BA73A00397B7A /* icon.png */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
+		7C84D757145BA70100397B7A /* music */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = music;
+			sourceTree = "<group>";
+		};
+		7C84D765145C1B2600397B7A /* base */ = {
+			isa = PBXGroup;
+			children = (
+				7C84D766145C1B4600397B7A /* Singleton.h */,
+			);
+			name = base;
+			sourceTree = "<group>";
+		};
+		7C8830FE1455AA340044D0FA /* glue */ = {
+			isa = PBXGroup;
+			children = (
+				7C28524B1454EC3B00A83EBC /* main.m */,
+				7C28524E1454EC3B00A83EBC /* angry_busAppDelegate.mm */,
+				7C28524D1454EC3B00A83EBC /* angry_busAppDelegate.h */,
+				7C8830FC1455A8050044D0FA /* GLView.mm */,
+				7C8830FB1455A8050044D0FA /* GLView.h */,
+			);
+			name = glue;
+			sourceTree = "<group>";
+		};
+		7C8830FF1455C10E0044D0FA /* data */ = {
+			isa = PBXGroup;
+			children = (
+				7C84D757145BA70100397B7A /* music */,
+				7C84D756145BA6D300397B7A /* image */,
+			);
+			name = data;
+			path = angry_bus;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7C2852391454EC3A00A83EBC /* angry_bus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C2852551454EC3B00A83EBC /* Build configuration list for PBXNativeTarget "angry_bus" */;
+			buildPhases = (
+				7C2852361454EC3A00A83EBC /* Sources */,
+				7C2852371454EC3A00A83EBC /* Frameworks */,
+				7C2852381454EC3A00A83EBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = angry_bus;
+			productName = angry_bus;
+			productReference = 7C28523A1454EC3B00A83EBC /* angry_bus.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7C2852311454EC3A00A83EBC /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 7C2852341454EC3A00A83EBC /* Build configuration list for PBXProject "angry_bus" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7C28522F1454EC3A00A83EBC;
+			productRefGroup = 7C28523B1454EC3B00A83EBC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7C2852391454EC3A00A83EBC /* angry_bus */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7C2852381454EC3A00A83EBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C2852491454EC3B00A83EBC /* InfoPlist.strings in Resources */,
+				7C84D759145BA73A00397B7A /* icon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C2852361454EC3A00A83EBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C28524C1454EC3B00A83EBC /* main.m in Sources */,
+				7C28524F1454EC3B00A83EBC /* angry_busAppDelegate.mm in Sources */,
+				7C8830FD1455A8050044D0FA /* GLView.mm in Sources */,
+				7C113B7A1459ADD200B581B6 /* RenderES1.cpp in Sources */,
+				7C84D70C145B728E00397B7A /* simple.vert in Sources */,
+				7C84D70E145B72A500397B7A /* simple.frag in Sources */,
+				7C84D711145B779A00397B7A /* RenderES2.cpp in Sources */,
+				7C84D714145B7AA900397B7A /* ProgramMaker.mm in Sources */,
+				7C84D752145BA1F500397B7A /* bootstrapper.cpp in Sources */,
+				7C84D755145BA44700397B7A /* ServicesProvider.cpp in Sources */,
+				7C84D75F145C048100397B7A /* RenderComponent.cpp in Sources */,
+				7C84D762145C052800397B7A /* Entity.cpp in Sources */,
+				7C84D764145C0F6500397B7A /* IRender.cpp in Sources */,
+				7C8222AB145CF2890034C429 /* EntityManager.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7C2852471454EC3B00A83EBC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C2852481454EC3B00A83EBC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7C2852531454EC3B00A83EBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7C2852541454EC3B00A83EBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		7C2852561454EC3B00A83EBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "angry_bus/angry_bus-Prefix.pch";
+				INFOPLIST_FILE = "angry_bus/angry_bus-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7C2852571454EC3B00A83EBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "angry_bus/angry_bus-Prefix.pch";
+				INFOPLIST_FILE = "angry_bus/angry_bus-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7C2852341454EC3A00A83EBC /* Build configuration list for PBXProject "angry_bus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C2852531454EC3B00A83EBC /* Debug */,
+				7C2852541454EC3B00A83EBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C2852551454EC3B00A83EBC /* Build configuration list for PBXNativeTarget "angry_bus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C2852561454EC3B00A83EBC /* Debug */,
+				7C2852571454EC3B00A83EBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7C2852311454EC3A00A83EBC /* Project object */;
+}
