@@ -5,21 +5,22 @@
 //  Created by suning on 11-10-29.
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
-#ifndef _ProgramMaker_
-#define _ProgramMaker_
+#ifndef _Program_
+#define _Program_
 
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
 #include <string>
-class ProgramMaker
+class Program
 {
 public:
-    ProgramMaker();
-    ~ProgramMaker();
+    Program();
+    ~Program();
 
     void setVertexShaderFile(const std::string& vs);
     void setFragmentShaderFile(const std::string& fs);
     GLuint getProgram();
+    void apply();
 private:
     GLuint buildShader(GLenum st, const std::string& s);
     bool buildProgram();
@@ -31,12 +32,4 @@ private:
     GLuint  _program;
 };
 
-class ShaderProgram
-{
-public:
-    void apply();
-    
-private:
-    GLuint  _program;
-};
 #endif
