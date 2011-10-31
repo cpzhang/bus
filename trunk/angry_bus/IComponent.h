@@ -14,6 +14,7 @@ struct IComponent
 
 struct IRenderComponent : public IComponent
 {
+    virtual ~IRenderComponent(){};
     virtual void render() = 0;
 };
 

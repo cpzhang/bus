@@ -14,6 +14,8 @@ RenderES2::RenderES2()
 
 void RenderES2::setViewPort(int width, int height)
 {
+    _width = width;
+    _height = height;
     //
     glGenRenderbuffers(1, &_render_buffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _render_buffer);
@@ -46,7 +48,10 @@ RenderES2::~RenderES2()
 
 void RenderES2::setClearColor(float red, float green, float blue, float alpha)
 {
-    glClearColor(red, green, blue, alpha);
+    _clearColor.red = red;
+    _clearColor.green = green;
+    _clearColor.blue = blue;
+    _clearColor.alpha = alpha;
 }
 
 void RenderES2::clear(bool color, bool depth)
@@ -65,6 +70,17 @@ void RenderES2::clear(bool color, bool depth)
 
 void RenderES2::beginFrame(bool color, bool depth)
 {
-    glClearColor(0.0, 0.5, 0.0, 1.0);
+    glClearColor(_clearColor.red, _clearColor.green, _clearColor.blue, _clearColor.alpha);
     clear(color, depth); 
+}
+
+void RenderES2::setVertexAttributePointer(unsigned int index, unsigned int size, unsigned int type, bool normalized, int stride, const void *pointer)
+{
+    glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+    glEnableVertexAttribArray(index);
+}
+
+void RenderES2::drawArrays(int mode, int first, int count)
+{
+    glDrawArrays(mode, first, count);
 }

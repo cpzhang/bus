@@ -6,50 +6,38 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 #include "Program.h"
+#include "Shader.h"
+#include "ShaderManager.h"
 #import <QuartzCore/QuartzCore.h>
 
 Program::Program()
-:_program(0), _vs(0), _fs(0)
+:_program(0)
 {
     
 }
+
 Program::~Program()
 {
-    
+    glDeleteProgram(_program);
 }
-void Program::setVertexShaderFile(const std::string& vs)
+
+void Program::setVertexShader(const std::string& vs)
 {
-    _vsFile = vs;
+    _vsName = vs;
 }
-void Program::setFragmentShaderFile(const std::string& fs)
+
+void Program::setFragmentShader(const std::string& fs)
 {
-    _fsFile = fs;
+    _fsName = fs;
 }
-GLuint Program::getProgram()
+
+bool Program::build()
 {
-    if (_program == 0)
-    {
-        buildProgram();
-    }
-    return _program;
-}
-bool Program::buildProgram()
-{
-    _vs = buildShader(GL_VERTEX_SHADER, _vsFile);
-    if (_vs == 0)
-    {
-        NSLog(@"Failed to build Vertex Shader");
-        return false;
-    }
-    _fs = buildShader(GL_FRAGMENT_SHADER, _fsFile);
-    if (_fs == 0)
-    {
-        NSLog(@"Failed to build Fragment Shader");
-        return false;
-    }
+    Shader* vs = ShaderManager::getInstancePtr()->getShader(_vsName);
+    Shader* fs = ShaderManager::getInstancePtr()->getShader(_fsName);
     _program = glCreateProgram();
-    glAttachShader(_program, _vs);
-    glAttachShader(_program, _fs);
+    glAttachShader(_program, vs->getID());
+    glAttachShader(_program, fs->getID());
     glLinkProgram(_program);
     GLint status;
     glGetProgramiv(_program, GL_LINK_STATUS, &status);
@@ -60,28 +48,6 @@ bool Program::buildProgram()
     }
 
     return true;
-}
-GLuint Program::buildShader(GLenum st, std::string const &s)
-{
-    NSString* path = [NSString stringWithCString:s.c_str() encoding:[NSString defaultCStringEncoding]];
-    const GLchar* source = (GLchar*)[[NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil] UTF8String];
-    if (!source)
-    {
-        NSLog(@"Failed to load shader file");
-        return 0;
-    }
-    GLuint handle = glCreateShader(st);
-    glShaderSource(handle, 1, &source, NULL);
-    glCompileShader(handle);
-    //
-    GLint status;
-    glGetShaderiv(handle, GL_COMPILE_STATUS, &status);
-    if (status == 0)
-    {
-        glDeleteShader(handle);
-        return 0;
-    }
-    return handle;
 }
 
 void Program::apply()

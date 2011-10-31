@@ -9,14 +9,16 @@
 #define _ProgramManager_
 #include <string>
 #include <map>
+#include "Singleton.h"
 class Program;
-class ProgramManager
+class ProgramManager : public Singleton<ProgramManager>
 {
 public:
     ProgramManager();
     ~ProgramManager();
     
     Program* createProgram(const std::string& name);
+    Program* getProgram(const std::string& name);
     
 private:
     typedef std::map<std::string, Program*> NameProgramMap;

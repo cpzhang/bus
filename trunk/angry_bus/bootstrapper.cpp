@@ -10,6 +10,8 @@
 #include "ServicesProvider.h"
 #include "EntityManager.h"
 #include "Entity.h"
+#include "ShaderManager.h"
+#include "ProgramManager.h"
 
 BootStrapper::BootStrapper()
 {
@@ -30,12 +32,16 @@ bool BootStrapper::create()
 {
     new ServicesProvider;
     new EntityManager;
+    new ShaderManager;
+    new ProgramManager;
     _triangle = EntityManager::getInstancePtr()->createEntity("triangle");
     return true;
 }
 
 void BootStrapper::destroy()
 {
+    delete ProgramManager::getInstancePtr();
+    delete ShaderManager::getInstancePtr();
     delete ServicesProvider::getInstancePtr();
     delete EntityManager::getInstancePtr();
 }

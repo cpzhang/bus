@@ -23,6 +23,13 @@ struct IRender
     virtual void clear(bool color, bool depth) = 0;
     virtual void beginFrame(bool color, bool depth) = 0;
     virtual void update(float time_step) = 0;
+    virtual void setVertexAttributePointer(unsigned int index,
+                                           unsigned int  size,
+                                           unsigned int  type,
+                                           bool  normalized,
+                                           int  stride,
+                                           const void*  pointer) = 0;
+    virtual void drawArrays(int mode, int first, int count) = 0;
     virtual ~IRender(){};
     static IRender* create(eRender e);
 };

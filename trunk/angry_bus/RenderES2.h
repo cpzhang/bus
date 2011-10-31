@@ -11,7 +11,7 @@
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
 #include "IRender.h"
-
+#include "Color.h"
 class RenderES2 : public IRender
 {
 public:
@@ -20,6 +20,13 @@ public:
     virtual void clear(bool color, bool depth);
     virtual void beginFrame(bool color, bool depth);
     virtual void update(float time_step);
+    virtual void setVertexAttributePointer(unsigned int index,
+                                           unsigned int  size,
+                                           unsigned int  type,
+                                           bool  normalized,
+                                           int  stride,
+                                           const void*  pointer);
+    virtual void drawArrays(int mode, int first, int count);
 public:
     RenderES2();
     ~RenderES2();
@@ -27,5 +34,8 @@ private:
     GLuint  _frame_buffer;
     GLuint  _render_buffer;
     GLuint  _depth_buffer;
+    GLint   _width;
+    GLint   _height;
+    Color   _clearColor;
 };
 #endif

@@ -15,7 +15,8 @@ Entity::Entity()
 
 Entity::~Entity()
 {
-    
+    delete _render_component;
+    _render_component = 0;
 }
 
 bool Entity::create()

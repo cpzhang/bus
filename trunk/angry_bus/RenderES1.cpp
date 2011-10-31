@@ -54,8 +54,19 @@ void RenderES1::clear(bool color, bool depth)
     }
     glClear(mask);
 }
+
 void RenderES1::beginFrame(bool color, bool depth)
 {
     glClearColor(1.0, 0.0, 0.0, 1.0);
     clear(color, depth); 
+}
+
+void RenderES1::setVertexAttributePointer(unsigned int index, unsigned int size, unsigned int type, bool normalized, int stride, const void *pointer)
+{
+        
+}
+
+void RenderES1::drawArrays(int mode, int first, int count)
+{
+    
 }

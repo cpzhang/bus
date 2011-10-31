@@ -20,6 +20,13 @@ public:
     virtual void clear(bool color, bool depth);
     virtual void beginFrame(bool color, bool depth);
     virtual void update(float time_step);
+    virtual void setVertexAttributePointer(unsigned int index,
+                                           unsigned int  size,
+                                           unsigned int  type,
+                                           bool  normalized,
+                                           int  stride,
+                                           const void*  pointer);
+    virtual void drawArrays(int mode, int first, int count);
 public:
     RenderES1();
     ~RenderES1();

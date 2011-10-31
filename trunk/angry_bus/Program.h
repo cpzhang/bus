@@ -7,7 +7,6 @@
 //
 #ifndef _Program_
 #define _Program_
-
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
 #include <string>
@@ -17,18 +16,14 @@ public:
     Program();
     ~Program();
 
-    void setVertexShaderFile(const std::string& vs);
-    void setFragmentShaderFile(const std::string& fs);
-    GLuint getProgram();
+    void setVertexShader(const std::string& vs);
+    void setFragmentShader(const std::string& fs);
+    bool build();
+    
     void apply();
 private:
-    GLuint buildShader(GLenum st, const std::string& s);
-    bool buildProgram();
-private:
-    std::string _vsFile;
-    std::string _fsFile;
-    GLuint  _vs;
-    GLuint  _fs;
+    std::string _vsName;
+    std::string _fsName;
     GLuint  _program;
 };
 
