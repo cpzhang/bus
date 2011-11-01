@@ -15,7 +15,11 @@ class Shader
 public:
     Shader();
     ~Shader();
-    
+    enum eShaderType
+    {
+	eShaderType_Fragment = 0x8B30,
+	eShaderType_Vertex = 0x8B31,
+    };
     void setFile(const std::string& fileName);
     void setName(const std::string& name);
     std::string getName();

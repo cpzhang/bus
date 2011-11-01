@@ -18,6 +18,7 @@ public:
     ~ShaderManager();
     
     Shader* createShader(const std::string& name);
+    Shader* createAndBuildShader(const std::string& name, const std::string& file, unsigned int shaderType);
     Shader* getShader(const std::string& name);
 private:
     typedef std::map<std::string, Shader*> NameShaderMap;

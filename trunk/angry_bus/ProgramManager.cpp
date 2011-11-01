@@ -47,3 +47,12 @@ Program* ProgramManager::getProgram(const std::string& name)
     
     return _programs[name];
 }
+
+Program* ProgramManager::createAndBuildProgram(const std::string& name, const std::string& vsName, const std::string& fsName)
+{
+    Program* p = createProgram(name);
+    p->setVertexShader(vsName);
+    p->setFragmentShader(fsName);
+    p->build();
+    return p;
+}

@@ -54,3 +54,25 @@ void Program::apply()
 {
     glUseProgram(_program);
 }
+
+void Program::setVertexAttributePointer(unsigned int index,
+					unsigned int  size,
+					unsigned int  type,
+					bool  normalized,
+					int  stride,
+					const void*  pointer)
+{
+    glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+    glEnableVertexAttribArray(index);
+}
+void Program::setVertexAttributePointer(std::string attributeName,
+					unsigned int  size,
+					unsigned int  type,
+					bool  normalized,
+					int  stride,
+					const void*  pointer)
+{
+    unsigned int index = p->getAttributeLocation(attributeName.c_str());
+    setVertexAttribPointer(index, size, type, normalized, stride, pointer);
+}
+

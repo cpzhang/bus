@@ -70,3 +70,19 @@ void RenderES1::drawArrays(int mode, int first, int count)
 {
     
 }
+
+void RenderES1::enable(unsigned int cap)
+{
+}
+void RenderES1::disable(unsigned int cap)
+{
+}
+
+bool RenderES1::isEnabled(unsigned int cap)
+{
+    return glIsEnabled(cap);
+}
+
+void RenderES1::endFrame()
+{
+}

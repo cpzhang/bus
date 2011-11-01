@@ -1,15 +1,16 @@
-attribute vec4 Position;
-attribute vec4 Color;
+attribute vec4 aPosition;
+attribute vec4 aColor;
 
-varying vec4 DestinationColor;
+// varying variables, input to the fragment shader
+varying vec4 vDestinationColor;
 
-uniform mat4 Projection;
-uniform mat4 ModelView;
+uniform mat4 uProjection;
+uniform mat4 uModelView;
 
 void main()
 {
     //DestinationColor = Color;
     //gl_Position = Projection * ModelView * Position;
-    DestinationColor = vec4(1.0, 0.0, 0.0, 1.0);
-    gl_Position = Position;
+    vDestinationColor = vec4(1.0, 0.0, 0.0, 1.0);
+    gl_Position = aPosition;
 }

@@ -60,9 +60,17 @@ void BootStrapper::render()
 {
     ServicesProvider::getInstance().getRender()->beginFrame(true, false);
     _triangle->render();
+    ServicesProvider::getInstance().getRender()->endFrame();
 }
 
 void BootStrapper::setViewPort(int width, int height)
 {
     ServicesProvider::getInstancePtr()->getRender()->setViewPort(width, height);
+}
+
+bool BootStrapper::registerPrograms()
+{
+    ShaderManager::getInstancePtr()->createAndBuildShader("vs", "fuck.vs", Shader::eShaderType_Vertex);
+    ShaderManager::getInstancePtr()->createAndBuildShader("fs", "fuck.fs", Shader::eShaderType_Fragment);
+    ProgramManager::getInstancePtr()->createAndBuildProgram("fuck", "vs", "fs");
 }

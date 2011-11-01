@@ -19,6 +19,7 @@ public:
     virtual void setClearColor(float red, float green, float blue, float alpha);
     virtual void clear(bool color, bool depth);
     virtual void beginFrame(bool color, bool depth);
+    virtual void endFrame();
     virtual void update(float time_step);
     virtual void setVertexAttributePointer(unsigned int index,
                                            unsigned int  size,
@@ -27,6 +28,9 @@ public:
                                            int  stride,
                                            const void*  pointer);
     virtual void drawArrays(int mode, int first, int count);
+    virtual void enable(unsigned int cap);
+    virtual void disable(unsigned int cap);
+    virtual bool isEnabled(unsigned int cap);
 public:
     RenderES1();
     ~RenderES1();

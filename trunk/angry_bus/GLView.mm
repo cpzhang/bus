@@ -28,7 +28,8 @@
             [[EAGLContext alloc] initWithAPI:api];
         }
         
-        if (!_context || ![EAGLContext setCurrentContext:_context]) {
+        if (!_context || ![EAGLContext setCurrentContext:_context]) 
+	{
             [self release];
             return nil;
         }
@@ -49,7 +50,7 @@
         }
         
         _boot.setViewPort(CGRectGetWidth(frame), CGRectGetHeight(frame));
-        [_context renderbufferStorage:GL_RENDERBUFFER_OES fromDrawable: e];
+        [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable: e];
         [[CADisplayLink displayLinkWithTarget:self selector:@selector(drawView:)] addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     }
     return self;
@@ -69,7 +70,7 @@
 
     _boot.run(elapsed_seconds);
 
-    [_context presentRenderbuffer:GL_RENDERBUFFER_OES];
+    // [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
 - (void)dealloc

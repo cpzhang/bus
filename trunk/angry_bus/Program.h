@@ -21,6 +21,19 @@ public:
     bool build();
     
     void apply();
+    void setVertexAttributePointer(unsigned int index,
+                                           unsigned int  size,
+                                           unsigned int  type,
+                                           bool  normalized,
+                                           int  stride,
+                                           const void*  pointer);
+    void setVertexAttributePointer(std::string attributeName,
+                                           unsigned int  size,
+                                           unsigned int  type,
+                                           bool  normalized,
+                                           int  stride,
+                                           const void*  pointer);
+
 private:
     std::string _vsName;
     std::string _fsName;

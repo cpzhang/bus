@@ -44,6 +44,7 @@ RenderES2::~RenderES2()
 {
     glDeleteFramebuffers(1, &_frame_buffer);
     glDeleteRenderbuffers(1, &_render_buffer);
+    glDeleteRenderbuffers(1, &_depth_buffer);
 }
 
 void RenderES2::setClearColor(float red, float green, float blue, float alpha)
@@ -52,6 +53,7 @@ void RenderES2::setClearColor(float red, float green, float blue, float alpha)
     _clearColor.green = green;
     _clearColor.blue = blue;
     _clearColor.alpha = alpha;
+    glClearColor(_clearColor.red, _clearColor.green, _clearColor.blue, _clearColor.alpha);
 }
 
 void RenderES2::clear(bool color, bool depth)
@@ -70,7 +72,6 @@ void RenderES2::clear(bool color, bool depth)
 
 void RenderES2::beginFrame(bool color, bool depth)
 {
-    glClearColor(_clearColor.red, _clearColor.green, _clearColor.blue, _clearColor.alpha);
     clear(color, depth); 
 }
 
@@ -83,4 +84,21 @@ void RenderES2::setVertexAttributePointer(unsigned int index, unsigned int size,
 void RenderES2::drawArrays(int mode, int first, int count)
 {
     glDrawArrays(mode, first, count);
+}
+
+void RenderES2::enable(unsigned int cap)
+{
+    glEnable(cap);
+}
+void RenderES2::disable(unsigned int cap)
+{
+    glDisable(cap);
+}
+bool RenderES2::isEnabled(unsigned int cap)
+{
+    return glIsEnabled(cap);
+}
+void RenderES2::endFrame()
+{
+    [[EAGLContex currentContext] presentRenderbuffer:GL_RENDERBUFFER];
 }

@@ -24,6 +24,7 @@ public:
 private:
     void update(float secondsElapsed);
     void render();
+    bool registerPrograms();
 private:
     Entity* _triangle;
 };
