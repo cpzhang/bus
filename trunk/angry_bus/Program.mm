@@ -72,7 +72,7 @@ void Program::setVertexAttributePointer(std::string attributeName,
 					int  stride,
 					const void*  pointer)
 {
-    unsigned int index = p->getAttributeLocation(attributeName.c_str());
-    setVertexAttribPointer(index, size, type, normalized, stride, pointer);
+    unsigned int index = glGetAttribLocation(_program, attributeName.c_str());
+    setVertexAttributePointer(index, size, type, normalized, stride, pointer);
 }
 

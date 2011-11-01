@@ -7,8 +7,8 @@
 //
 
 #import "GLView.h"
-#import <OpenGLES/ES1/gl.h>
-#import <OpenGLES/ES1/glext.h>
+#import <OpenGLES/ES2/gl.h>
+#import <OpenGLES/ES2/glext.h>
 
 @implementation GLView
 
@@ -33,10 +33,7 @@
             [self release];
             return nil;
         }
-        if (!_boot.create()) 
-        {
-            return nil;
-        }
+        _boot.initSingletons();
         //
         if (api == kEAGLRenderingAPIOpenGLES1)
         {
@@ -48,7 +45,10 @@
             NSLog(@"Applying OPenGLES2");
             _boot.applyRender(eRender_ES2);
         }
-        
+        if (!_boot.create()) 
+        {
+            return nil;
+        }
         _boot.setViewPort(CGRectGetWidth(frame), CGRectGetHeight(frame));
         [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable: e];
         [[CADisplayLink displayLinkWithTarget:self selector:@selector(drawView:)] addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];

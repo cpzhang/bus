@@ -16,6 +16,7 @@ public:
     BootStrapper();
     ~BootStrapper();
 
+    bool initSingletons();
     bool create();
     void destroy();
     void applyRender(eRender e);

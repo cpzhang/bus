@@ -29,10 +29,12 @@ RenderComponent::~RenderComponent()
 void RenderComponent::render()
 {
     Program* p = ProgramManager::getInstancePtr()->getProgram(_programName);
-    p->apply();
-    p->setVertexAttributePointer("aPosition", 4, GL_FLOAT, GL_FALSE, 0, &_vertices[0]);
-    IRender* r = ServicesProvider::getInstancePtr()->getRender();
-    r->drawArrays(GL_TRIANGLES, 0, 3);
+    if (p)
+    {
+        p->apply();
+        p->setVertexAttributePointer("aPosition", 3, GL_FLOAT, GL_FALSE, 0, &_vertices[0]);
+        ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_TRIANGLES, 0, 3);
+    }
 }
 
 void RenderComponent::setProgram(const std::string& name)

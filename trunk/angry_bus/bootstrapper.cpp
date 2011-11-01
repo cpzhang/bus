@@ -12,6 +12,7 @@
 #include "Entity.h"
 #include "ShaderManager.h"
 #include "ProgramManager.h"
+#include "Shader.h"
 
 BootStrapper::BootStrapper()
 {
@@ -28,13 +29,22 @@ void BootStrapper::applyRender(eRender e)
     ServicesProvider::getInstancePtr()->setRender(e);
 }
 
-bool BootStrapper::create()
+bool BootStrapper::initSingletons()
 {
     new ServicesProvider;
     new EntityManager;
     new ShaderManager;
     new ProgramManager;
+    
+    return true;
+}
+
+bool BootStrapper::create()
+{
     _triangle = EntityManager::getInstancePtr()->createEntity("triangle");
+    registerPrograms();
+    ServicesProvider::getInstancePtr()->getRender()->setClearColor(0.0, 0.0, 0.3, 1.0);
+
     return true;
 }
 
@@ -73,4 +83,6 @@ bool BootStrapper::registerPrograms()
     ShaderManager::getInstancePtr()->createAndBuildShader("vs", "fuck.vs", Shader::eShaderType_Vertex);
     ShaderManager::getInstancePtr()->createAndBuildShader("fs", "fuck.fs", Shader::eShaderType_Fragment);
     ProgramManager::getInstancePtr()->createAndBuildProgram("fuck", "vs", "fs");
+    
+    return true;
 }

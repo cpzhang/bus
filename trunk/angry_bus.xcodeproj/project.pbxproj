@@ -22,7 +22,7 @@
 		7C822550145EFC1A00319628 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C82254E145EFC1A00319628 /* Vertex.cpp */; };
 		7C822568145F0E2200319628 /* fuck.vs in Resources */ = {isa = PBXBuildFile; fileRef = 7C822567145F0E2200319628 /* fuck.vs */; };
 		7C82256A145F0EA600319628 /* fuck.fs in Resources */ = {isa = PBXBuildFile; fileRef = 7C822569145F0EA600319628 /* fuck.fs */; };
-		7C84D711145B779A00397B7A /* RenderES2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D70F145B779A00397B7A /* RenderES2.cpp */; };
+		7C84D711145B779A00397B7A /* RenderES2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D70F145B779A00397B7A /* RenderES2.mm */; };
 		7C84D714145B7AA900397B7A /* Program.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D712145B7AA900397B7A /* Program.mm */; };
 		7C84D752145BA1F500397B7A /* bootstrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D750145BA1F500397B7A /* bootstrapper.cpp */; };
 		7C84D755145BA44700397B7A /* ServicesProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C84D753145BA44700397B7A /* ServicesProvider.cpp */; };
@@ -63,7 +63,7 @@
 		7C82254F145EFC1A00319628 /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
 		7C822567145F0E2200319628 /* fuck.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fuck.vs; sourceTree = "<group>"; };
 		7C822569145F0EA600319628 /* fuck.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fuck.fs; sourceTree = "<group>"; };
-		7C84D70F145B779A00397B7A /* RenderES2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderES2.cpp; sourceTree = "<group>"; };
+		7C84D70F145B779A00397B7A /* RenderES2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RenderES2.mm; sourceTree = "<group>"; };
 		7C84D710145B779A00397B7A /* RenderES2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderES2.h; sourceTree = "<group>"; };
 		7C84D712145B7AA900397B7A /* Program.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Program.mm; sourceTree = "<group>"; };
 		7C84D713145B7AA900397B7A /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 			children = (
 				7C84D70A145B723A00397B7A /* Shader */,
 				7C84D710145B779A00397B7A /* RenderES2.h */,
-				7C84D70F145B779A00397B7A /* RenderES2.cpp */,
+				7C84D70F145B779A00397B7A /* RenderES2.mm */,
 				7C84D713145B7AA900397B7A /* Program.h */,
 				7C84D712145B7AA900397B7A /* Program.mm */,
 				7C822541145EE18100319628 /* ProgramManager.cpp */,
@@ -340,7 +340,7 @@
 				7C28524F1454EC3B00A83EBC /* angry_busAppDelegate.mm in Sources */,
 				7C8830FD1455A8050044D0FA /* GLView.mm in Sources */,
 				7C113B7A1459ADD200B581B6 /* RenderES1.cpp in Sources */,
-				7C84D711145B779A00397B7A /* RenderES2.cpp in Sources */,
+				7C84D711145B779A00397B7A /* RenderES2.mm in Sources */,
 				7C84D714145B7AA900397B7A /* Program.mm in Sources */,
 				7C84D752145BA1F500397B7A /* bootstrapper.cpp in Sources */,
 				7C84D755145BA44700397B7A /* ServicesProvider.cpp in Sources */,
