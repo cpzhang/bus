@@ -7,6 +7,8 @@
 //
 
 #include "RenderES2.h"
+#import <OpenGLES/EAGL.h>
+#import <OpenGLES/EAGLDrawable.h>
 RenderES2::RenderES2()
 {
    
@@ -32,7 +34,7 @@ void RenderES2::setViewPort(int width, int height)
     glBindRenderbuffer(GL_RENDERBUFFER, _render_buffer);
     //
     glViewport(0, 0, width, height);
-    glEnable(GL_DEPTH_TEST);
+    //glEnable(GL_DEPTH_TEST);
 }
 
 void RenderES2::update(float time_step)
@@ -100,5 +102,5 @@ bool RenderES2::isEnabled(unsigned int cap)
 }
 void RenderES2::endFrame()
 {
-    [[EAGLContex currentContext] presentRenderbuffer:GL_RENDERBUFFER];
+    [[EAGLContext currentContext] presentRenderbuffer:GL_RENDERBUFFER];
 }
