@@ -9,7 +9,11 @@
 #define _bootstrapper_
 
 #include "IRender.h"
+
 class Entity;
+class b2World;
+class b2Draw;
+
 class BootStrapper
 {
 public:
@@ -28,6 +32,8 @@ private:
     bool registerPrograms();
 private:
     Entity* _triangle;
+    b2World*    _world;
+    b2Draw*     _box2DRender;
 };
 
 #endif
