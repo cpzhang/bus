@@ -12,5 +12,5 @@ void main()
     //DestinationColor = Color;
     //gl_Position = Projection * ModelView * Position;
     vDestinationColor = vec4(1.0, 0.0, 0.0, 1.0);
-    gl_Position = aPosition;
+    gl_Position = uModelView * aPosition;
 }

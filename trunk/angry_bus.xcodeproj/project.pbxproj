@@ -81,6 +81,8 @@
 		7CC3C786146062D0006BCB8E /* b2WheelJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3C4BD146062CF006BCB8E /* b2WheelJoint.cpp */; };
 		7CC3C787146062D0006BCB8E /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3C4C0146062CF006BCB8E /* b2Rope.cpp */; };
 		7CC3C9DE14606A29006BCB8E /* box2DRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3C9DC14606A29006BCB8E /* box2DRender.cpp */; };
+		7CF730B414618D8500084CD3 /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CF730B014618D8500084CD3 /* Matrix4.cpp */; };
+		7CF730B514618D8500084CD3 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CF730B214618D8500084CD3 /* Vector3.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -226,6 +228,11 @@
 		7CC3C4C1146062CF006BCB8E /* b2Rope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Rope.h; sourceTree = "<group>"; };
 		7CC3C9DC14606A29006BCB8E /* box2DRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = box2DRender.cpp; sourceTree = "<group>"; };
 		7CC3C9DD14606A29006BCB8E /* box2DRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = box2DRender.h; sourceTree = "<group>"; };
+		7CF730B014618D8500084CD3 /* Matrix4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix4.cpp; sourceTree = "<group>"; };
+		7CF730B114618D8500084CD3 /* Matrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix4.h; sourceTree = "<group>"; };
+		7CF730B214618D8500084CD3 /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
+		7CF730B314618D8500084CD3 /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3.h; sourceTree = "<group>"; };
+		7CF730B714618D9000084CD3 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +387,11 @@
 		7C84D765145C1B2600397B7A /* base */ = {
 			isa = PBXGroup;
 			children = (
+				7CF730B714618D9000084CD3 /* Common.h */,
+				7CF730B014618D8500084CD3 /* Matrix4.cpp */,
+				7CF730B114618D8500084CD3 /* Matrix4.h */,
+				7CF730B214618D8500084CD3 /* Vector3.cpp */,
+				7CF730B314618D8500084CD3 /* Vector3.h */,
 				7C84D766145C1B4600397B7A /* Singleton.h */,
 				7C82254B145EF43700319628 /* Color.cpp */,
 				7C82254C145EF43700319628 /* Color.h */,
@@ -711,6 +723,8 @@
 				7CC3C786146062D0006BCB8E /* b2WheelJoint.cpp in Sources */,
 				7CC3C787146062D0006BCB8E /* b2Rope.cpp in Sources */,
 				7CC3C9DE14606A29006BCB8E /* box2DRender.cpp in Sources */,
+				7CF730B414618D8500084CD3 /* Matrix4.cpp in Sources */,
+				7CF730B514618D8500084CD3 /* Vector3.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

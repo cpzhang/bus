@@ -52,7 +52,7 @@ bool Shader::build()
     if (!status)
     {
 	GLint infoLen = 0;
-	glGetShaderiv(_shader, GL_INFO_LOG_STATUS, &infoLen);
+	glGetShaderiv(_shader, GL_INFO_LOG_LENGTH, &infoLen);
 	if(infoLen > 0)
 	{
 	    static char sError[512];

@@ -53,9 +53,9 @@ Program* ProgramManager::createAndBuildProgram(const std::string& name, const st
     Program* p = createProgram(name);
     if(p)
     {
-	p->setVertexShader(vsName);
-	p->setFragmentShader(fsName);
-	if(!p->build()) s = 0;
+        p->setVertexShader(vsName);
+        p->setFragmentShader(fsName);
+        if(!p->build()) p = 0;
     }
     return p;
 }

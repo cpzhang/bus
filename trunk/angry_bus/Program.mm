@@ -2,7 +2,7 @@
 #include "Shader.h"
 #include "ShaderManager.h"
 #import <QuartzCore/QuartzCore.h>
-
+#include <iostream>
 Program::Program()
 :_program(0)
 {
@@ -40,11 +40,11 @@ bool Program::build()
     if (!status)
     {
 	GLint infoLen = 0;
-	glGetProgramiv(_shader, GL_INFO_LOG_STATUS, &infoLen);
+	glGetProgramiv(_program, GL_INFO_LOG_LENGTH, &infoLen);
 	if(infoLen > 0)
 	{
 	    static char sError[512];
-	    glGetProgramInfoLog(_shader, infoLen, NULL, sError);
+	    glGetProgramInfoLog(_program, infoLen, NULL, sError);
 	    std::cout<<"build program failed! hint: "<<sError<<std::endl;
 	}
         return false;
