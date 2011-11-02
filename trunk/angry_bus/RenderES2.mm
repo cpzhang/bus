@@ -28,10 +28,23 @@ void RenderES2::setViewPort(int width, int height)
     //
     glGenFramebuffers(1, &_frame_buffer);
     glBindFramebuffer(GL_FRAMEBUFFER, _frame_buffer);
+/*
+ FBO itself does not have any image storage(buffer) in it. Instead, we must attach framebuffer-attachable images (texture or renderbuffer objects) to the FBO. This mechanism allows that FBO quickly switch (detach and attach) the framebuffer-attachable images in a FBO. It is much faster to switch framebuffer-attachable images than to switch between FBOs. And, it saves unnecessary data copies and memory consumption. For example, a texture can be attached to multiple FBOs, and its image storage can be shared by multiple FBOs.
+*/
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _render_buffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depth_buffer);
     //
     glBindRenderbuffer(GL_RENDERBUFFER, _render_buffer);
+/*
+The rules of FBO completeness are:
+The width and height of framebuffer-attachable image must be not zero.
+If an image is attached to a color attachment point, then the image must have a color-renderable internal format. (GL_RGBA, GL_DEPTH_COMPONENT, GL_LUMINANCE, etc)
+If an image is attached to GL_DEPTH_ATTACHMENT_EXT, then the image must have a depth-renderable internal format. (GL_DEPTH_COMPONENT, GL_DEPTH_COMPONENT24_EXT, etc)
+If an image is attached to GL_STENCIL_ATTACHMENT_EXT, then the image must have a stencil-renderable internal format. (GL_STENCIL_INDEX, GL_STENCIL_INDEX8_EXT, etc)
+FBO must have at least one image attached.
+All images attached a FBO must have the same width and height.
+All images attached the color attachment points must have the same internal format.
+*/
     //
     glViewport(0, 0, width, height);
     //glEnable(GL_DEPTH_TEST);
