@@ -1,15 +1,8 @@
-//
-//  Shader.cpp
-//  angry_bus
-//
-//  Created by suning on 11-10-31.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
-//
-
 #include "Shader.h"
 #import <QuartzCore/QuartzCore.h>
 #include <iostream>
 Shader::Shader()
+:_shader(0)
 {
     
 }
@@ -50,17 +43,25 @@ bool Shader::build()
         return false;
     }
     _shader = glCreateShader(_type);
+    if(!_shader) return false;
     glShaderSource(_shader, 1, &source, NULL);
     glCompileShader(_shader);
     //
     GLint status;
     glGetShaderiv(_shader, GL_COMPILE_STATUS, &status);
-    if (status == 0)
+    if (!status)
     {
-        glDeleteShader(_shader);
-        return false;
+	GLint infoLen = 0;
+	glGetShaderiv(_shader, GL_INFO_LOG_STATUS, &infoLen);
+	if(infoLen > 0)
+	{
+	    static char sError[512];
+	    glGetShaderInfoLog(_shader, infoLen, NULL, sError);
+	    std::cout<<"build shader failed! hint: "<<sError<<std::endl;
+	}
+	return false;
     }
-    
+
     return true;
 }
 

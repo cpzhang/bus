@@ -1,10 +1,3 @@
-//
-//  Program.cpp
-//  angry_bus
-//
-//  Created by suning on 11-10-29.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
-//
 #include "Program.h"
 #include "Shader.h"
 #include "ShaderManager.h"
@@ -34,16 +27,26 @@ void Program::setFragmentShader(const std::string& fs)
 bool Program::build()
 {
     Shader* vs = ShaderManager::getInstancePtr()->getShader(_vsName);
+    if(!vs) return false;
     Shader* fs = ShaderManager::getInstancePtr()->getShader(_fsName);
+    if(!fs) return false;
     _program = glCreateProgram();
+    if(!_program) return false;
     glAttachShader(_program, vs->getID());
     glAttachShader(_program, fs->getID());
     glLinkProgram(_program);
     GLint status;
     glGetProgramiv(_program, GL_LINK_STATUS, &status);
-    if (status ==  GL_FALSE)
+    if (!status)
     {
-        NSLog(@"Failed to build Program");
+	GLint infoLen = 0;
+	glGetProgramiv(_shader, GL_INFO_LOG_STATUS, &infoLen);
+	if(infoLen > 0)
+	{
+	    static char sError[512];
+	    glGetProgramInfoLog(_shader, infoLen, NULL, sError);
+	    std::cout<<"build program failed! hint: "<<sError<<std::endl;
+	}
         return false;
     }
 
@@ -72,6 +75,7 @@ void Program::setVertexAttributePointer(std::string attributeName,
 					int  stride,
 					const void*  pointer)
 {
+// GLint glGetUniformLocation(GLuint program, const char* name)
     unsigned int index = glGetAttribLocation(_program, attributeName.c_str());
     setVertexAttributePointer(index, size, type, normalized, stride, pointer);
 }

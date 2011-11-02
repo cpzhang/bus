@@ -33,7 +33,7 @@ public:
                                            bool  normalized,
                                            int  stride,
                                            const void*  pointer);
-
+    void setUniform1f();
 private:
     std::string _vsName;
     std::string _fsName;

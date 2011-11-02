@@ -51,8 +51,11 @@ Shader* ShaderManager::getShader(std::string const &name)
 Shader* ShaderManager::createAndBuildShader(const std::string& name, const std::string& file, unsigned int shaderType)
 {
     Shader* s = createShader(name);
-    s->setFile(file);
-    s->setType(shaderType);
-    s->build();
+    if(s)
+    {
+	s->setFile(file);
+	s->setType(shaderType);
+	if(!s->build()) s = 0;
+    }
     return s;
 }

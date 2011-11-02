@@ -90,9 +90,9 @@ void BootStrapper::setViewPort(int width, int height)
 
 bool BootStrapper::registerPrograms()
 {
-    ShaderManager::getInstancePtr()->createAndBuildShader("vs", "fuck.vs", Shader::eShaderType_Vertex);
-    ShaderManager::getInstancePtr()->createAndBuildShader("fs", "fuck.fs", Shader::eShaderType_Fragment);
-    ProgramManager::getInstancePtr()->createAndBuildProgram("fuck", "vs", "fs");
+    if(!ShaderManager::getInstancePtr()->createAndBuildShader("vs", "fuck.vs", Shader::eShaderType_Vertex)) return false;
+    if(!ShaderManager::getInstancePtr()->createAndBuildShader("fs", "fuck.fs", Shader::eShaderType_Fragment)) return false;
+    if(!ProgramManager::getInstancePtr()->createAndBuildProgram("fuck", "vs", "fs")) return false;
     
     return true;
 }
