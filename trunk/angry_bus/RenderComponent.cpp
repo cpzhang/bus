@@ -14,7 +14,7 @@ RenderComponent::RenderComponent()
 
     _viewMatrix = Matrix4::IDENTITY;
     _modelMatrix.makeScale(Vector3(2.0, 2.0, 1.0));
-    _projectionMatrix.makeOrtho(0, 480, 0, 320, 0, 1);
+    _projectionMatrix.makeOrtho(0, 320, 0, 480, 0, 1);
 }
 
 RenderComponent::~RenderComponent()
