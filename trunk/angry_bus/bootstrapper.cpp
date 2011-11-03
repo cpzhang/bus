@@ -50,10 +50,39 @@ bool BootStrapper::create()
     ServicesProvider::getInstancePtr()->getRender()->setClearColor(0.0, 0.0, 0.3, 1.0);
 
     //
-    _world = new b2World(b2Vec2(0, 10));
+    _world = new b2World(b2Vec2(0, -10));
     _box2DRender = new box2DRender;
     _box2DRender->SetFlags(b2Draw::e_shapeBit);
     _world->SetDebugDraw(_box2DRender);
+    {
+        //body definition
+        b2BodyDef myBodyDef;
+        myBodyDef.type = b2_dynamicBody;
+        
+        //shape definition
+        b2PolygonShape polygonShape;
+        polygonShape.SetAsBox(10, 10); //a 2x2 rectangle
+        
+        //fixture definition
+        b2FixtureDef myFixtureDef;
+        myFixtureDef.shape = &polygonShape;
+        myFixtureDef.density = 1;
+        
+        //create dynamic bodies
+        for (int i = 0; i < 10; i++) {
+            myBodyDef.position.Set(12 * i, 300);
+            _world->CreateBody(&myBodyDef)->CreateFixture(&myFixtureDef);
+        }
+        
+        //a static body
+        myBodyDef.type = b2_staticBody;
+        myBodyDef.position.Set(10, 20);
+        b2Body* staticBody = _world->CreateBody(&myBodyDef);
+        
+        //add a fixture to the static body
+        polygonShape.SetAsBox( 50, 10, b2Vec2(100, 100), 10);
+        staticBody->CreateFixture(&myFixtureDef);
+    }
     return true;
 }
 
@@ -96,5 +125,17 @@ bool BootStrapper::registerPrograms()
     if(!ShaderManager::getInstancePtr()->createAndBuildShader("fs", "fuck.fs", Shader::eShaderType_Fragment)) return false;
     if(!ProgramManager::getInstancePtr()->createAndBuildProgram("fuck", "vs", "fs")) return false;
     
+    //
+    if(!ShaderManager::getInstancePtr()->createAndBuildShader("diffuse_vs", "diffuse.vs", Shader::eShaderType_Vertex)) return false;
+    if(!ShaderManager::getInstancePtr()->createAndBuildShader("diffuse_fs", "diffuse.fs", Shader::eShaderType_Fragment)) return false;
+    if(!ProgramManager::getInstancePtr()->createAndBuildProgram("diffuse", "diffuse_vs", "diffuse_fs")) return false;
+   
+    //
+    //
+    if(!ShaderManager::getInstancePtr()->createAndBuildShader("texture_vs", "texture.vs", Shader::eShaderType_Vertex)) return false;
+    if(!ShaderManager::getInstancePtr()->createAndBuildShader("texture_fs", "texture.fs", Shader::eShaderType_Fragment)) return false;
+    if(!ProgramManager::getInstancePtr()->createAndBuildProgram("texture", "texture_vs", "texture_fs")) return false;
+    
+
     return true;
 }

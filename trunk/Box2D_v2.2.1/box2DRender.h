@@ -8,6 +8,7 @@
 #ifndef _Box2DRender_
 #define _Box2DRender_
 #include <Box2D/Common/b2Draw.h>
+#include "Matrix4.h"
 class box2DRender : public b2Draw
 {
 public:
@@ -32,5 +33,8 @@ public:
 	/// Draw a transform. Choose your own length scale.
 	/// @param xf a transform.
 	virtual void DrawTransform(const b2Transform& xf);
+    
+private:
+    Matrix4 _mvp;
 };
 #endif

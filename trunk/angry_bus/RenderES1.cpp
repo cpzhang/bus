@@ -86,3 +86,9 @@ bool RenderES1::isEnabled(unsigned int cap)
 void RenderES1::endFrame()
 {
 }
+
+
+void RenderES1::blendFunc(unsigned int sfactor, unsigned int dfactor)
+{
+    glBlendFunc(sfactor, dfactor);
+}

@@ -1,6 +1,7 @@
 #include "RenderES2.h"
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/EAGLDrawable.h>
+#include <iostream>
 RenderES2::RenderES2()
 {
    
@@ -40,7 +41,7 @@ All images attached the color attachment points must have the same internal form
     GLenum result = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if(result != GL_FRAMEBUFFER_COMPLETE)
     {
-	std::cout<<"Failed to create FBO"<<std::endl;
+        std::cout<<"Failed to create FBO"<<std::endl;
     }
     //
     glViewport(0, 0, width, height);
@@ -113,4 +114,9 @@ bool RenderES2::isEnabled(unsigned int cap)
 void RenderES2::endFrame()
 {
     [[EAGLContext currentContext] presentRenderbuffer:GL_RENDERBUFFER];
+}
+
+void RenderES2::blendFunc(unsigned int sfactor, unsigned int dfactor)
+{
+    glBlendFunc(sfactor, dfactor); 
 }

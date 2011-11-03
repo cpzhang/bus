@@ -14,6 +14,14 @@
 		7C2852491454EC3B00A83EBC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C2852471454EC3B00A83EBC /* InfoPlist.strings */; };
 		7C28524C1454EC3B00A83EBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C28524B1454EC3B00A83EBC /* main.m */; };
 		7C28524F1454EC3B00A83EBC /* angry_busAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C28524E1454EC3B00A83EBC /* angry_busAppDelegate.mm */; };
+		7C6EE0241462E0AB007A8A31 /* Texture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C6EE0201462E0AB007A8A31 /* Texture.mm */; };
+		7C6EE0251462E0AB007A8A31 /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C6EE0221462E0AB007A8A31 /* TextureManager.cpp */; };
+		7C6EE0301462F6DE007A8A31 /* diffuse.vs in Resources */ = {isa = PBXBuildFile; fileRef = 7C6EE02F1462F6DD007A8A31 /* diffuse.vs */; };
+		7C6EE0321462F740007A8A31 /* diffuse.fs in Resources */ = {isa = PBXBuildFile; fileRef = 7C6EE0311462F740007A8A31 /* diffuse.fs */; };
+		7C6EE034146303AF007A8A31 /* texture.vs in Resources */ = {isa = PBXBuildFile; fileRef = 7C6EE033146303AF007A8A31 /* texture.vs */; };
+		7C6EE036146303BF007A8A31 /* texture.fs in Resources */ = {isa = PBXBuildFile; fileRef = 7C6EE035146303BF007A8A31 /* texture.fs */; };
+		7C6EE039146305A6007A8A31 /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C6EE037146305A6007A8A31 /* Vector2.cpp */; };
+		7C6EE03D14630ABC007A8A31 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C6EE03C14630ABC007A8A31 /* Default.png */; };
 		7C8222AB145CF2890034C429 /* EntityManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C8222A9145CF2880034C429 /* EntityManager.cpp */; };
 		7C822543145EE18100319628 /* ProgramManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C822541145EE18100319628 /* ProgramManager.cpp */; };
 		7C822547145EE40400319628 /* Shader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C822545145EE40400319628 /* Shader.mm */; };
@@ -99,6 +107,17 @@
 		7C28524B1454EC3B00A83EBC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7C28524D1454EC3B00A83EBC /* angry_busAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = angry_busAppDelegate.h; sourceTree = "<group>"; };
 		7C28524E1454EC3B00A83EBC /* angry_busAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = angry_busAppDelegate.mm; sourceTree = "<group>"; };
+		7C6EE0201462E0AB007A8A31 /* Texture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Texture.mm; sourceTree = "<group>"; };
+		7C6EE0211462E0AB007A8A31 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		7C6EE0221462E0AB007A8A31 /* TextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureManager.cpp; sourceTree = "<group>"; };
+		7C6EE0231462E0AB007A8A31 /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
+		7C6EE02F1462F6DD007A8A31 /* diffuse.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = diffuse.vs; sourceTree = "<group>"; };
+		7C6EE0311462F740007A8A31 /* diffuse.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = diffuse.fs; sourceTree = "<group>"; };
+		7C6EE033146303AF007A8A31 /* texture.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = texture.vs; sourceTree = "<group>"; };
+		7C6EE035146303BF007A8A31 /* texture.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = texture.fs; sourceTree = "<group>"; };
+		7C6EE037146305A6007A8A31 /* Vector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector2.cpp; sourceTree = "<group>"; };
+		7C6EE038146305A6007A8A31 /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2.h; sourceTree = "<group>"; };
+		7C6EE03C14630ABC007A8A31 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		7C8222A9145CF2880034C429 /* EntityManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityManager.cpp; sourceTree = "<group>"; };
 		7C8222AA145CF2890034C429 /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityManager.h; sourceTree = "<group>"; };
 		7C822541145EE18100319628 /* ProgramManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProgramManager.cpp; sourceTree = "<group>"; };
@@ -328,6 +347,10 @@
 			isa = PBXGroup;
 			children = (
 				7C84D70A145B723A00397B7A /* Shader */,
+				7C6EE0201462E0AB007A8A31 /* Texture.mm */,
+				7C6EE0211462E0AB007A8A31 /* Texture.h */,
+				7C6EE0221462E0AB007A8A31 /* TextureManager.cpp */,
+				7C6EE0231462E0AB007A8A31 /* TextureManager.h */,
 				7C84D710145B779A00397B7A /* RenderES2.h */,
 				7C84D70F145B779A00397B7A /* RenderES2.mm */,
 				7C84D713145B7AA900397B7A /* Program.h */,
@@ -347,6 +370,10 @@
 			children = (
 				7C822567145F0E2200319628 /* fuck.vs */,
 				7C822569145F0EA600319628 /* fuck.fs */,
+				7C6EE02F1462F6DD007A8A31 /* diffuse.vs */,
+				7C6EE0311462F740007A8A31 /* diffuse.fs */,
+				7C6EE033146303AF007A8A31 /* texture.vs */,
+				7C6EE035146303BF007A8A31 /* texture.fs */,
 			);
 			name = Shader;
 			sourceTree = "<group>";
@@ -372,6 +399,7 @@
 		7C84D756145BA6D300397B7A /* image */ = {
 			isa = PBXGroup;
 			children = (
+				7C6EE03C14630ABC007A8A31 /* Default.png */,
 				7C84D758145BA73A00397B7A /* icon.png */,
 			);
 			name = image;
@@ -397,6 +425,8 @@
 				7C82254C145EF43700319628 /* Color.h */,
 				7C82254E145EFC1A00319628 /* Vertex.cpp */,
 				7C82254F145EFC1A00319628 /* Vertex.h */,
+				7C6EE037146305A6007A8A31 /* Vector2.cpp */,
+				7C6EE038146305A6007A8A31 /* Vector2.h */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -650,6 +680,11 @@
 				7C82256A145F0EA600319628 /* fuck.fs in Resources */,
 				7CC3C759146062D0006BCB8E /* Box2DConfig.cmake in Resources */,
 				7CC3C75A146062D0006BCB8E /* CMakeLists.txt in Resources */,
+				7C6EE0301462F6DE007A8A31 /* diffuse.vs in Resources */,
+				7C6EE0321462F740007A8A31 /* diffuse.fs in Resources */,
+				7C6EE034146303AF007A8A31 /* texture.vs in Resources */,
+				7C6EE036146303BF007A8A31 /* texture.fs in Resources */,
+				7C6EE03D14630ABC007A8A31 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +760,9 @@
 				7CC3C9DE14606A29006BCB8E /* box2DRender.cpp in Sources */,
 				7CF730B414618D8500084CD3 /* Matrix4.cpp in Sources */,
 				7CF730B514618D8500084CD3 /* Vector3.cpp in Sources */,
+				7C6EE0241462E0AB007A8A31 /* Texture.mm in Sources */,
+				7C6EE0251462E0AB007A8A31 /* TextureManager.cpp in Sources */,
+				7C6EE039146305A6007A8A31 /* Vector2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

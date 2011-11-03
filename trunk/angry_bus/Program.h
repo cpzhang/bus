@@ -21,6 +21,8 @@ public:
     bool build();
     
     void apply();
+    
+    void setVertexAttribf(const std::string& attributeName, float x, float y, float z, float w);
     void setVertexAttributePointer(unsigned int index,
                                            unsigned int  size,
                                            unsigned int  type,
@@ -32,8 +34,11 @@ public:
                                            unsigned int  type,
                                            bool  normalized,
                                            int  stride,
-                                           const void*  pointer);
+                                           const void* pointer);
     void setUniformi(const std::string& uniformName, int value);
+    void setUniformf(const std::string& uniformName, float value);
+    void setUniformf(const std::string& uniformName, float x, float y, float z);
+    void setUniformf(const std::string& uniformName, float x, float y, float z, float w);
     void setUniformMatrixfv(const std::string& uniformName, unsigned int count, bool transpose, const float* value);
 public:
     static int getMaxVertexAttributesNumber();

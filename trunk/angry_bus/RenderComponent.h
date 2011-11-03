@@ -13,6 +13,8 @@
 #include <vector>
 #include "Vertex.h"
 #include "Matrix4.h"
+#include "Vector2.h"
+class Texture;
 class RenderComponent : public IRenderComponent
 {
 public:
@@ -25,9 +27,11 @@ public:
 private:
     std::string _programName;
     std::vector<Vertex> _vertices;
+    std::vector<Vector2> _texCoords;
     Matrix4 _viewMatrix;
     Matrix4 _modelMatrix;
     Matrix4 _projectionMatrix;
+    Texture* _tex;
 };
 
 #endif

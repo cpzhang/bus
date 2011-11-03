@@ -58,6 +58,11 @@ void Program::apply()
     glUseProgram(_program);
 }
 
+void Program::setVertexAttribf(const std::string& attributeName, float x, float y, float z, float w)
+{
+    unsigned int index = glGetAttribLocation(_program, attributeName.c_str());
+    glVertexAttrib4f(index, x, y, z, w);
+}
 void Program::setVertexAttributePointer(unsigned int index,
 					unsigned int  size,
 					unsigned int  type,
@@ -68,7 +73,7 @@ void Program::setVertexAttributePointer(unsigned int index,
     glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     glEnableVertexAttribArray(index);
 }
-void Program::setVertexAttributePointer(std::string attributeName,
+void Program::setVertexAttributePointer(const std::string& attributeName,
 					unsigned int  size,
 					unsigned int  type,
 					bool  normalized,
@@ -86,10 +91,29 @@ int Program::getMaxVertexAttributesNumber()
     glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &n);
     return n;
 }
+
 void Program::setUniformi(const std::string& uniformName, int value)
 {
     int index = glGetUniformLocation(_program, uniformName.c_str());
     glUniform1i(index, value);
+}
+
+void Program::setUniformf(const std::string& uniformName, float value)
+{
+    int index = glGetUniformLocation(_program, uniformName.c_str());
+    glUniform1f(index, value);
+}
+
+void Program::setUniformf(const std::string& uniformName, float x, float y, float z)
+{
+    int index = glGetUniformLocation(_program, uniformName.c_str());
+    glUniform3f(index, x, y, z);
+
+}
+void Program::setUniformf(const std::string& uniformName, float x, float y, float z, float w)
+{
+    int index = glGetUniformLocation(_program, uniformName.c_str());
+    glUniform4f(index, x, y, z, w);
 }
 
 void Program::setUniformMatrixfv(const std::string& uniformName, unsigned int count, bool transpose, const float* value)

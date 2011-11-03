@@ -1,15 +1,10 @@
-//
-//  box2DRender.cpp
-//  angry_bus
-//
-//  Created by suning on 11-11-2.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
-//
-
 #include "box2DRender.h"
+#include "ProgramManager.h"
+#include "Program.h"
+#include "ServicesProvider.h"
 box2DRender::box2DRender()
 {
-    
+    _mvp.makeOrtho(0, 320, 0, 480, 0, 1);
 }
 
 box2DRender::~box2DRender()
@@ -19,12 +14,36 @@ box2DRender::~box2DRender()
 
 void box2DRender::DrawPolygon(const b2Vec2 *vertices, int32 vertexCount, const b2Color &color)
 {
-    
+    Program* p = ProgramManager::getInstancePtr()->getProgram("diffuse");
+    if (p)
+    {
+        p->apply();
+        p->setVertexAttributePointer("aPosition", 2, GL_FLOAT, GL_FALSE, 0, vertices);
+        p->setVertexAttribf("aColor", color.r, color.g, color.b, 1.0);
+        p->setUniformMatrixfv("uModelViewProjection", 1, false, _mvp.transpose()._m);
+
+        ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_LINE_LOOP, 0, vertexCount);
+    }
 }
 
 void box2DRender::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color)
 {
-    
+    Program* p = ProgramManager::getInstancePtr()->getProgram("diffuse");
+    if (p)
+    {
+        p->apply();
+        p->setVertexAttributePointer("aPosition", 2, GL_FLOAT, GL_FALSE, 0, vertices);
+        p->setVertexAttribf("aColor", color.r, color.g, color.b, 0.5);
+        p->setUniformMatrixfv("uModelViewProjection", 1, false, _mvp.transpose()._m);
+        
+        //
+        ServicesProvider::getInstancePtr()->getRender()->enable(0x0BE2);
+        ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_TRIANGLE_FAN, 0, vertexCount);
+        ServicesProvider::getInstancePtr()->getRender()->blendFunc(0x0302, 0x0303);
+        //
+        p->setVertexAttribf("aColor", color.r, color.g, color.b, 1.0);
+        ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_LINE_LOOP, 0, vertexCount);
+    } 
 }
 
 void box2DRender::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color)

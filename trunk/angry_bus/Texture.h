@@ -10,6 +10,7 @@ public:
     bool create2DFromFile(const std::string& fileName);
     void apply(unsigned int index);
     bool operator=(const Texture& t);
+    bool release();
     enum eTextureType
     {
 	eTextureType_1D,
@@ -21,5 +22,6 @@ public:
 
     unsigned int _id;
     eTextureType _type;
+    size_t      _referenceCount;
 };
 #endif
