@@ -80,3 +80,20 @@ void Program::setVertexAttributePointer(std::string attributeName,
     setVertexAttributePointer(index, size, type, normalized, stride, pointer);
 }
 
+int Program::getMaxVertexAttributesNumber()
+{
+    GLint n;
+    glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &n);
+    return n;
+}
+void Program::setUniformi(const std::string& uniformName, int value)
+{
+    int index = glGetUniformLocation(_program, uniformName.c_str());
+    glUniform1i(index, value);
+}
+
+void Program::setUniformMatrixfv(const std::string& uniformName, unsigned int count, bool transpose, const float* value)
+{
+    int index = glGetUniformLocation(_program, uniformName.c_str());
+    glUniformMatrix4fv(index, count, transpose, value);
+}

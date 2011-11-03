@@ -27,13 +27,16 @@ public:
                                            bool  normalized,
                                            int  stride,
                                            const void*  pointer);
-    void setVertexAttributePointer(std::string attributeName,
+    void setVertexAttributePointer(const std::string& attributeName,
                                            unsigned int  size,
                                            unsigned int  type,
                                            bool  normalized,
                                            int  stride,
                                            const void*  pointer);
-    
+    void setUniformi(const std::string& uniformName, int value);
+    void setUniformMatrixfv(const std::string& uniformName, unsigned int count, bool transpose, const float* value);
+public:
+    static int getMaxVertexAttributesNumber();
 private:
     std::string _vsName;
     std::string _fsName;

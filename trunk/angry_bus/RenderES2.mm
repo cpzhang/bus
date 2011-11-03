@@ -1,11 +1,3 @@
-//
-//  RenderES2.cpp
-//  angry_bus
-//
-//  Created by suning on 11-10-29.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
-//
-
 #include "RenderES2.h"
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/EAGLDrawable.h>
@@ -45,6 +37,11 @@ FBO must have at least one image attached.
 All images attached a FBO must have the same width and height.
 All images attached the color attachment points must have the same internal format.
 */
+    GLenum result = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if(result != GL_FRAMEBUFFER_COMPLETE)
+    {
+	std::cout<<"Failed to create FBO"<<std::endl;
+    }
     //
     glViewport(0, 0, width, height);
     //glEnable(GL_DEPTH_TEST);

@@ -50,6 +50,8 @@
             return nil;
         }
         _boot.setViewPort(CGRectGetWidth(frame), CGRectGetHeight(frame));
+// To create a renderbuffer that can be presented to the screen, you bind the renderbuffer and then allocate shared storage for it by calling this method. This method call replaces the call normally made to glRenderbufferStorage. A renderbuffer whose storage has been allocated with this method can later be displayed with a call to presentRenderbuffer:
+// The width, height, and internal color buffer format are derived from the characteristics of the drawable object. 
         [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable: e];
         [[CADisplayLink displayLinkWithTarget:self selector:@selector(drawView:)] addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     }
@@ -63,14 +65,12 @@
 
 - (void) drawView: (CADisplayLink*) displayLink
 {
-    // update
+    //
     static float s_last_time_stamp = displayLink.timestamp;
     float elapsed_seconds = displayLink.timestamp - s_last_time_stamp;
     s_last_time_stamp = displayLink.timestamp;
 
     _boot.run(elapsed_seconds);
-
-    // [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
 - (void)dealloc

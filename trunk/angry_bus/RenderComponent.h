@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include "Vertex.h"
+#include "Matrix4.h"
 class RenderComponent : public IRenderComponent
 {
 public:
@@ -24,6 +25,9 @@ public:
 private:
     std::string _programName;
     std::vector<Vertex> _vertices;
+    Matrix4 _viewMatrix;
+    Matrix4 _modelMatrix;
+    Matrix4 _projectionMatrix;
 };
 
 #endif

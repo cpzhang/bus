@@ -12,6 +12,7 @@
 #include "Entity.h"
 #include "ShaderManager.h"
 #include "ProgramManager.h"
+#include "TextureManager.h"
 #include "Shader.h"
 #include "box2DRender.h"
 #include <Box2D/Box2d.h>
@@ -37,7 +38,8 @@ bool BootStrapper::initSingletons()
     new EntityManager;
     new ShaderManager;
     new ProgramManager;
-    
+    new TextureManager;
+
     return true;
 }
 
