@@ -13,7 +13,7 @@ enum eState
 class IState
 {
 public:
-    virtual void render();
-    virtual void update(float secondsElapsed);
+    virtual void render() = 0;
+    virtual void update(float secondsElapsed) = 0;
 };
 #endif

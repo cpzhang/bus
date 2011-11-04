@@ -21,7 +21,8 @@ public:
     bool build();
     
     void apply();
-    
+    void disableVertexAttribArray(const std::string& attributeName);
+    void enableVertexAttribArray(const std::string& attributeName);
     void setVertexAttribf(const std::string& attributeName, float x, float y, float z, float w);
     void setVertexAttributePointer(unsigned int index,
                                            unsigned int  size,

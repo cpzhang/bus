@@ -2,7 +2,7 @@
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
 #import <QuartzCore/QuartzCore.h>
-
+#include <iostream>
 Texture::Texture()
     :_id(0), _referenceCount(0)
 {
@@ -55,6 +55,13 @@ bool Texture::create2DFromFile(const std::string& fileName)
         CGContextRelease(spriteContext);
     }
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, border, pf, GL_UNSIGNED_BYTE, data);
+    GLenum e = glGetError();
+    if(e)
+    {
+        std::cout<<"OPenGLES Function Call Error, hint: "<<e<<std::endl;
+        return false;
+    }
+
 // Set the filtering mode
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);

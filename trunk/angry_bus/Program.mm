@@ -121,3 +121,15 @@ void Program::setUniformMatrixfv(const std::string& uniformName, unsigned int co
     int index = glGetUniformLocation(_program, uniformName.c_str());
     glUniformMatrix4fv(index, count, transpose, value);
 }
+
+void Program::enableVertexAttribArray(std::string const &attributeName)
+{
+    int index = glGetUniformLocation(_program, attributeName.c_str());
+    glEnableVertexAttribArray(index);
+}
+
+void Program::disableVertexAttribArray(std::string const &attributeName)
+{
+    int index = glGetUniformLocation(_program, attributeName.c_str());
+    glDisableVertexAttribArray(index);
+}

@@ -42,12 +42,12 @@ RenderComponent::RenderComponent()
     _viewMatrix = Matrix4::IDENTITY;
     Matrix4 t;
     t.makeTrans(160, 80, 0);
-    _modelMatrix.makeScale(Vector3(60.0, 100.0, 1.0));
+    _modelMatrix.makeScale(Vector3(64.0, 64.0, 1.0));
     _modelMatrix = t * _modelMatrix;
     _projectionMatrix.makeOrtho(0, 320, 0, 480, 0, 1);
     
     //
-    _tex = TextureManager::getInstancePtr()->createTextureFromImageFile("Default.png");
+    _tex = TextureManager::getInstancePtr()->createTextureFromImageFile("xiongmao01.png");
 }
 
 RenderComponent::~RenderComponent()
@@ -83,6 +83,9 @@ void RenderComponent::render()
         p->setUniformi("uSampler", 0);
         
         ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_TRIANGLES, 0, 6);
+        //glBindTexture(GL_TEXTURE_2D, 0);
+        p->disableVertexAttribArray("aPosition");
+        p->disableVertexAttribArray("aTexCoord");
     }
 }
 

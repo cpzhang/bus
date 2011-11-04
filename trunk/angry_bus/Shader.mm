@@ -51,17 +51,17 @@ bool Shader::build()
     glGetShaderiv(_shader, GL_COMPILE_STATUS, &status);
     if (!status)
     {
-	GLint infoLen = 0;
-	glGetShaderiv(_shader, GL_INFO_LOG_LENGTH, &infoLen);
-	if(infoLen > 0)
-	{
-	    static char sError[512];
-	    glGetShaderInfoLog(_shader, infoLen, NULL, sError);
-	    std::cout<<"build shader failed! hint: "<<sError<<std::endl;
-	}
-	return false;
+        GLint infoLen = 0;
+        glGetShaderiv(_shader, GL_INFO_LOG_LENGTH, &infoLen);
+        if(infoLen > 0)
+        {
+            static char sError[512];
+            glGetShaderInfoLog(_shader, infoLen, NULL, sError);
+            std::cout<<"build shader failed! hint: "<<sError<<std::endl;
+        }
+        return false;
     }
-
+    
     return true;
 }
 

@@ -10,6 +10,6 @@ public:
     void render();
     void update(float secondsElapsed);
 private:
-}
+};
 #endif
 

@@ -31,5 +31,19 @@
          landmarkName = "box2DRender::DrawPolygon(const b2Vec2 *vertices, int32 vertexCount, const b2Color &amp;color)"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "angry_bus/RenderComponent.cpp"
+         timestampString = "342116173.377897"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "50"
+         endingLineNumber = "50"
+         landmarkName = "RenderComponent::RenderComponent()"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

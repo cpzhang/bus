@@ -96,14 +96,14 @@ void BootStrapper::run(float secondsElapsed)
 void BootStrapper::update(float secondsElapsed)
 {
     _world->Step(1.0/60.0, 8, 3);
-    _stateMachine.update(secondsElapsed);
+    //_stateMachine.update(secondsElapsed);
 }
 
 void BootStrapper::render()
 {
     ServicesProvider::getInstance().getRender()->beginFrame(true, false);
     _triangle->render();
-    _stateMachine.render();
+    //_stateMachine.render();
     _world->DrawDebugData();
     ServicesProvider::getInstance().getRender()->endFrame();
 }
@@ -115,9 +115,14 @@ void BootStrapper::setViewPort(int width, int height)
 
 bool BootStrapper::registerPrograms()
 {
-    if(!ShaderManager::getInstancePtr()->createAndBuildShader("vs", "fuck.vs", Shader::eShaderType_Vertex)) return false;
-    if(!ShaderManager::getInstancePtr()->createAndBuildShader("fs", "fuck.fs", Shader::eShaderType_Fragment)) return false;
-    if(!ProgramManager::getInstancePtr()->createAndBuildProgram("fuck", "vs", "fs")) return false;
+    //
+    
+    if (0) 
+    {
+        if(!ShaderManager::getInstancePtr()->createAndBuildShader("vs", "fuck.vs", Shader::eShaderType_Vertex)) return false;
+        if(!ShaderManager::getInstancePtr()->createAndBuildShader("fs", "fuck.fs", Shader::eShaderType_Fragment)) return false;
+        if(!ProgramManager::getInstancePtr()->createAndBuildProgram("fuck", "vs", "fs")) return false;
+    }
     
     //
     if(!ShaderManager::getInstancePtr()->createAndBuildShader("diffuse_vs", "diffuse.vs", Shader::eShaderType_Vertex)) return false;
