@@ -92,3 +92,7 @@ void RenderES1::blendFunc(unsigned int sfactor, unsigned int dfactor)
 {
     glBlendFunc(sfactor, dfactor);
 }
+bool RenderES1::isError()
+{
+    return false;
+}

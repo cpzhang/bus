@@ -4,16 +4,15 @@
 #include <iostream>
 RenderES2::RenderES2()
 {
-   
+    //
+    glGenRenderbuffers(1, &_render_buffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _render_buffer);
 }
 
 void RenderES2::setViewPort(int width, int height)
 {
     _width = width;
     _height = height;
-    //
-    glGenRenderbuffers(1, &_render_buffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, _render_buffer);
     //
     glGenRenderbuffers(1, &_depth_buffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _depth_buffer);
@@ -119,4 +118,14 @@ void RenderES2::endFrame()
 void RenderES2::blendFunc(unsigned int sfactor, unsigned int dfactor)
 {
     glBlendFunc(sfactor, dfactor); 
+}
+bool RenderES2::isError()
+{
+    GLenum e = glGetError();
+    if(e)
+    {
+	std::cout<<"OPenGLES Function Call Error, hint: "<<e<<std::endl;
+	return true;
+    }
+    return false;
 }

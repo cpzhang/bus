@@ -35,6 +35,7 @@ struct IRender
     virtual void disable(unsigned int cap) = 0;
     virtual bool isEnabled(unsigned int cap) = 0;
     virtual void blendFunc(unsigned int sfactor, unsigned int dfactor) = 0;
+    virtual bool isError() = 0;
     virtual ~IRender(){};
     static IRender* create(eRender e);
 };

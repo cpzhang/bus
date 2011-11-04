@@ -1,11 +1,3 @@
-//
-//  bootstrapper.cpp
-//  angry_bus
-//
-//  Created by suning on 11-10-29.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
-//
-
 #include "bootstrapper.h"
 #include "ServicesProvider.h"
 #include "EntityManager.h"
@@ -104,12 +96,14 @@ void BootStrapper::run(float secondsElapsed)
 void BootStrapper::update(float secondsElapsed)
 {
     _world->Step(1.0/60.0, 8, 3);
+    _stateMachine.update(secondsElapsed);
 }
 
 void BootStrapper::render()
 {
     ServicesProvider::getInstance().getRender()->beginFrame(true, false);
     _triangle->render();
+    _stateMachine.render();
     _world->DrawDebugData();
     ServicesProvider::getInstance().getRender()->endFrame();
 }

@@ -37,9 +37,11 @@ void box2DRender::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, co
         p->setUniformMatrixfv("uModelViewProjection", 1, false, _mvp.transpose()._m);
         
         //
-        ServicesProvider::getInstancePtr()->getRender()->enable(0x0BE2);
+        ServicesProvider::getInstancePtr()->getRender()->enable(GL_BLEND);
+        ServicesProvider::getInstancePtr()->getRender()->blendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
         ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_TRIANGLE_FAN, 0, vertexCount);
-        ServicesProvider::getInstancePtr()->getRender()->blendFunc(0x0302, 0x0303);
+
         //
         p->setVertexAttribf("aColor", color.r, color.g, color.b, 1.0);
         ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_LINE_LOOP, 0, vertexCount);

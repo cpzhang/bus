@@ -19,7 +19,8 @@ bool Texture::create2DFromFile(const std::string& fileName)
     glGenTextures(1, &_id);
     glBindTexture(GL_TEXTURE_2D, _id);
     GLsizei width, height;
-    GLint border = 1;
+// border specifies the width of the border. Must be 0.
+    static const GLint border = 0;
     GLenum pf;
     GLvoid* data;
     {
@@ -45,9 +46,9 @@ bool Texture::create2DFromFile(const std::string& fileName)
         }
         
         // Allocated memory needed for the bitmap context
-        data = (GLubyte *) calloc(width * height * 4, sizeof(GLubyte));
+        data = (GLubyte *) calloc(width * height * _pixelSize / 8, sizeof(GLubyte));
         // Uses the bitmap creation function provided by the Core Graphics framework. 
-        CGContextRef spriteContext = CGBitmapContextCreate(data, width, height, 8, width * 4, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
+        CGContextRef spriteContext = CGBitmapContextCreate(data, width, height, 8, width * _pixelSize / 8, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
         // After you create the context, you can draw the sprite image to the context.
         CGContextDrawImage(spriteContext, CGRectMake(0.0, 0.0, (CGFloat)width, (CGFloat)height), spriteImage);
         // You don't need the context at this point, so you need to release it to avoid memory leaks.

@@ -25,6 +25,7 @@ public:
     virtual void disable(unsigned int cap);
     virtual bool isEnabled(unsigned int cap);
     virtual void blendFunc(unsigned int sfactor, unsigned int dfactor);
+    virtual bool isError();
 public:
     RenderES2();
     ~RenderES2();

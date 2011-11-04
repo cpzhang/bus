@@ -9,6 +9,8 @@
 #define _bootstrapper_
 
 #include "IRender.h"
+#include <vector>
+#include "StateMachine.h"
 
 class Entity;
 class b2World;
@@ -34,6 +36,7 @@ private:
     Entity* _triangle;
     b2World*    _world;
     b2Draw*     _box2DRender;
+    StateMachine _stateMachine;
 };
 
 #endif
