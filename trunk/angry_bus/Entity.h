@@ -17,6 +17,7 @@ public:
     
     bool create();
     void render();
+    IRenderComponent* getRenderComponent();
 private:
     IRenderComponent*   _render_component;
 };

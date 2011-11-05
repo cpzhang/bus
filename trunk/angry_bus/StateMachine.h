@@ -8,6 +8,7 @@ public:
     StateMachine();
     ~StateMachine();
 
+    bool createStates();
     void goNext(eState s);
 
     virtual void render();

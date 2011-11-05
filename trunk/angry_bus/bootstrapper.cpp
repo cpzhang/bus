@@ -37,9 +37,18 @@ bool BootStrapper::initSingletons()
 
 bool BootStrapper::create()
 {
-    _triangle = EntityManager::getInstancePtr()->createEntity("triangle");
+    //
+    Entity* e = EntityManager::getInstancePtr()->createEntity("dummy");
+    e->getRenderComponent()->setTexture("xiongmao01.png");
+
+    //
+    _stateMachine.createStates();
+    
+    //
     registerPrograms();
-    ServicesProvider::getInstancePtr()->getRender()->setClearColor(0.0, 0.0, 0.3, 1.0);
+    
+    //
+    ServicesProvider::getInstancePtr()->getRender()->setClearColor(0.1, 0.1, 0.1, 1.0);
 
     //
     _world = new b2World(b2Vec2(0, -10));
@@ -53,7 +62,7 @@ bool BootStrapper::create()
         
         //shape definition
         b2PolygonShape polygonShape;
-        polygonShape.SetAsBox(10, 10); //a 2x2 rectangle
+        polygonShape.SetAsBox(16, 16); //a 2x2 rectangle
         
         //fixture definition
         b2FixtureDef myFixtureDef;
@@ -61,18 +70,21 @@ bool BootStrapper::create()
         myFixtureDef.density = 1;
         
         //create dynamic bodies
-        for (int i = 0; i < 10; i++) {
-            myBodyDef.position.Set(12 * i, 300);
+        for (int i = 0; i < 10; i++) 
+        {
+            myBodyDef.position.Set(16 * i, 40 * i);
+            myBodyDef.angle = i;
             _world->CreateBody(&myBodyDef)->CreateFixture(&myFixtureDef);
         }
         
         //a static body
         myBodyDef.type = b2_staticBody;
-        myBodyDef.position.Set(10, 20);
+        myBodyDef.position.Set(10, 0);
+        myBodyDef.angle = 0;
         b2Body* staticBody = _world->CreateBody(&myBodyDef);
         
         //add a fixture to the static body
-        polygonShape.SetAsBox( 50, 10, b2Vec2(100, 100), 10);
+        polygonShape.SetAsBox( 100, 10, b2Vec2(0, 0), 0);
         staticBody->CreateFixture(&myFixtureDef);
     }
     return true;
@@ -86,6 +98,7 @@ void BootStrapper::destroy()
     delete EntityManager::getInstancePtr();
     //
     delete _world;
+    delete _box2DRender;
 }
 void BootStrapper::run(float secondsElapsed)
 {
@@ -95,15 +108,15 @@ void BootStrapper::run(float secondsElapsed)
 
 void BootStrapper::update(float secondsElapsed)
 {
-    _world->Step(1.0/60.0, 8, 3);
-    //_stateMachine.update(secondsElapsed);
+    _world->Step(secondsElapsed, 5, 3);
+    _stateMachine.update(secondsElapsed);
 }
 
 void BootStrapper::render()
 {
     ServicesProvider::getInstance().getRender()->beginFrame(true, false);
-    _triangle->render();
-    //_stateMachine.render();
+    //_triangle->render();
+    _stateMachine.render();
     _world->DrawDebugData();
     ServicesProvider::getInstance().getRender()->endFrame();
 }

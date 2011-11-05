@@ -33,7 +33,6 @@ private:
     void render();
     bool registerPrograms();
 private:
-    Entity* _triangle;
     b2World*    _world;
     b2Draw*     _box2DRender;
     StateMachine _stateMachine;

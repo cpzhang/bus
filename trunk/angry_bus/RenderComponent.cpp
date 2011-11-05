@@ -7,18 +7,9 @@
 #include "Texture.h"
 #include "TextureManager.h"
 RenderComponent::RenderComponent()
+:_tex(0), _angle(1.0f), _position(Vector3(160.0, 240.0, 0.0)), _scale(Vector3(32.0, 32.0, 1.0))
 {
-    if (0)
-    {
-        _vertices.push_back(Vertex(-0.5, -0.5, 0.0));
-        _vertices.push_back(Vertex( 0.5, -0.5, 0.0));
-        _vertices.push_back(Vertex( 0.5,  0.5, 0.0));
-        
-        _vertices.push_back(Vertex(-0.5, -0.5, 0.0));
-        _vertices.push_back(Vertex( 0.5,  0.5, 0.0));
-        _vertices.push_back(Vertex(-0.5,  0.5, 0.0));
-    }
-    else
+    //
     {
         _vertices.push_back(Vertex(-0.5, -0.5, 0.0));
         _vertices.push_back(Vertex( 0.5, -0.5, 0.0));
@@ -40,21 +31,61 @@ RenderComponent::RenderComponent()
     _programName = "fuck";
 
     _viewMatrix = Matrix4::IDENTITY;
-    Matrix4 t;
-    t.makeTrans(160, 80, 0);
-    _modelMatrix.makeScale(Vector3(64.0, 64.0, 1.0));
-    _modelMatrix = t * _modelMatrix;
     _projectionMatrix.makeOrtho(0, 320, 0, 480, 0, 1);
-    
-    //
-    _tex = TextureManager::getInstancePtr()->createTextureFromImageFile("xiongmao01.png");
+    updateModelMatrix();
 }
 
 RenderComponent::~RenderComponent()
 {
-    
+    if (_tex)
+    {
+        TextureManager::getInstancePtr()->discardTexture(_tex);
+    }
 }
 
+void RenderComponent::setScale(float sx, float sy, float sz)
+{
+    _scale = Vector3(sx, sy, sz);
+    updateModelMatrix();
+}
+
+void RenderComponent::setPosition(float x, float y, float z)
+{
+    _position = Vector3(x, y, z);
+    updateModelMatrix();
+}
+
+void RenderComponent::setRotation(float angle)
+{
+    _angle = angle;
+    updateModelMatrix();
+}
+
+void RenderComponent::updateModelMatrix()
+{
+    Matrix4 t;
+    t.makeTrans(_position);
+    
+    Matrix4 r;
+    r.makeRotateZ(_angle);
+    
+    Matrix4 s;
+    s.makeScale(_scale);
+    
+    _modelMatrix = t * s * r;;
+}
+
+bool RenderComponent::setTexture(std::string const &fileName)
+{
+    if (_tex)
+    {
+        TextureManager::getInstancePtr()->discardTexture(_tex);
+    }
+    //
+    _tex = TextureManager::getInstancePtr()->createTextureFromImageFile(fileName);
+    
+    return _tex != 0;
+}
 void RenderComponent::render()
 {
    
@@ -79,8 +110,11 @@ void RenderComponent::render()
         p->setUniformMatrixfv("uModelView", 1, false, mv.transpose()._m);
         p->setUniformMatrixfv("uProjection", 1, false, _projectionMatrix.transpose()._m);
         //
-        _tex->apply(0);
-        p->setUniformi("uSampler", 0);
+        if (_tex)
+        {
+            _tex->apply(0);
+            p->setUniformi("uSampler", 0);
+        }
         
         ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_TRIANGLES, 0, 6);
         //glBindTexture(GL_TEXTURE_2D, 0);

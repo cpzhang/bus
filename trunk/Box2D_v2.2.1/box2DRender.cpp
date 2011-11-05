@@ -35,7 +35,7 @@ void box2DRender::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, co
         p->setVertexAttributePointer("aPosition", 2, GL_FLOAT, GL_FALSE, 0, vertices);
 //        p->setVertexAttribf("aColor", color.r, color.g, color.b, 0.5);
         p->setUniformMatrixfv("uModelViewProjection", 1, false, _mvp.transpose()._m);
-        p->setUniformf("uColor", color.r, color.g, color.b, 0.5);
+        p->setUniformf("uColor", color.r, color.g, color.b, 0.1);
         //
         ServicesProvider::getInstancePtr()->getRender()->enable(GL_BLEND);
         ServicesProvider::getInstancePtr()->getRender()->blendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -43,8 +43,8 @@ void box2DRender::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, co
         ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_TRIANGLE_FAN, 0, vertexCount);
 
         //
-        //p->setVertexAttribf("aColor", color.r, color.g, color.b, 1.0);
-        //ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_LINE_LOOP, 0, vertexCount);
+        p->setUniformf("uColor", color.r, color.g, color.b, 1.0);
+        ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_LINE_LOOP, 0, vertexCount);
     } 
 }
 

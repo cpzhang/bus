@@ -31,3 +31,8 @@ void Entity::render()
         _render_component->render();
     }
 }
+
+IRenderComponent* Entity::getRenderComponent()
+{
+    return _render_component;
+}
