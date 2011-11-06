@@ -21,5 +21,18 @@ void StateEntryPoint::render()
 
 void StateEntryPoint::update(float secondsElapsed)
 {
+    _uiRoot->breadth_first(&Entity::update);
+}
+
+void StateEntryPoint::touchBegin(float x, float y)
+{
+    
+}
+void StateEntryPoint::touchMoved(float x, float y, float previousX, float previousY)
+{
+    
+}
+void StateEntryPoint::touchEnd(float x, float y)
+{
     
 }

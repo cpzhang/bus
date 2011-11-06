@@ -22,6 +22,8 @@ public:
     RenderComponent();
     ~RenderComponent();
     
+    virtual void update();
+    
     virtual void render();
     virtual void setProgram(const std::string& name);
     virtual bool setTexture(const std::string& fileName);

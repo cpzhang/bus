@@ -512,3 +512,18 @@ void b2Body::Dump()
 	}
 	b2Log("}\n");
 }
+
+void b2Body::ApplyForceToCenter(const b2Vec2& force)
+{
+	if (m_type != b2_dynamicBody)
+	{
+		return;
+	}
+    
+	if (IsAwake() == false)
+	{
+		SetAwake(true);
+	}
+    
+	m_force += force;
+}

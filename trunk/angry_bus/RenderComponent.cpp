@@ -86,6 +86,12 @@ bool RenderComponent::setTexture(std::string const &fileName)
     
     return _tex != 0;
 }
+
+void RenderComponent::update()
+{
+    
+}
+
 void RenderComponent::render()
 {
    

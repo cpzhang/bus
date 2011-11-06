@@ -74,6 +74,28 @@
     _boot.run(elapsed_seconds);
 }
 
+- (void) touchesBegan: (NSSet*) touches withEvent: (UIEvent*) event
+{
+    UITouch* touch = [touches anyObject]; 
+    CGPoint location = [touch locationInView: self];
+    _boot.touchBegin(location.x, 480 - location.y);
+}
+
+- (void) touchesEnded: (NSSet*) touches withEvent: (UIEvent*) event
+{
+    UITouch* touch = [touches anyObject];
+    CGPoint location = [touch locationInView: self];
+    _boot.touchEnd(location.x, 480 - location.y);
+} 
+
+- (void) touchesMoved: (NSSet*) touches withEvent: (UIEvent*) event
+{
+    UITouch* touch = [touches anyObject]; 
+    CGPoint previous = [touch previousLocationInView: self];
+    CGPoint current = [touch locationInView: self];
+    _boot.touchMoved(current.x, 480 - current.y, previous.x, 480 - previous.y);
+}
+
 - (void)dealloc
 {
     _boot.destroy();

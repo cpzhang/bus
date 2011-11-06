@@ -11,8 +11,11 @@
 #include <map>
 #include <string>
 #include "Singleton.h"
+#include "b2WorldCallbacks.h"
+
 class Entity;
-class EntityManager : public Singleton<EntityManager>
+
+class EntityManager : public b2ContactListener, public b2QueryCallback, public Singleton<EntityManager>
 {
 public:
     EntityManager();
@@ -20,6 +23,14 @@ public:
   
     Entity* createEntity(const std::string& name);
     Entity* createEntity(const char* name);
+    
+    /// Called when two fixtures begin to touch.
+	virtual void BeginContact(b2Contact* contact);
+    
+	/// Called when two fixtures cease to touch.
+	virtual void EndContact(b2Contact* contact);
+    
+    virtual bool ReportFixture(b2Fixture* fixture);
 private:
     typedef std::map<std::string, Entity*> NameEntityMap;
     NameEntityMap   _entities;

@@ -48,6 +48,8 @@
 		7C8830F81455A71A0044D0FA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8830F61455A71A0044D0FA /* OpenGLES.framework */; };
 		7C8830F91455A71A0044D0FA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8830F71455A71A0044D0FA /* QuartzCore.framework */; };
 		7C8830FD1455A8050044D0FA /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C8830FC1455A8050044D0FA /* GLView.mm */; };
+		7C8A9C60146623BF004E3AE8 /* PhysicsComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A9C5E146623BF004E3AE8 /* PhysicsComponent.cpp */; };
+		7C8A9C6E146685AC004E3AE8 /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A9C6D146685AC004E3AE8 /* Common.cpp */; };
 		7CC3C759146062D0006BCB8E /* Box2DConfig.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 7CC3C45F146062CF006BCB8E /* Box2DConfig.cmake */; };
 		7CC3C75A146062D0006BCB8E /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7CC3C460146062CF006BCB8E /* CMakeLists.txt */; };
 		7CC3C75B146062D0006BCB8E /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3C462146062CF006BCB8E /* b2BroadPhase.cpp */; };
@@ -173,6 +175,10 @@
 		7C8830F71455A71A0044D0FA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7C8830FB1455A8050044D0FA /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
 		7C8830FC1455A8050044D0FA /* GLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLView.mm; sourceTree = "<group>"; };
+		7C8A9C5E146623BF004E3AE8 /* PhysicsComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsComponent.cpp; sourceTree = "<group>"; };
+		7C8A9C5F146623BF004E3AE8 /* PhysicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsComponent.h; sourceTree = "<group>"; };
+		7C8A9C6214663F5F004E3AE8 /* ITouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITouch.h; sourceTree = "<group>"; };
+		7C8A9C6D146685AC004E3AE8 /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
 		7CC3C45E146062CF006BCB8E /* Box2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2D.h; sourceTree = "<group>"; };
 		7CC3C45F146062CF006BCB8E /* Box2DConfig.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Box2DConfig.cmake; sourceTree = "<group>"; };
 		7CC3C460146062CF006BCB8E /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
@@ -424,6 +430,9 @@
 				7C84D761145C052700397B7A /* Entity.h */,
 				7C8222A9145CF2880034C429 /* EntityManager.cpp */,
 				7C8222AA145CF2890034C429 /* EntityManager.h */,
+				7C8A9C5E146623BF004E3AE8 /* PhysicsComponent.cpp */,
+				7C8A9C5F146623BF004E3AE8 /* PhysicsComponent.h */,
+				7C8A9C6214663F5F004E3AE8 /* ITouch.h */,
 			);
 			name = game;
 			sourceTree = "<group>";
@@ -462,6 +471,7 @@
 				7C82254F145EFC1A00319628 /* Vertex.h */,
 				7C6EE037146305A6007A8A31 /* Vector2.cpp */,
 				7C6EE038146305A6007A8A31 /* Vector2.h */,
+				7C8A9C6D146685AC004E3AE8 /* Common.cpp */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -805,6 +815,8 @@
 				7C5CF3EE146440DE00019AE0 /* StateMachine.cpp in Sources */,
 				7C5CF3EF146440DE00019AE0 /* StatePlaying.cpp in Sources */,
 				7C5CF3F3146440ED00019AE0 /* Node.cpp in Sources */,
+				7C8A9C60146623BF004E3AE8 /* PhysicsComponent.cpp in Sources */,
+				7C8A9C6E146685AC004E3AE8 /* Common.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

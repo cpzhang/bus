@@ -758,21 +758,6 @@ inline void b2Body::ApplyForce(const b2Vec2& force, const b2Vec2& point)
 	m_torque += b2Cross(point - m_sweep.c, force);
 }
 
-inline void b2Body::ApplyForceToCenter(const b2Vec2& force)
-{
-	if (m_type != b2_dynamicBody)
-	{
-		return;
-	}
-
-	if (IsAwake() == false)
-	{
-		SetAwake(true);
-	}
-
-	m_force += force;
-}
-
 inline void b2Body::ApplyTorque(float32 torque)
 {
 	if (m_type != b2_dynamicBody)
@@ -787,7 +772,22 @@ inline void b2Body::ApplyTorque(float32 torque)
 
 	m_torque += torque;
 }
-
+/*
+inline void b2Body::ApplyForceToCenter(const b2Vec2& force)
+{
+	if (m_type != b2_dynamicBody)
+	{
+		return;
+	}
+    
+	if (IsAwake() == false)
+	{
+		SetAwake(true);
+	}
+    
+	m_force += force;
+}
+*/
 inline void b2Body::ApplyLinearImpulse(const b2Vec2& impulse, const b2Vec2& point)
 {
 	if (m_type != b2_dynamicBody)

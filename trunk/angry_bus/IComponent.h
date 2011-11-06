@@ -8,9 +8,11 @@
 #ifndef _IComponent_
 #define _IComponent_
 #include <string>
+#include "b2Body.h"
+
 struct IComponent
 {
-    
+    virtual void update() = 0;
 };
 
 struct IRenderComponent : public IComponent
@@ -24,4 +26,10 @@ struct IRenderComponent : public IComponent
     virtual void setRotation(float angle) = 0;
 };
 
+struct IPhysicsComponent: public IComponent
+{
+    virtual void setBody(b2Body* b) = 0;
+    virtual void startContact() = 0;
+    virtual void endContact() = 0;
+};
 #endif

@@ -30,5 +30,5 @@ void StateMachine::render()
 
 void StateMachine::update(float secondsElapsed)
 {
-    _states[_currentState]->render();    
+    _states[_currentState]->update(secondsElapsed);    
 }

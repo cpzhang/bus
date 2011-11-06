@@ -8,6 +8,7 @@
 
 #include "EntityManager.h"
 #include "Entity.h"
+#include "b2Contact.h"
 EntityManager::EntityManager()
 {
     
@@ -44,4 +45,37 @@ Entity* EntityManager::createEntity(std::string const &name)
 Entity* EntityManager::createEntity(const char *name)
 {
     return createEntity(std::string(name));
+}
+
+void EntityManager::BeginContact(b2Contact *contact)
+{
+    //check if fixture A was a ball
+    void* bodyUserData = contact->GetFixtureA()->GetBody()->GetUserData();
+    if ( bodyUserData )
+    {
+        static_cast<Entity*>( bodyUserData )->startContact();
+    }
+    //check if fixture B was a ball
+    bodyUserData = contact->GetFixtureB()->GetBody()->GetUserData();
+    if ( bodyUserData )
+        static_cast<Entity*>( bodyUserData )->startContact();
+}
+
+void EntityManager::EndContact(b2Contact *contact)
+{
+    //check if fixture A was a ball
+    void* bodyUserData = contact->GetFixtureA()->GetBody()->GetUserData();
+    if ( bodyUserData )
+        static_cast<Entity*>( bodyUserData )->endContact();
+    
+    //check if fixture B was a ball
+    bodyUserData = contact->GetFixtureB()->GetBody()->GetUserData();
+    if ( bodyUserData )
+        static_cast<Entity*>( bodyUserData )->endContact();
+}
+
+bool EntityManager::ReportFixture(b2Fixture* fixture) 
+{
+    //fixture->GetBody()->SetPosition(); 
+    return true;//keep going to find all fixtures in the query area
 }
