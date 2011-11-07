@@ -44,6 +44,14 @@ bool BootStrapper::create()
     Entity* e = EntityManager::getInstancePtr()->createEntity("Dummy");
     e->setTexture("xiongmao01.png");
     
+    {
+        // entry state background
+        Entity* e = EntityManager::getInstancePtr()->createEntity("entry_state_background");
+        e->setPosition(160, 240, 0);
+        e->setScale(320, 480, 1.0);
+//        e->setTexture("beijing.png");
+        e->setTexture("xiongmao01.png");
+    }
     //
     _stateMachine.createStates();
     

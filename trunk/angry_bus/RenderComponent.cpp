@@ -7,7 +7,7 @@
 #include "Texture.h"
 #include "TextureManager.h"
 RenderComponent::RenderComponent()
-:_tex(0), _angle(1.0f), _position(Vector3(160.0, 240.0, 0.0)), _scale(Vector3(32.0, 32.0, 1.0))
+:_tex(0), _angle(0.0f), _position(Vector3(160.0, 240.0, 0.0)), _scale(Vector3(32.0, 32.0, 1.0))
 {
     //
     {
@@ -72,7 +72,7 @@ void RenderComponent::updateModelMatrix()
     Matrix4 s;
     s.makeScale(_scale);
     
-    _modelMatrix = t * s * r;;
+    _modelMatrix = t * r * s;
 }
 
 bool RenderComponent::setTexture(std::string const &fileName)

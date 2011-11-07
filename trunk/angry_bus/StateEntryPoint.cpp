@@ -5,13 +5,18 @@
 StateEntryPoint::StateEntryPoint()
 {
     _uiRoot = new Node<Entity>;
-    Entity* e = EntityManager::getInstancePtr()->createEntity("Dummy");
+    Entity* e = EntityManager::getInstancePtr()->createEntity("entry_state_background");
     _uiRoot->setData(e);
+    {
+        Node<Entity>* n = new Node<Entity>;
+        n->setData(EntityManager::getInstancePtr()->createEntity("Dummy"));
+        _uiRoot->addChild(n);
+    }
 }
 
 StateEntryPoint::~StateEntryPoint()
 {
-    
+    _uiRoot->release();
 }
 
 void StateEntryPoint::render()
