@@ -46,11 +46,17 @@ bool BootStrapper::create()
     
     {
         // entry state background
-        Entity* e = EntityManager::getInstancePtr()->createEntity("entry_state_background");
+        Entity* e = EntityManager::getInstancePtr()->createEntity("background_entry_state");
         e->setPosition(160, 240, 0);
         e->setScale(320, 480, 1.0);
-//        e->setTexture("beijing.png");
-        e->setTexture("xiongmao01.png");
+	e->setTexture("beijing.png");
+    }
+    {
+        // button enter
+        Entity* e = EntityManager::getInstancePtr()->createEntity("button_enter");
+        e->setPosition(160, 240, 0);
+        e->setScale(32, 48, 1.0);
+	e->setTexture("beijing.png");
     }
     //
     _stateMachine.createStates();
@@ -67,7 +73,7 @@ bool BootStrapper::create()
     _box2DRender->SetFlags(b2Draw::e_shapeBit);
     _world->SetDebugDraw(_box2DRender);
     // contact listener
-	_world->SetContactListener(EntityManager::getInstancePtr());    
+    _world->SetContactListener(EntityManager::getInstancePtr());    
     
     {
         b2BodyDef bodyDef;
@@ -221,8 +227,8 @@ void BootStrapper::touchBegin(float x, float y)
         mjd.maxForce = 300 * _focus->GetMass();
         mjd.target = b2Vec2(p2m(x), p2m(y));
         
-		_mouseJoint = (b2MouseJoint*)_world->CreateJoint(&mjd);
-		_focus->SetAwake(true);
+	_mouseJoint = (b2MouseJoint*)_world->CreateJoint(&mjd);
+	_focus->SetAwake(true);
     }
 }
 
@@ -238,36 +244,15 @@ void BootStrapper::touchEnd(float x, float y)
 }
 
 void BootStrapper::touchMoved(float x, float y, float previousX, float previousY)
-{
-    
+{    
     if (_mouseJoint)
     {
         _mouseJoint->SetTarget(b2Vec2(p2m(x), p2m(y)));
-        //b2Vec2 f(x - previousX, y - previousY);
-        //float scale = -100;
-        ////f.x *= scale;
-        //f.y *= scale;
-        //_groundBody->ApplyForce(f, _groundBody->GetWorldCenter());
-        //b2Transform t = _focus->GetTransform();
-        //_groundBody->SetTransform(b2Vec2(x, y), t.q.GetAngle());
-        //_mouseJoint->SetLength(0);
     }
-     
-    if (0 && _focus && _focus->GetUserData())
-    {
-        
-        b2Vec2 f(p2m(x - previousX), p2m(y - previousY));
-        //f.x *= 500000000;
-        //f.y *= 500000000;
-        _focus->ApplyForce(f, _focus->GetWorldCenter());
-        //_focus->ApplyLinearImpulse(f, _focus->GetWorldCenter());
-        //b2Transform t = _focus->GetTransform();
-        //_focus->SetTransform(b2Vec2(x, y), t.q.GetAngle());
-        //std::cout<<x<<","<<y<<std::endl;
-    }   
 }
 
 bool BootStrapper::ReportFixture(b2Fixture *fixture)
 {
-    _focus = fixture->GetBody();
+    if(fixture)
+	_focus = fixture->GetBody();
 }

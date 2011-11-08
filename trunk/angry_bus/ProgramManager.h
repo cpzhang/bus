@@ -1,10 +1,3 @@
-//
-//  ProgramManager.h
-//  angry_bus
-//
-//  Created by suning on 11-10-31.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
-//
 #ifndef _ProgramManager_
 #define _ProgramManager_
 #include <string>

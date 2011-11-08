@@ -1,10 +1,3 @@
-//
-//  Entity.h
-//  angry_bus
-//
-//  Created by suning on 11-10-29.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
-
 #ifndef _Entity_
 #define _Entity_
 
@@ -34,6 +27,7 @@ public:
 private:
     IRenderComponent*   _render_component;
     IPhysicsComponent*  _physics_component;
+    IButtonComponent*   _button_component;
 };
 
 #endif

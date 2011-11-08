@@ -1,10 +1,3 @@
-//
-//  RenderES1.h
-//  angry_bus
-//
-//  Created by suning on 11-10-27.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
-//
 #ifndef _RenderES1_
 #define _RenderES1_
 

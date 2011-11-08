@@ -1,10 +1,3 @@
-//
-//  PhysicsComponent.h
-//  angry_bus
-//
-//  Created by suning on 11-11-6.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
-//
 #ifndef _PhysicsComponent_
 #define _PhysicsComponent_
 #include "IComponent.h"

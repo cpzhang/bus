@@ -42,9 +42,15 @@ Entity* EntityManager::createEntity(std::string const &name)
     return _entities[name];
 }
 
-Entity* EntityManager::createEntity(const char *name)
+Entity* EntityManager::getEntity(std::string const &name)
 {
-    return createEntity(std::string(name));
+   NameEntityMap::iterator it = _entities.find(name);
+    if (it == _entities.end())
+    {
+	return 0;
+    }
+    
+    return _entities[name];
 }
 
 void EntityManager::BeginContact(b2Contact *contact)
@@ -76,6 +82,5 @@ void EntityManager::EndContact(b2Contact *contact)
 
 bool EntityManager::ReportFixture(b2Fixture* fixture) 
 {
-    //fixture->GetBody()->SetPosition(); 
     return true;//keep going to find all fixtures in the query area
 }

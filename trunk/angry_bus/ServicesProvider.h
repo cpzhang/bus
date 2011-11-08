@@ -1,10 +1,3 @@
-//
-//  IServicesProvider.h
-//  angry_bus
-//
-//  Created by suning on 11-10-29.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
-//
 #ifndef _ServicesProvider_
 #define _ServicesProvider_
 

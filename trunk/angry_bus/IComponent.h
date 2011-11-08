@@ -1,10 +1,3 @@
-//
-//  IComponent.h
-//  angry_bus
-//
-//  Created by suning on 11-10-29.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
-//
 #ifndef _IComponent_
 #define _IComponent_
 #include <string>
@@ -12,6 +5,7 @@
 
 struct IComponent
 {
+    virtual ~IComponent(){};
     virtual void update() = 0;
 };
 
@@ -28,8 +22,27 @@ struct IRenderComponent : public IComponent
 
 struct IPhysicsComponent: public IComponent
 {
+    virtual ~IPhysicsComponent(){};
     virtual void setBody(b2Body* b) = 0;
     virtual void startContact() = 0;
     virtual void endContact() = 0;
+};
+
+enum eButtonState
+{
+    eButtonState_Normal,
+    eButtonState_Hover,
+    eButtonState_Pushed,
+    eButtonState_Size,
+};
+
+struct IButtonClickedCallBack
+{
+};
+
+struct IButtonComponent: public IComponent
+{
+    virtual ~IButtonComponent(){};
+    virtual void setCallBack(){};
 };
 #endif

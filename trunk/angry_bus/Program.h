@@ -1,10 +1,3 @@
-//
-//  Program.h
-//  angry_bus
-//
-//  Created by suning on 11-10-29.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
-//
 #ifndef _Program_
 #define _Program_
 #include <OpenGLES/ES2/gl.h>
