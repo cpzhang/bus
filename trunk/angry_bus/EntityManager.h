@@ -22,7 +22,7 @@ public:
     ~EntityManager();
   
     Entity* createEntity(const std::string& name);
-    Entity* getEntity(const std::string& &name);
+    Entity* getEntity(const std::string& name);
     
     /// Called when two fixtures begin to touch.
 	virtual void BeginContact(b2Contact* contact);

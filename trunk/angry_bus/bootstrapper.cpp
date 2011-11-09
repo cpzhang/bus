@@ -41,22 +41,22 @@ bool BootStrapper::initSingletons()
 bool BootStrapper::create()
 {
     //
-    Entity* e = EntityManager::getInstancePtr()->createEntity("Dummy");
-    e->setTexture("xiongmao01.png");
+   // Entity* e = EntityManager::getInstancePtr()->createEntity("Dummy");
+    //e->setTexture("xiongmao01.png");
     
     {
         // entry state background
         Entity* e = EntityManager::getInstancePtr()->createEntity("background_entry_state");
         e->setPosition(160, 240, 0);
         e->setScale(320, 480, 1.0);
-	e->setTexture("beijing.png");
+        e->setTexture("beijing03.png");
     }
     {
         // button enter
         Entity* e = EntityManager::getInstancePtr()->createEntity("button_enter");
         e->setPosition(160, 240, 0);
         e->setScale(32, 48, 1.0);
-	e->setTexture("beijing.png");
+        e->setTexture("start.png");
     }
     //
     _stateMachine.createStates();
@@ -100,8 +100,8 @@ bool BootStrapper::create()
         //create dynamic bodies
         b2Body* b = _world->CreateBody(&myBodyDef);
         
-        b->SetUserData(e);
-        e->setBody(b);
+       // b->SetUserData(e);
+       // e->setBody(b);
         b->SetAwake(true); 
         
         b->CreateFixture(&myFixtureDef);
@@ -227,8 +227,8 @@ void BootStrapper::touchBegin(float x, float y)
         mjd.maxForce = 300 * _focus->GetMass();
         mjd.target = b2Vec2(p2m(x), p2m(y));
         
-	_mouseJoint = (b2MouseJoint*)_world->CreateJoint(&mjd);
-	_focus->SetAwake(true);
+        _mouseJoint = (b2MouseJoint*)_world->CreateJoint(&mjd);
+        _focus->SetAwake(true);
     }
 }
 
@@ -254,5 +254,5 @@ void BootStrapper::touchMoved(float x, float y, float previousX, float previousY
 bool BootStrapper::ReportFixture(b2Fixture *fixture)
 {
     if(fixture)
-	_focus = fixture->GetBody();
+        _focus = fixture->GetBody();
 }

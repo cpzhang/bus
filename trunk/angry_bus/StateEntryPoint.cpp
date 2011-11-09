@@ -7,11 +7,7 @@ StateEntryPoint::StateEntryPoint()
     _uiRoot = new Node<Entity>;
     Entity* e = EntityManager::getInstancePtr()->getEntity("background_entry_state");
     _uiRoot->setData(e);
-    {
-        Node<Entity>* n = new Node<Entity>;
-        n->setData(EntityManager::getInstancePtr()->getEntity("Dummy"));
-        _uiRoot->addChild(n);
-    }
+    
     {
         Node<Entity>* n = new Node<Entity>;
         n->setData(EntityManager::getInstancePtr()->getEntity("button_enter"));

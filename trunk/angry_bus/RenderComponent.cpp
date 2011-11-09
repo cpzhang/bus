@@ -19,13 +19,13 @@ RenderComponent::RenderComponent()
         _vertices.push_back(Vertex( 0.5,  0.5, 0.0));
         _vertices.push_back(Vertex(-0.5,  0.5, 0.0));
         
-        _texCoords.push_back(Vector2(0.0, 0.0));
-        _texCoords.push_back(Vector2(1.0, 0.0));
-        _texCoords.push_back(Vector2(1.0, 1.0));
-        
-        _texCoords.push_back(Vector2(0.0, 0.0));
-        _texCoords.push_back(Vector2(1.0, 1.0));
         _texCoords.push_back(Vector2(0.0, 1.0));
+        _texCoords.push_back(Vector2(1.0, 1.0));
+        _texCoords.push_back(Vector2(1.0, 0.0));
+        
+        _texCoords.push_back(Vector2(0.0, 1.0));
+        _texCoords.push_back(Vector2(1.0, 0.0));
+        _texCoords.push_back(Vector2(0.0, 0.0));
     }
     
     _programName = "fuck";

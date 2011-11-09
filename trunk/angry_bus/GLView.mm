@@ -20,7 +20,7 @@
         // Initialization code
         CAEAGLLayer* e = (CAEAGLLayer*)super.layer;
         e.opaque = YES;
-	eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
+        e.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
 							 [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat, nil];
         EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
         _context = [[EAGLContext alloc] initWithAPI:api];
