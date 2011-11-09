@@ -36,13 +36,14 @@ enum eButtonState
     eButtonState_Size,
 };
 
-struct IButtonClickedCallBack
+struct IButtonPushedCallBack
 {
+    virtual void do() = 0;
 };
 
 struct IButtonComponent: public IComponent
 {
     virtual ~IButtonComponent(){};
-    virtual void setCallBack(){};
+    virtual void setCallBack(IButtonPushedCallBack* cb) = 0;
 };
 #endif

@@ -40,7 +40,6 @@ private:
 private:
     b2World*    _world;
     b2Draw*     _box2DRender;
-    StateMachine _stateMachine;
     b2Body*     _focus;
     b2Body*     _groundBody;
     b2MouseJoint* _mouseJoint;

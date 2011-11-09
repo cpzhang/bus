@@ -30,7 +30,9 @@ public:
 	/// Called when two fixtures cease to touch.
 	virtual void EndContact(b2Contact* contact);
     
-    virtual bool ReportFixture(b2Fixture* fixture);
+	virtual bool ReportFixture(b2Fixture* fixture);
+
+	void createUI();
 private:
     typedef std::map<std::string, Entity*> NameEntityMap;
     NameEntityMap   _entities;

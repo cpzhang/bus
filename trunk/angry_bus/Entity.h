@@ -24,6 +24,12 @@ public:
     virtual void setBody(b2Body* b);
     virtual void startContact();
     virtual void endContact();
+    
+    //
+    virtual void touchBegin(float x, float y);
+    virtual void touchMoved(float x, float y, float previousX, float previousY);
+    virtual void touchEnd(float x, float y);
+
 private:
     IRenderComponent*   _render_component;
     IPhysicsComponent*  _physics_component;

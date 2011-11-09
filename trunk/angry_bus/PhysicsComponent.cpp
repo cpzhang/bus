@@ -1,11 +1,3 @@
-//
-//  PhysicsComponent.cpp
-//  angry_bus
-//
-//  Created by suning on 11-11-6.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
-//
-
 #include "PhysicsComponent.h"
 #include "Entity.h"
 #include "Common.h"

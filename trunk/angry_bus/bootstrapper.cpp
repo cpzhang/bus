@@ -34,32 +34,15 @@ bool BootStrapper::initSingletons()
     new ShaderManager;
     new ProgramManager;
     new TextureManager;
-    
+    new StateMachine;
+
     return true;
 }
 
 bool BootStrapper::create()
 {
     //
-   // Entity* e = EntityManager::getInstancePtr()->createEntity("Dummy");
-    //e->setTexture("xiongmao01.png");
-    
-    {
-        // entry state background
-        Entity* e = EntityManager::getInstancePtr()->createEntity("background_entry_state");
-        e->setPosition(160, 240, 0);
-        e->setScale(320, 480, 1.0);
-        e->setTexture("beijing03.png");
-    }
-    {
-        // button enter
-        Entity* e = EntityManager::getInstancePtr()->createEntity("button_enter");
-        e->setPosition(160, 240, 0);
-        e->setScale(32, 48, 1.0);
-        e->setTexture("start.png");
-    }
-    //
-    _stateMachine.createStates();
+    StateMachine::getInstancePtr()->createStates();
     
     //
     registerPrograms();
@@ -147,6 +130,8 @@ void BootStrapper::destroy()
     delete ShaderManager::getInstancePtr();
     delete ServicesProvider::getInstancePtr();
     delete EntityManager::getInstancePtr();
+    delete StateMachine::getInstancePtr();
+
     //
     delete _world;
     delete _box2DRender;
@@ -161,14 +146,13 @@ void BootStrapper::update(float secondsElapsed)
 {
     _world->Step(secondsElapsed, 8, 5);
     _world->ClearForces();
-    _stateMachine.update(secondsElapsed);
+    StateMachine::getInstancePtr()->update(secondsElapsed);
 }
 
 void BootStrapper::render()
 {
     ServicesProvider::getInstance().getRender()->beginFrame(true, false);
-    //_triangle->render();
-    _stateMachine.render();
+    StateMachine::getInstancePtr()->render();
     _world->DrawDebugData();
     ServicesProvider::getInstance().getRender()->endFrame();
 }

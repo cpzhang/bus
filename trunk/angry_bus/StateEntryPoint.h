@@ -19,6 +19,6 @@ public:
     virtual void touchMoved(float x, float y, float previousX, float previousY);
     virtual void touchEnd(float x, float y);
 private:
-    Node<Entity>* _uiRoot;
+    TransformationNode<Entity>* _uiRoot;
 };
 #endif

@@ -2,7 +2,7 @@
 #define _StateMachine_
 #include <vector>
 #include "IState.h"
-class StateMachine : public IState
+class StateMachine : public IState, public Singleton<StateMachine>
 {
 public:
     StateMachine();
