@@ -86,6 +86,8 @@ void EntityManager::createUI()
 
     // button
     EntityManager::getInstancePtr()->createEntity("button_enter")->setTexture("start.png");
+    EntityManager::getInstancePtr()->createEntity("button_enter")->setCallBack(new ButtonPushedCallBack_Enter);
+
     EntityManager::getInstancePtr()->createEntity("button_us")->setTexture("women.png");
 
     EntityManager::getInstancePtr()->createEntity("button_sound")->setTexture("shengyin1.png");

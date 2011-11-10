@@ -25,7 +25,8 @@ public:
     virtual void setRotation(float angle);
     virtual void setScale(const Vector3& s);
     virtual void setPosition(const Vector3& p);
-    
+    virtual bool isInside(float x, float y);
+    virtual Vector3 getScale();
 private:
     void updateModelMatrix();
 private:

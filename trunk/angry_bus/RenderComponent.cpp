@@ -145,3 +145,19 @@ void RenderComponent::setProgram(const std::string& name)
 {
     _programName = name;
 }
+
+bool RenderComponent::isInside(float x, float y)
+{
+    Vector3 localPoint = _modelMatrix.inverse() * Vector3(x, y, 0.0);
+    if(localPoint.x >= -0.5 && localPoint.x <= 0.5 &&
+       localPoint.y >= -0.5 && localPoint.y <= 0.5)
+    {
+	return true;
+    }
+    return false;
+}
+
+Vector3 RenderComponent::getScale()
+{
+    return _scale;
+}

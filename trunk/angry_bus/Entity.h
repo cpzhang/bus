@@ -23,7 +23,8 @@ public:
     virtual void setPosition(float x, float y, float z);
     virtual void setPosition(const Vector3& p);
     virtual void setRotation(float angle);
-
+    virtual bool isInside(float x, float y);
+    virtual Vector3 getScale();
     //
     virtual void setBody(b2Body* b);
     virtual void startContact();

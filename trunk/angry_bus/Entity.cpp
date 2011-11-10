@@ -113,3 +113,13 @@ void Entity::setCallBack(IButtonPushedCallBack *cb)
 {
     _button_component->setCallBack(cb);
 }
+
+bool Entity::isInside(float x, float y)
+{
+    return _render_component->isInside(x, y);
+}
+
+Vector3 Entity::getScale()
+{
+    return _render_component->getScale();
+}

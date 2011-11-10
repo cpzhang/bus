@@ -2,11 +2,11 @@
 #define _ButtonComponent_
 #include "IComponent.h"
 #include "ITouch.h"
-
+class Entity;
 class ButtonComponent : public IButtonComponent
 {
 public:
-    ButtonComponent();
+    ButtonComponent(Entity* e);
     ~ButtonComponent();
 
     virtual bool touchBegin(float x, float y);
@@ -22,17 +22,26 @@ private:
 private:
     eButtonState _state;
     Entity* _host;
+    IButtonPushedCallBack* _callback;
 };
 
 class ButtonPushedCallBack_Enter: public IButtonPushedCallBack
 {
 public:
-   virtual void doIt();
+    ButtonPushedCallBack_Enter(){};
+    ~ButtonPushedCallBack_Enter(){};
+    virtual void doIt()
+    {
+	StateMachine::getInstancePrt()->goNext(eState_Playing);
+    }
 };
 
 class ButtonPushedCallBack_Us: public IButtonPushedCallBack
 {
 public:
-    virtual void doIt();
+    virtual void doIt()
+    {
+	StateMachine::getInstancePrt()->goNext(eState_AboutUs);
+    }
 };
 #endif

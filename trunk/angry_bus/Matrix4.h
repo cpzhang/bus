@@ -187,6 +187,7 @@ public:
     {
         return concatenate( m2 );
     }
+    Matrix4 inverse() const;
     static const Matrix4 ZERO;
     static const Matrix4 ZEROAFFINE;
     static const Matrix4 IDENTITY;
