@@ -2,6 +2,8 @@
 #define _IComponent_
 #include <string>
 #include "b2Body.h"
+#include "Vector3.h"
+#include "ITouch.h"
 
 struct IComponent
 {
@@ -18,6 +20,8 @@ struct IRenderComponent : public IComponent
     virtual void setScale(float sx, float sy, float sz) = 0;
     virtual void setPosition(float x, float y, float z) = 0;
     virtual void setRotation(float angle) = 0;
+    virtual void setScale(const Vector3& s) = 0;
+    virtual void setPosition(const Vector3& p) = 0;
 };
 
 struct IPhysicsComponent: public IComponent
@@ -38,12 +42,13 @@ enum eButtonState
 
 struct IButtonPushedCallBack
 {
-    virtual void do() = 0;
+    virtual void doIt() = 0;
 };
 
-struct IButtonComponent: public IComponent
+struct IButtonComponent: public IComponent, public ITouch
 {
     virtual ~IButtonComponent(){};
     virtual void setCallBack(IButtonPushedCallBack* cb) = 0;
+    
 };
 #endif

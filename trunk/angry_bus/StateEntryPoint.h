@@ -15,10 +15,10 @@ public:
     void update(float secondsElapsed);
     
     //
-    virtual void touchBegin(float x, float y);
-    virtual void touchMoved(float x, float y, float previousX, float previousY);
-    virtual void touchEnd(float x, float y);
+    virtual bool touchBegin(float x, float y);
+    virtual bool touchMoved(float x, float y, float previousX, float previousY);
+    virtual bool touchEnd(float x, float y);
 private:
-    TransformationNode<Entity>* _uiRoot;
+    TransformationNode* _uiRoot;
 };
 #endif

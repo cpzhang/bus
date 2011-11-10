@@ -23,6 +23,8 @@ public:
     virtual void setScale(float sx, float sy, float sz);
     virtual void setPosition(float x, float y, float z);
     virtual void setRotation(float angle);
+    virtual void setScale(const Vector3& s);
+    virtual void setPosition(const Vector3& p);
     
 private:
     void updateModelMatrix();

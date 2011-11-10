@@ -3,15 +3,15 @@
 #include "IComponent.h"
 #include "ITouch.h"
 
-class ButtonComponent : public IButtonComponent, public ITouch
+class ButtonComponent : public IButtonComponent
 {
 public:
     ButtonComponent();
     ~ButtonComponent();
 
-    virtual void touchBegin(float x, float y);
-    virtual void touchMoved(float x, float y, float previousX, float previousY);
-    virtual void touchEnd(float x, float y);
+    virtual bool touchBegin(float x, float y);
+    virtual bool touchMoved(float x, float y, float previousX, float previousY);
+    virtual bool touchEnd(float x, float y);
 
     //
     virtual void setCallBack(IButtonPushedCallBack* cb);
@@ -27,12 +27,12 @@ private:
 class ButtonPushedCallBack_Enter: public IButtonPushedCallBack
 {
 public:
-   virtual void do();
+   virtual void doIt();
 };
 
 class ButtonPushedCallBack_Us: public IButtonPushedCallBack
 {
 public:
-    virtual void do();
+    virtual void doIt();
 };
 #endif

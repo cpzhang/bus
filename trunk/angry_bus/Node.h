@@ -2,6 +2,9 @@
 #define _Node_
 
 #include <vector>
+#include <string>
+#include "Vector3.h"
+#include "Entity.h"
 
 template <class T>
 class Node
@@ -29,11 +32,12 @@ public:
     
     virtual void removeChild(Node* n)
     {
-        for (std::vector<Node*> i = _children.begin(); i != _children.end(); ++i)
+        typename std::vector<Node*>::iterator it = _children.begin();
+        for (; it != _children.end(); ++it)
         {
-            if (n == *i)
+            if (n == *it)
             {
-                _children.erase(i);
+                _children.erase(it);
                 return;
             }
         }
@@ -69,7 +73,7 @@ public:
             _children[i]->breadth_first(f);
         }
     }
-    typedef bool (T::*do_bool_float_float)();
+    typedef bool (T::*do_bool_float_float)(float, float);
     virtual bool breadth_first(do_bool_float_float f, float x, float y)
     {
         if(_data && ((_data->*f)(x, y)))
@@ -77,21 +81,21 @@ public:
         for(size_t i = 0; i != getChildrenNumber(); ++i)
         {
             if(_children[i]->breadth_first(f, x, y))
-		return true;
+                return true;
         }
-	return false;
+        return false;
     }
-    typedef bool (T::*do_bool_float_float_float_float)();
-    virtual bool breadth_first(do_bool_float_float f, float x, float y, float previousX, float previousY)
+    typedef bool (T::*do_bool_float_float_float_float)(float, float, float, float);
+    virtual bool breadth_first(do_bool_float_float_float_float f, float x, float y, float previousX, float previousY)
     {
         if(_data && ((_data->*f)(x, y, previousX, previousY)))
             return true;
         for(size_t i = 0; i != getChildrenNumber(); ++i)
         {
             if(_children[i]->breadth_first(f, x, y, previousX, previousY))
-		return true;
+                return true;
         }
-	return false;
+        return false;
     }
     virtual void release()
     {
@@ -102,48 +106,54 @@ public:
         _children.clear();
         delete this;
     }
-private:
+    virtual void render(){};
+protected:
     std::vector<Node*> _children;
     Node* _parent;
     T* _data;
     std::string _name;
 };
 
-template<class T>
-class TransformationNode: public Node<T>
+//template<class T>
+class TransformationNode: public Node<Entity>
 {
-public:
-    TransformationNode();
-    ~TransformationNode();
+public:    
+    inline TransformationNode(const std::string& name)
+    :_angle(0.0)
+    {
+        
+    }
 
+    ~TransformationNode(){};
+    
     void render()
     {
-	_data->setPosition(_position);
-	_data->setScale(_scale);
-	_data->setRotation(_angle);
-	_data->render();
+        _data->setPosition(_position);
+        _data->setScale(_scale);
+        _data->setRotation(_angle);
+        _data->render();
         for(size_t i = 0; i != getChildrenNumber(); ++i)
         {
-            _children[i]->render(f);
+            _children[i]->render();
         }
     }
     void setScale(float sx, float sy, float sz)
     {
-	_scale.x = sx;
-	_scale.y = sy;
-	_scale.z = sz;
+        _scale.x = sx;
+        _scale.y = sy;
+        _scale.z = sz;
     }
     void setPosition(float x, float y, float z)
     {
-	_position.x = x;
-	_position.y = y;
-	_position.z = z;
+        _position.x = x;
+        _position.y = y;
+        _position.z = z;
     }
     void setRotation(float angle)
     {
-	_angle = angle;
+        _angle = angle;
     }
-
+    
 private:
     Vector3 _position;
     Vector3 _scale;

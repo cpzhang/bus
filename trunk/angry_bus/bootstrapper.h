@@ -3,7 +3,6 @@
 
 #include "IRender.h"
 #include <vector>
-#include "StateMachine.h"
 #include "ITouch.h"
 #include "b2WorldCallbacks.h"
 #include "b2MouseJoint.h"
@@ -27,9 +26,9 @@ public:
     void setViewPort(int width, int height);
     void run(float secondsElapsed);
     //
-    virtual void touchBegin(float x, float y);
-    virtual void touchMoved(float x, float y, float previousX, float previousY);
-    virtual void touchEnd(float x, float y);
+    virtual bool touchBegin(float x, float y);
+    virtual bool touchMoved(float x, float y, float previousX, float previousY);
+    virtual bool touchEnd(float x, float y);
     
     //
     virtual bool ReportFixture(b2Fixture* fixture);

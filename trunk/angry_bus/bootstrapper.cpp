@@ -9,7 +9,7 @@
 #include "box2DRender.h"
 #include <Box2D/Box2d.h>
 #include <iostream>
-
+#include "StateMachine.h"
 
 BootStrapper::BootStrapper()
 :_focus(0), _mouseJoint(0)
@@ -41,6 +41,9 @@ bool BootStrapper::initSingletons()
 
 bool BootStrapper::create()
 {
+    //
+    EntityManager::getInstancePtr()->createUI();
+    
     //
     StateMachine::getInstancePtr()->createStates();
     
@@ -188,11 +191,12 @@ bool BootStrapper::registerPrograms()
     return true;
 }
 
-void BootStrapper::touchBegin(float x, float y)
+bool BootStrapper::touchBegin(float x, float y)
 {
+    StateMachine::getInstancePtr()->touchBegin(x, y);
     if (_mouseJoint)
     {
-        return;
+        return true;
     }
     b2AABB aabb;
     static const float scSize = 10.0;
@@ -214,10 +218,13 @@ void BootStrapper::touchBegin(float x, float y)
         _mouseJoint = (b2MouseJoint*)_world->CreateJoint(&mjd);
         _focus->SetAwake(true);
     }
+    
+    return true;
 }
 
-void BootStrapper::touchEnd(float x, float y)
+bool BootStrapper::touchEnd(float x, float y)
 {
+        StateMachine::getInstancePtr()->touchEnd(x, y);
     _focus = 0;
     
     if (_mouseJoint)
@@ -225,18 +232,22 @@ void BootStrapper::touchEnd(float x, float y)
         _world->DestroyJoint(_mouseJoint);
         _mouseJoint = 0;
     }
+    return true;
 }
 
-void BootStrapper::touchMoved(float x, float y, float previousX, float previousY)
+bool BootStrapper::touchMoved(float x, float y, float previousX, float previousY)
 {    
+        StateMachine::getInstancePtr()->touchMoved(x, y, previousX, previousY);
     if (_mouseJoint)
     {
         _mouseJoint->SetTarget(b2Vec2(p2m(x), p2m(y)));
     }
+    return true;
 }
 
 bool BootStrapper::ReportFixture(b2Fixture *fixture)
 {
     if(fixture)
         _focus = fixture->GetBody();
+    return true;
 }

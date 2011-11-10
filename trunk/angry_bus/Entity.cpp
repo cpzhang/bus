@@ -1,17 +1,11 @@
-//
-//  Entity.cpp
-//  angry_bus
-//
-//  Created by suning on 11-10-29.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
-//
-
 #include "Entity.h"
 #include "RenderComponent.h"
 #include "PhysicsComponent.h"
+#include "ButtonComponent.h"
+
 #include <iostream>
 Entity::Entity()
-:_render_component(0), _physics_component(0)
+:_render_component(0), _physics_component(0), _button_component(0)
 {
     
 }
@@ -23,12 +17,19 @@ Entity::~Entity()
     
     delete _physics_component;
     _physics_component = 0;
+    
+    if (_button_component)
+    {
+        delete _button_component;
+        _button_component = 0;
+    }
 }
 
 bool Entity::create()
 {
     _render_component = new RenderComponent;
     _physics_component = new PhysicsComponent(this);
+    _button_component = new ButtonComponent;
     return true;
 }
 
@@ -58,9 +59,19 @@ void Entity::setScale(float sx, float sy, float sz)
     _render_component->setScale(sx, sy, sz);
 }
 
+void Entity::setScale(const Vector3 &s)
+{
+    _render_component->setScale(s);
+}
+
 void Entity::setPosition(float x, float y, float z)
 {
     _render_component->setPosition(x, y, z);
+}
+
+void Entity::setPosition(const Vector3 &p)
+{
+    _render_component->setPosition(p);
 }
 
 void Entity::setRotation(float angle)
@@ -81,4 +92,24 @@ void Entity::endContact()
 void Entity::setBody(b2Body* b)
 {
     _physics_component->setBody(b);
+}
+
+bool Entity::touchBegin(float x, float y)
+{
+    return _button_component->touchBegin(x, y);
+}
+
+bool Entity::touchMoved(float x, float y, float previousX, float previousY)
+{
+    return _button_component->touchMoved(x, y, previousX, previousY);
+}
+
+bool Entity::touchEnd(float x, float y)
+{
+    return _button_component->touchEnd(x, y);
+}
+
+void Entity::setCallBack(IButtonPushedCallBack *cb)
+{
+    _button_component->setCallBack(cb);
 }

@@ -32,3 +32,18 @@ void StateMachine::update(float secondsElapsed)
 {
     _states[_currentState]->update(secondsElapsed);    
 }
+
+bool StateMachine::touchBegin(float x, float y)
+{
+    return _states[_currentState]->touchBegin(x, y);
+}
+
+bool StateMachine::touchMoved(float x, float y, float previousX, float previousY)
+{
+    return _states[_currentState]->touchMoved(x, y, previousX, previousY);
+}
+
+bool StateMachine::touchEnd(float x, float y)
+{
+    return _states[_currentState]->touchEnd(x, y);
+}

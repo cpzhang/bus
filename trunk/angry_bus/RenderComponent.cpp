@@ -49,9 +49,21 @@ void RenderComponent::setScale(float sx, float sy, float sz)
     updateModelMatrix();
 }
 
+void RenderComponent::setScale(const Vector3 &s)
+{
+    _scale = s;
+    updateModelMatrix();
+}
+
 void RenderComponent::setPosition(float x, float y, float z)
 {
     _position = Vector3(x, y, z);
+    updateModelMatrix();
+}
+
+void RenderComponent::setPosition(const Vector3 &p)
+{
+    _position = p;
     updateModelMatrix();
 }
 

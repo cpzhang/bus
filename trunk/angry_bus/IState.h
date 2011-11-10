@@ -1,6 +1,6 @@
 #ifndef _IState_
 #define _IState_
-
+#include "ITouch.h"
 enum eState
 {
     eState_EntryPoint = 0,
@@ -10,7 +10,7 @@ enum eState
     eState_Size,
 };
 
-class IState
+class IState: public ITouch
 {
 public:
     virtual void render() = 0;

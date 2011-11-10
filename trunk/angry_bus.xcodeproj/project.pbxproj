@@ -51,8 +51,8 @@
 		7C8A9C60146623BF004E3AE8 /* PhysicsComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A9C5E146623BF004E3AE8 /* PhysicsComponent.cpp */; };
 		7C8A9C6E146685AC004E3AE8 /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A9C6D146685AC004E3AE8 /* Common.cpp */; };
 		7CA86AB6146A047C00414326 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA86AB5146A047C00414326 /* start.png */; };
-		7CA86ABA146A069200414326 /* beijing03.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA86AB9146A069200414326 /* beijing03.png */; };
 		7CA86ABD146A078700414326 /* ButtonComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CA86ABB146A078700414326 /* ButtonComponent.cpp */; };
+		7CB8923D146B57790010EF1F /* beijing.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CB8923C146B57790010EF1F /* beijing.png */; };
 		7CC3C759146062D0006BCB8E /* Box2DConfig.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 7CC3C45F146062CF006BCB8E /* Box2DConfig.cmake */; };
 		7CC3C75A146062D0006BCB8E /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7CC3C460146062CF006BCB8E /* CMakeLists.txt */; };
 		7CC3C75B146062D0006BCB8E /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3C462146062CF006BCB8E /* b2BroadPhase.cpp */; };
@@ -183,9 +183,9 @@
 		7C8A9C6214663F5F004E3AE8 /* ITouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITouch.h; sourceTree = "<group>"; };
 		7C8A9C6D146685AC004E3AE8 /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
 		7CA86AB5146A047C00414326 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
-		7CA86AB9146A069200414326 /* beijing03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beijing03.png; sourceTree = "<group>"; };
 		7CA86ABB146A078700414326 /* ButtonComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonComponent.cpp; sourceTree = "<group>"; };
 		7CA86ABC146A078700414326 /* ButtonComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonComponent.h; sourceTree = "<group>"; };
+		7CB8923C146B57790010EF1F /* beijing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beijing.png; sourceTree = "<group>"; };
 		7CC3C45E146062CF006BCB8E /* Box2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2D.h; sourceTree = "<group>"; };
 		7CC3C45F146062CF006BCB8E /* Box2DConfig.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Box2DConfig.cmake; sourceTree = "<group>"; };
 		7CC3C460146062CF006BCB8E /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
@@ -449,7 +449,7 @@
 		7C84D756145BA6D300397B7A /* image */ = {
 			isa = PBXGroup;
 			children = (
-				7CA86AB9146A069200414326 /* beijing03.png */,
+				7CB8923C146B57790010EF1F /* beijing.png */,
 				7CA86AB5146A047C00414326 /* start.png */,
 				7C5CF3F514644FC400019AE0 /* xiongmao01.png */,
 				7C6EE03C14630ABC007A8A31 /* Default.png */,
@@ -743,7 +743,7 @@
 				7C6EE03D14630ABC007A8A31 /* Default.png in Resources */,
 				7C5CF3F614644FC400019AE0 /* xiongmao01.png in Resources */,
 				7CA86AB6146A047C00414326 /* start.png in Resources */,
-				7CA86ABA146A069200414326 /* beijing03.png in Resources */,
+				7CB8923D146B57790010EF1F /* beijing.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
