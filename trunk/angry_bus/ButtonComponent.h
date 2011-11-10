@@ -8,11 +8,15 @@ class ButtonComponent : public IButtonComponent
 public:
     ButtonComponent(Entity* e);
     ~ButtonComponent();
-
+    
+    //
+    virtual void update();
+    
+    //
     virtual bool touchBegin(float x, float y);
     virtual bool touchMoved(float x, float y, float previousX, float previousY);
     virtual bool touchEnd(float x, float y);
-
+    
     //
     virtual void setCallBack(IButtonPushedCallBack* cb);
 private:
@@ -30,18 +34,18 @@ class ButtonPushedCallBack_Enter: public IButtonPushedCallBack
 public:
     ButtonPushedCallBack_Enter(){};
     ~ButtonPushedCallBack_Enter(){};
-    virtual void doIt()
-    {
-	StateMachine::getInstancePrt()->goNext(eState_Playing);
-    }
+    virtual void doIt();
 };
 
 class ButtonPushedCallBack_Us: public IButtonPushedCallBack
 {
 public:
-    virtual void doIt()
-    {
-	StateMachine::getInstancePrt()->goNext(eState_AboutUs);
-    }
+    virtual void doIt();
+};
+
+class ButtonPushedCallBack_GotoEntryPoint: public IButtonPushedCallBack
+{
+public:
+    virtual void doIt();
 };
 #endif

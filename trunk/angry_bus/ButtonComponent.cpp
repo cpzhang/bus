@@ -1,6 +1,9 @@
 #include "ButtonComponent.h"
+#include "Entity.h"
+#include "StateMachine.h"
+
 ButtonComponent::ButtonComponent(Entity* e)
-    :_state(eButtonState_Normal), _host(e), _callback(0)
+:_state(eButtonState_Normal), _host(e), _callback(0)
 {
 }
 
@@ -8,19 +11,24 @@ ButtonComponent::~ButtonComponent()
 {
 }
 
+void ButtonComponent::update()
+{
+    
+}
+
 bool ButtonComponent::touchBegin(float x, float y)
 {
     if(isInside(x, y))
     {
-	_state = eButtonState_Hover;
-	onHover();
-	return true;
+        _state = eButtonState_Hover;
+        onHover();
+        return true;
     }
     else
     {
-	_state = eButtonState_Normal;
+        _state = eButtonState_Normal;
     }
-
+    
     return false;
 }
 
@@ -28,15 +36,15 @@ bool ButtonComponent::touchMoved(float x, float y, float previousX, float previo
 {
     if(isInside(x, y))
     {
-	_state = eButtonState_Hover;
-	onHover();
-	return true;
+        _state = eButtonState_Hover;
+        onHover();
+        return true;
     }
     else
     {
-	_state = eButtonState_Normal;
+        _state = eButtonState_Normal;
     }
-
+    
     return false;
 }
 
@@ -44,22 +52,21 @@ bool ButtonComponent::touchEnd(float x, float y)
 {
     if(isInside(x, y))
     {
-	if(_state == eButtonState_Hover)
-	{
-	    _state = eButtonState_Pushed;
-	    onPushed();
-	    _state = eButtonState_Normal;
-	}
-	return true;
+        if(_state == eButtonState_Hover)
+        {
+            _state = eButtonState_Pushed;
+            onPushed();
+            _state = eButtonState_Normal;
+        }
+        return true;
     }
-
+    
     return false;
 }
 
-bool ButtonComponent::setCallBack(IButtonPushedCallBack* cb)
+void ButtonComponent::setCallBack(IButtonPushedCallBack* cb)
 {
     _callback = cb;
-    return true;
 }
 
 bool ButtonComponent::isInside(float x, float y)
@@ -76,6 +83,21 @@ void ButtonComponent::onPushed()
 {
     if(_callback)
     {
-	_callback->doIt();
+        _callback->doIt();
     }
+}
+
+void ButtonPushedCallBack_Enter::doIt()
+{
+    StateMachine::getInstancePtr()->goNext(eState_Playing);
+}
+
+void ButtonPushedCallBack_Us::doIt()
+{
+    StateMachine::getInstancePtr()->goNext(eState_AboutUs);
+}
+
+void ButtonPushedCallBack_GotoEntryPoint::doIt()
+{
+    StateMachine::getInstancePtr()->goNext(eState_EntryPoint);
 }

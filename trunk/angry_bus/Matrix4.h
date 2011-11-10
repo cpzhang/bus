@@ -187,7 +187,31 @@ public:
     {
         return concatenate( m2 );
     }
+    
     Matrix4 inverse() const;
+    
+    /** Vector transformation using '*'.
+     @remarks
+     Transforms the given 3-D vector by the matrix, projecting the 
+     result back into <i>w</i> = 1.
+     @note
+     This means that the initial <i>w</i> is considered to be 1.0,
+     and then all the tree elements of the resulting 3-D vector are
+     divided by the resulting <i>w</i>.
+     */
+    inline Vector3 operator * ( const Vector3 &v ) const
+    {
+        Vector3 r;
+        
+        Real fInvW = 1.0f / ( m[3][0] * v.x + m[3][1] * v.y + m[3][2] * v.z + m[3][3] );
+        
+        r.x = ( m[0][0] * v.x + m[0][1] * v.y + m[0][2] * v.z + m[0][3] ) * fInvW;
+        r.y = ( m[1][0] * v.x + m[1][1] * v.y + m[1][2] * v.z + m[1][3] ) * fInvW;
+        r.z = ( m[2][0] * v.x + m[2][1] * v.y + m[2][2] * v.z + m[2][3] ) * fInvW;
+        
+        return r;
+    }
+
     static const Matrix4 ZERO;
     static const Matrix4 ZEROAFFINE;
     static const Matrix4 IDENTITY;

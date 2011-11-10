@@ -25,5 +25,7 @@ public:
     {
 	return Vector3(x * s, y * s, z * s);
     }
+    
+    static const Vector3 ZERO;
 };
 #endif

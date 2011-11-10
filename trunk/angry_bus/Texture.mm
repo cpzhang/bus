@@ -22,7 +22,7 @@ bool Texture::create2DFromFile(const std::string& fileName)
 // border specifies the width of the border. Must be 0.
     static const GLint border = 0;
     GLenum pf;
-    GLvoid* data;
+    unsigned char* data;
     {
         // Creates a Core Graphics image from an image file
         NSString *fn = [NSString stringWithCString:fileName.c_str() 
@@ -46,9 +46,9 @@ bool Texture::create2DFromFile(const std::string& fileName)
         }
         size_t bytes = _pixelSize / 8;
         // Allocated memory needed for the bitmap context
-        data = (GLubyte *) calloc(width * height * 4, sizeof(GLubyte));
+        data = (GLubyte *) calloc(width * height * bytes, sizeof(GLubyte));
         // Uses the bitmap creation function provided by the Core Graphics framework. 
-        CGContextRef spriteContext = CGBitmapContextCreate(data, width, height, 8, width * 4, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
+        CGContextRef spriteContext = CGBitmapContextCreate(data, width, height, 8, width * bytes, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
         if (!spriteContext)
         {
             delete data;
@@ -59,6 +59,11 @@ bool Texture::create2DFromFile(const std::string& fileName)
         // You don't need the context at this point, so you need to release it to avoid memory leaks.
         CGContextRelease(spriteContext);
     }
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    
     glTexImage2D(GL_TEXTURE_2D, 0, pf, width, height, border, pf, GL_UNSIGNED_BYTE, data);
     //delete data;
     //glBindTexture(GL_TEXTURE_2D, 0);

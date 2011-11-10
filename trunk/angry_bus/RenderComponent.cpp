@@ -122,6 +122,10 @@ void RenderComponent::render()
         _programName = "texture";
         Program* p = ProgramManager::getInstancePtr()->getProgram(_programName);
         p->apply();
+        //
+        ServicesProvider::getInstancePtr()->getRender()->enable(GL_BLEND);
+        ServicesProvider::getInstancePtr()->getRender()->blendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
         p->setVertexAttributePointer("aPosition", 3, GL_FLOAT, GL_FALSE, 0, &_vertices[0]);
         p->setVertexAttributePointer("aTexCoord", 2, GL_FLOAT, GL_FALSE, 0, &_texCoords[0]);
         Matrix4 mv = _modelMatrix * _viewMatrix;
@@ -138,6 +142,7 @@ void RenderComponent::render()
         //glBindTexture(GL_TEXTURE_2D, 0);
         p->disableVertexAttribArray("aPosition");
         p->disableVertexAttribArray("aTexCoord");
+        ServicesProvider::getInstancePtr()->getRender()->disable(GL_BLEND);
     }
 }
 

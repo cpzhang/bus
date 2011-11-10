@@ -11,7 +11,7 @@ public:
     Entity();
     ~Entity();
     
-    bool create();
+    bool create(bool bRender, bool bPhysics, bool bButton);
     
     virtual void update();
     //

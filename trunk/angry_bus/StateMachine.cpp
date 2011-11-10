@@ -1,5 +1,7 @@
 #include "StateMachine.h"
 #include "StateEntryPoint.h"
+#include "StateAboutUs.h"
+#include "StatePlaying.h"
 
 StateMachine::StateMachine()
 :_currentState(eState_EntryPoint)
@@ -11,7 +13,11 @@ StateMachine::~StateMachine()
 {
     for (size_t i = 0; i != _states.size(); ++i)
     {
-        delete _states[i];
+        if (_states[i])
+        {
+            delete _states[i];
+            _states[i] = 0;
+        }
     }
     _states.clear();
 }
@@ -19,8 +25,16 @@ StateMachine::~StateMachine()
 bool StateMachine::createStates()
 {
     _states.push_back(new StateEntryPoint);
+    _states.push_back(new StateAboutUs);
+    _states.push_back(0);
+    _states.push_back(new StatePlaying);
     
     return true;
+}
+
+void StateMachine::goNext(eState s)
+{
+    _currentState = s;
 }
 
 void StateMachine::render()

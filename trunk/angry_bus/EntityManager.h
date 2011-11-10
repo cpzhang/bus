@@ -21,7 +21,7 @@ public:
     EntityManager();
     ~EntityManager();
   
-    Entity* createEntity(const std::string& name);
+    Entity* createEntity(const std::string& name, bool bRender, bool bPhyiscs, bool bButton);
     Entity* getEntity(const std::string& name);
     
     /// Called when two fixtures begin to touch.

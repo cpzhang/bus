@@ -5,7 +5,7 @@
 #include "ITouch.h"
 
 class Entity;
-class StateEntryPoint : public IState, public ITouch
+class StateEntryPoint : public IState
 {
 public:
     StateEntryPoint();

@@ -83,6 +83,7 @@ void box2DRender::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2
         //
         p->setUniformf("uColor", color.r, color.g, color.b, 1.0);
         ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_LINE_LOOP, 0, vertices.size());
+        ServicesProvider::getInstancePtr()->getRender()->disable(GL_BLEND);
     } 
 }
 
