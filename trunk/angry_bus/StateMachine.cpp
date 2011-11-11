@@ -35,6 +35,7 @@ bool StateMachine::createStates()
 void StateMachine::goNext(eState s)
 {
     _currentState = s;
+    _states[_currentState]->start();
 }
 
 void StateMachine::render()
@@ -60,4 +61,9 @@ bool StateMachine::touchMoved(float x, float y, float previousX, float previousY
 bool StateMachine::touchEnd(float x, float y)
 {
     return _states[_currentState]->touchEnd(x, y);
+}
+
+void StateMachine::start()
+{
+    
 }

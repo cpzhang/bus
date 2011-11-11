@@ -20,12 +20,22 @@ bool ButtonComponent::touchBegin(float x, float y)
 {
     if(isInside(x, y))
     {
+        if (_state != eButtonState_Hover) 
+        {
+            onHover();
+        }
+
         _state = eButtonState_Hover;
-        onHover();
+        
         return true;
     }
     else
     {
+        if (_state == eButtonState_Hover) 
+        {
+            onHoverEnd();
+        }
+
         _state = eButtonState_Normal;
     }
     
@@ -36,12 +46,21 @@ bool ButtonComponent::touchMoved(float x, float y, float previousX, float previo
 {
     if(isInside(x, y))
     {
+        if (_state != eButtonState_Hover) 
+        {
+            onHover();
+        }
+
         _state = eButtonState_Hover;
-        onHover();
         return true;
     }
     else
     {
+        if (_state == eButtonState_Hover) 
+        {
+            onHoverEnd();
+        }
+
         _state = eButtonState_Normal;
     }
     
@@ -54,6 +73,11 @@ bool ButtonComponent::touchEnd(float x, float y)
     {
         if(_state == eButtonState_Hover)
         {
+            if (_state == eButtonState_Hover) 
+            {
+                onHoverEnd();
+            }
+
             _state = eButtonState_Pushed;
             onPushed();
             _state = eButtonState_Normal;
@@ -79,6 +103,10 @@ void ButtonComponent::onHover()
     _host->setScale(_host->getScale() * 1.33);
 }
 
+void ButtonComponent::onHoverEnd()
+{
+    _host->setScale(_host->getScale() / 1.33);
+}
 void ButtonComponent::onPushed()
 {
     if(_callback)

@@ -107,6 +107,7 @@ public:
         delete this;
     }
     virtual void render(){};
+    virtual void setTransformation(){};
 protected:
     std::vector<Node*> _children;
     Node* _parent;
@@ -128,13 +129,20 @@ public:
     
     void render()
     {
-        _data->setPosition(_position);
-        _data->setScale(_scale);
-        _data->setRotation(_angle);
         _data->render();
         for(size_t i = 0; i != getChildrenNumber(); ++i)
         {
             _children[i]->render();
+        }
+    }
+    virtual void setTransformation()
+    {
+        _data->setPosition(_position);
+        _data->setScale(_scale);
+        _data->setRotation(_angle);
+        for(size_t i = 0; i != getChildrenNumber(); ++i)
+        {
+            _children[i]->setTransformation();
         }
     }
     void setScale(float sx, float sy, float sz)

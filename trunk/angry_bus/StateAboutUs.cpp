@@ -51,3 +51,8 @@ bool StateAboutUs::touchEnd(float x, float y)
 {
     return _uiRoot->breadth_first(&Entity::touchEnd, x, y);
 }
+
+void StateAboutUs::start()
+{
+    _uiRoot->setTransformation();
+}

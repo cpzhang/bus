@@ -35,7 +35,7 @@ bool BootStrapper::initSingletons()
     new ProgramManager;
     new TextureManager;
     new StateMachine;
-
+    
     return true;
 }
 
@@ -46,6 +46,7 @@ bool BootStrapper::create()
     
     //
     StateMachine::getInstancePtr()->createStates();
+    StateMachine::getInstancePtr()->goNext(eState_EntryPoint);
     
     //
     registerPrograms();
@@ -86,8 +87,8 @@ bool BootStrapper::create()
         //create dynamic bodies
         b2Body* b = _world->CreateBody(&myBodyDef);
         
-       // b->SetUserData(e);
-       // e->setBody(b);
+        // b->SetUserData(e);
+        // e->setBody(b);
         b->SetAwake(true); 
         
         b->CreateFixture(&myFixtureDef);
@@ -134,7 +135,7 @@ void BootStrapper::destroy()
     delete ServicesProvider::getInstancePtr();
     delete EntityManager::getInstancePtr();
     delete StateMachine::getInstancePtr();
-
+    
     //
     delete _world;
     delete _box2DRender;
@@ -224,7 +225,7 @@ bool BootStrapper::touchBegin(float x, float y)
 
 bool BootStrapper::touchEnd(float x, float y)
 {
-        StateMachine::getInstancePtr()->touchEnd(x, y);
+    StateMachine::getInstancePtr()->touchEnd(x, y);
     _focus = 0;
     
     if (_mouseJoint)
@@ -237,7 +238,7 @@ bool BootStrapper::touchEnd(float x, float y)
 
 bool BootStrapper::touchMoved(float x, float y, float previousX, float previousY)
 {    
-        StateMachine::getInstancePtr()->touchMoved(x, y, previousX, previousY);
+    StateMachine::getInstancePtr()->touchMoved(x, y, previousX, previousY);
     if (_mouseJoint)
     {
         _mouseJoint->SetTarget(b2Vec2(p2m(x), p2m(y)));

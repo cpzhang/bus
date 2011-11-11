@@ -22,6 +22,7 @@ public:
 private:
     bool isInside(float x, float y);
     void onHover();
+    void onHoverEnd();
     void onPushed();
 private:
     eButtonState _state;

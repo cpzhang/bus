@@ -59,3 +59,8 @@ bool StatePlaying::touchEnd(float x, float y)
 {
     return _uiRoot->breadth_first(&Entity::touchEnd, x, y);
 }
+
+void StatePlaying::start()
+{
+    _uiRoot->setTransformation();
+}

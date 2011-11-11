@@ -11,6 +11,7 @@ public:
 
     void render();
     void update(float secondsElapsed);
+    virtual void start();
     
     virtual bool touchBegin(float x, float y);
     virtual bool touchMoved(float x, float y, float previousX, float previousY);
