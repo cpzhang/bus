@@ -54,7 +54,6 @@
 		7C8A9C6E146685AC004E3AE8 /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A9C6D146685AC004E3AE8 /* Common.cpp */; };
 		7CA86AB6146A047C00414326 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA86AB5146A047C00414326 /* start.png */; };
 		7CA86ABD146A078700414326 /* ButtonComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CA86ABB146A078700414326 /* ButtonComponent.cpp */; };
-		7CB8924D146C0E190010EF1F /* beijing01.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CB8924C146C0E190010EF1F /* beijing01.png */; };
 		7CB8925A146C19930010EF1F /* lianxiwomen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CB89259146C19930010EF1F /* lianxiwomen.png */; };
 		7CB8925C146C19E90010EF1F /* fanhui.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CB8925B146C19E90010EF1F /* fanhui.png */; };
 		7CC3C759146062D0006BCB8E /* Box2DConfig.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 7CC3C45F146062CF006BCB8E /* Box2DConfig.cmake */; };
@@ -105,6 +104,12 @@
 		7CC3C786146062D0006BCB8E /* b2WheelJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3C4BD146062CF006BCB8E /* b2WheelJoint.cpp */; };
 		7CC3C787146062D0006BCB8E /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3C4C0146062CF006BCB8E /* b2Rope.cpp */; };
 		7CC3C9DE14606A29006BCB8E /* box2DRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3C9DC14606A29006BCB8E /* box2DRender.cpp */; };
+		7CE6822E146DF2F100DC3B35 /* fenshu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CE6822D146DF2F000DC3B35 /* fenshu.png */; };
+		7CE68231146DF3EC00DC3B35 /* chengjiu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CE68230146DF3EC00DC3B35 /* chengjiu.png */; };
+		7CE68233146DF4B600DC3B35 /* wangluo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CE68232146DF4B600DC3B35 /* wangluo.png */; };
+		7CE68235146DF5C900DC3B35 /* shezhi.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CE68234146DF5C900DC3B35 /* shezhi.png */; };
+		7CE68239146DF97900DC3B35 /* settingBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CE68238146DF97900DC3B35 /* settingBackground.png */; };
+		7CE6823B146DFAF100DC3B35 /* beijing.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CE6823A146DFAF100DC3B35 /* beijing.png */; };
 		7CF730B414618D8500084CD3 /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CF730B014618D8500084CD3 /* Matrix4.cpp */; };
 		7CF730B514618D8500084CD3 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CF730B214618D8500084CD3 /* Vector3.cpp */; };
 /* End PBXBuildFile section */
@@ -191,7 +196,6 @@
 		7CA86AB5146A047C00414326 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
 		7CA86ABB146A078700414326 /* ButtonComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonComponent.cpp; sourceTree = "<group>"; };
 		7CA86ABC146A078700414326 /* ButtonComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonComponent.h; sourceTree = "<group>"; };
-		7CB8924C146C0E190010EF1F /* beijing01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beijing01.png; sourceTree = "<group>"; };
 		7CB89259146C19930010EF1F /* lianxiwomen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lianxiwomen.png; sourceTree = "<group>"; };
 		7CB8925B146C19E90010EF1F /* fanhui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fanhui.png; sourceTree = "<group>"; };
 		7CC3C45E146062CF006BCB8E /* Box2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2D.h; sourceTree = "<group>"; };
@@ -289,6 +293,12 @@
 		7CC3C4C1146062CF006BCB8E /* b2Rope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Rope.h; sourceTree = "<group>"; };
 		7CC3C9DC14606A29006BCB8E /* box2DRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = box2DRender.cpp; sourceTree = "<group>"; };
 		7CC3C9DD14606A29006BCB8E /* box2DRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = box2DRender.h; sourceTree = "<group>"; };
+		7CE6822D146DF2F000DC3B35 /* fenshu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fenshu.png; sourceTree = "<group>"; };
+		7CE68230146DF3EC00DC3B35 /* chengjiu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chengjiu.png; sourceTree = "<group>"; };
+		7CE68232146DF4B600DC3B35 /* wangluo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wangluo.png; sourceTree = "<group>"; };
+		7CE68234146DF5C900DC3B35 /* shezhi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shezhi.png; sourceTree = "<group>"; };
+		7CE68238146DF97900DC3B35 /* settingBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingBackground.png; sourceTree = "<group>"; };
+		7CE6823A146DFAF100DC3B35 /* beijing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beijing.png; sourceTree = "<group>"; };
 		7CF730B014618D8500084CD3 /* Matrix4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix4.cpp; sourceTree = "<group>"; };
 		7CF730B114618D8500084CD3 /* Matrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix4.h; sourceTree = "<group>"; };
 		7CF730B214618D8500084CD3 /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
@@ -457,11 +467,16 @@
 		7C84D756145BA6D300397B7A /* image */ = {
 			isa = PBXGroup;
 			children = (
+				7CE6823A146DFAF100DC3B35 /* beijing.png */,
+				7CE68238146DF97900DC3B35 /* settingBackground.png */,
+				7CE68234146DF5C900DC3B35 /* shezhi.png */,
+				7CE68232146DF4B600DC3B35 /* wangluo.png */,
+				7CE68230146DF3EC00DC3B35 /* chengjiu.png */,
+				7CE6822D146DF2F000DC3B35 /* fenshu.png */,
 				7C21DBDA146C3CC900B64B8D /* che.png */,
 				7C21DBD7146C389C00B64B8D /* chebeijing.png */,
 				7CB8925B146C19E90010EF1F /* fanhui.png */,
 				7CB89259146C19930010EF1F /* lianxiwomen.png */,
-				7CB8924C146C0E190010EF1F /* beijing01.png */,
 				7CA86AB5146A047C00414326 /* start.png */,
 				7C5CF3F514644FC400019AE0 /* xiongmao01.png */,
 				7C6EE03C14630ABC007A8A31 /* Default.png */,
@@ -755,11 +770,16 @@
 				7C6EE03D14630ABC007A8A31 /* Default.png in Resources */,
 				7C5CF3F614644FC400019AE0 /* xiongmao01.png in Resources */,
 				7CA86AB6146A047C00414326 /* start.png in Resources */,
-				7CB8924D146C0E190010EF1F /* beijing01.png in Resources */,
 				7CB8925A146C19930010EF1F /* lianxiwomen.png in Resources */,
 				7CB8925C146C19E90010EF1F /* fanhui.png in Resources */,
 				7C21DBD8146C389C00B64B8D /* chebeijing.png in Resources */,
 				7C21DBDB146C3CC900B64B8D /* che.png in Resources */,
+				7CE6822E146DF2F100DC3B35 /* fenshu.png in Resources */,
+				7CE68231146DF3EC00DC3B35 /* chengjiu.png in Resources */,
+				7CE68233146DF4B600DC3B35 /* wangluo.png in Resources */,
+				7CE68235146DF5C900DC3B35 /* shezhi.png in Resources */,
+				7CE68239146DF97900DC3B35 /* settingBackground.png in Resources */,
+				7CE6823B146DFAF100DC3B35 /* beijing.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,41 @@ StateEntryPoint::StateEntryPoint()
         n->setScale(32, 48, 1.0);
         _uiRoot->addChild(n);
     }
+    {
+        TransformationNode* n = new TransformationNode("button_score");
+        n->setData(EntityManager::getInstancePtr()->getEntity("button_score"));
+        n->setPosition(30, 275, 0);
+        n->setScale(41, 47, 1.0);
+        _uiRoot->addChild(n);
+    }
+    {
+        TransformationNode* n = new TransformationNode("button_achievement");
+        n->setData(EntityManager::getInstancePtr()->getEntity("button_achievement"));
+        n->setPosition(30, 195, 0);
+        n->setScale(41, 47, 1.0);
+        _uiRoot->addChild(n);
+    }
+    {
+        TransformationNode* n = new TransformationNode("button_network");
+        n->setData(EntityManager::getInstancePtr()->getEntity("button_network"));
+        n->setPosition(30, 35, 0);
+        n->setScale(41, 47, 1.0);
+        _uiRoot->addChild(n);
+    }
+    {
+        TransformationNode* n = new TransformationNode("button_setting");
+        n->setData(EntityManager::getInstancePtr()->getEntity("button_setting"));
+        n->setPosition(30, 445, 0);
+        n->setScale(41, 47, 1.0);
+        _uiRoot->addChild(n);
+    }
+    {
+        TransformationNode* n = new TransformationNode("background_setting");
+        n->setData(EntityManager::getInstancePtr()->getEntity("background_setting"));
+        n->setPosition(80, 445, 0);
+        n->setScale(64, 32, 1.0);
+        _uiRoot->addChild(n);
+    }
 }
 
 StateEntryPoint::~StateEntryPoint()

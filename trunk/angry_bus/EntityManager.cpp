@@ -81,7 +81,7 @@ bool EntityManager::ReportFixture(b2Fixture* fixture)
 void EntityManager::createUI()
 {
     // background
-    EntityManager::getInstancePtr()->createEntity("background_entry_state", true, false, false)->setTexture("beijing01.png");
+    EntityManager::getInstancePtr()->createEntity("background_entry_state", true, false, false)->setTexture("beijing.png");
     EntityManager::getInstancePtr()->createEntity("background_contact_us", true, false, false)->setTexture("lianxiwomen.png");
     EntityManager::getInstancePtr()->createEntity("background_setting", true, false, false)->setTexture("settingBackground.png");
     EntityManager::getInstancePtr()->createEntity("background_playing", true, false, false)->setTexture("chebeijing.png");
@@ -93,16 +93,16 @@ void EntityManager::createUI()
     EntityManager::getInstancePtr()->createEntity("button_us", true, false, true)->setTexture("women.png");
 
     EntityManager::getInstancePtr()->createEntity("button_sound", true, false, true)->setTexture("shengyin1.png");
+    
     EntityManager::getInstancePtr()->createEntity("button_setting", true, false, true)->setTexture("shezhi.png");
+    
     EntityManager::getInstancePtr()->createEntity("button_score", true, false, true)->setTexture("fenshu.png");
+    
     EntityManager::getInstancePtr()->createEntity("button_achievement", true, false, true)->setTexture("chengjiu.png");
     EntityManager::getInstancePtr()->createEntity("button_network", true, false, true)->setTexture("wangluo.png");
     
     EntityManager::getInstancePtr()->createEntity("button_back", true, false, true)->setTexture("fanhui.png");
     EntityManager::getInstancePtr()->getEntity("button_back")->setCallBack(new ButtonPushedCallBack_GotoEntryPoint);
-    
-    EntityManager::getInstancePtr()->createEntity("button_score", true, false, true)->setTexture("fenshu.png");
-
     
     // sprite
     EntityManager::getInstancePtr()->createEntity("sprite_tree_bamboo", true, false, false)->setTexture("zhuzi.png");
