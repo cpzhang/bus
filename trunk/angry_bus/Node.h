@@ -5,6 +5,7 @@
 #include <string>
 #include "Vector3.h"
 #include "Entity.h"
+#include "ITouch.h"
 
 template <class T>
 class Node
@@ -116,11 +117,11 @@ protected:
 };
 
 //template<class T>
-class TransformationNode: public Node<Entity>
+class TransformationNode: public Node<Entity>, public ITouch
 {
 public:    
     inline TransformationNode(const std::string& name)
-    :_angle(0.0)
+	:_angle(0.0), _visible(true), Node<Entity>(name)
     {
         
     }
@@ -161,10 +162,36 @@ public:
     {
         _angle = angle;
     }
-    
-private:
+    virtual bool touchBegin(float x, float y){return false};
+    virtual bool touchMoved(float x, float y, float previousX, float previousY){return false};
+    virtual bool touchEnd(float x, float y){return false};
+
+    void hide(){_visible = false;}
+    void show(){_visible = true;}
+protected:
     Vector3 _position;
     Vector3 _scale;
     float  _angle;
+    bool _visible;
+};
+
+class ButtonNode: public TransformationNode
+{
+public:
+    ButtonNode();
+    ~ButtonNode();
+
+    virtual bool touchBegin(float x, float y);
+    virtual bool touchMoved(float x, float y, float previousX, float previousY);
+    virtual bool touchEnd(float x, float y);
+
+private:
+    bool isInside(float x, float y);
+    void onHover();
+    void onHoverEnd();
+    void onPushed();
+
+private:
+    eButtonState _state;
 };
 #endif
