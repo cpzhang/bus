@@ -37,6 +37,7 @@ public:
 
     //
     virtual void setCallBack(IButtonPushedCallBack* cb);
+    virtual void onPushed();
 private:
     IRenderComponent*   _render_component;
     IPhysicsComponent*  _physics_component;

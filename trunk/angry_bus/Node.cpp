@@ -1,6 +1,6 @@
 #include "Node.h"
 ButtonNode::ButtonNode(const std::string& name)
-    :TransformationNode(name)
+:TransformationNode(name)
 {
 }
 
@@ -8,82 +8,78 @@ ButtonNode::~ButtonNode()
 {
 }
 
-bool ButtonNode::touchBegin(float x, float y)
+bool ButtonNode::touchBeginImp(float x, float y)
 {
-    if(_visible)
+    
+    if(isInside(x, y))
     {
-	if(isInside(x, y))
-	{
-	    if (_state != eButtonState_Hover) 
-	    {
-		onHover();
-	    }
-
-	    _state = eButtonState_Hover;
+        if (_state != eButtonState_Hover) 
+        {
+            onHover();
+        }
         
-	    return true;
-	}
-	else
-	{
-	    if (_state == eButtonState_Hover) 
-	    {
-		onHoverEnd();
-	    }
-
-	    _state = eButtonState_Normal;
-	}
-   
+        _state = eButtonState_Hover;
+        
+        return true;
     }
+    else
+    {
+        if (_state == eButtonState_Hover) 
+        {
+            onHoverEnd();
+        }
+        
+        _state = eButtonState_Normal;
+    }
+    
     return false;
 }
 
-bool ButtonNode::touchMoved(float x, float y, float previousX, float previousY)
+bool ButtonNode::touchMovedImp(float x, float y, float previousX, float previousY)
 {
-    if(_visible)
+    if(isInside(x, y))
     {
-	if(isInside(x, y))
-	{
-	    if (_state != eButtonState_Hover) 
-	    {
-		onHover();
-	    }
-
-	    _state = eButtonState_Hover;
-	    return true;
-	}
-	else
-	{
-	    if (_state == eButtonState_Hover) 
-	    {
-		onHoverEnd();
-	    }
-
-	    _state = eButtonState_Normal;
-	}
-     }
+        if (_state != eButtonState_Hover) 
+        {
+            onHover();
+        }
+        
+        _state = eButtonState_Hover;
+        return true;
+    }
+    else
+    {
+        if (_state == eButtonState_Hover) 
+        {
+            onHoverEnd();
+        }
+        
+        _state = eButtonState_Normal;
+    }
+    
+    
     return false;
 }
 
-bool ButtonNode::touchEnd(float x, float y)
+bool ButtonNode::touchEndImp(float x, float y)
 {
-    if(_visible)
+    
+    if(isInside(x, y))
     {
-	if(isInside(x, y))
-	{
-	    if(_state == eButtonState_Hover)
-	    {
-		if (_state == eButtonState_Hover) 
-		{
-		    onHoverEnd();
-		}
-
-		_state = eButtonState_Pushed;
-		onPushed();
-		_state = eButtonState_Normal;
-	    }
-	    return true;
-	}
+        if(_state == eButtonState_Hover)
+        {
+            if (_state == eButtonState_Hover) 
+            {
+                onHoverEnd();
+            }
+            
+            _state = eButtonState_Pushed;
+            onPushed();
+            _state = eButtonState_Normal;
+        }
+        return true;
     }
+    
     return false;
 }
 bool ButtonNode::isInside(float x, float y)
@@ -92,10 +88,16 @@ bool ButtonNode::isInside(float x, float y)
 }
 void ButtonNode::onHover()
 {
+    setTransformation(1.33);
 }
 void ButtonNode::onHoverEnd()
 {
+    setTransformation();
 }
 void ButtonNode::onPushed()
 {
+    if (_data)
+    {
+        _data->onPushed();
+    }
 }

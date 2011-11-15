@@ -8,15 +8,11 @@
 #include "ITouch.h"
 
 template <class T>
-class Node
+class Node: public ITouch
 {
 public:
-    Node()
-    {
-        
-    }
     Node(const std::string& name)
-	:_name(name)
+	:_name(name), _visible(true)
     {
         
     }
@@ -108,42 +104,133 @@ public:
         delete this;
     }
     virtual void render(){};
-    virtual void setTransformation(){};
+    virtual void setTransformation(float s=1.0){};
+    
+    virtual bool touchBegin(float x, float y)
+    {
+        if (_visible) 
+        {
+            if(touchBeginImp(x, y))
+            {
+                return true;
+            }
+            else
+            {
+                //
+                for(size_t i = 0; i != getChildrenNumber(); ++i)
+                {
+                    if(_children[i]->touchBeginImp(x, y))
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+    virtual bool touchMoved(float x, float y, float previousX, float previousY)
+    {
+        if (_visible) 
+        {
+            if(touchMovedImp(x, y, previousX, previousY))
+            {
+                return true;
+            }
+            else
+            {
+                //
+                for(size_t i = 0; i != getChildrenNumber(); ++i)
+                {
+                    if(_children[i]->touchMovedImp(x, y, previousX, previousY))
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    virtual bool touchEnd(float x, float y)
+    {
+        if (_visible) 
+        {
+            if(touchEndImp(x, y))
+            {
+                return true;
+            }
+            else
+            {
+                //
+                for(size_t i = 0; i != getChildrenNumber(); ++i)
+                {
+                    if(_children[i]->touchEndImp(x, y))
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    
+    virtual bool touchBeginImp(float x, float y){return false;}
+    virtual bool touchMovedImp(float x, float y, float previousX, float previousY){return false;}
+    virtual bool touchEndImp(float x, float y){return false;}
+    
+    
+    void hide(){_visible = false;}
+    void show(){_visible = true;}
+    
+    Node* getNodeByName(const std::string& name)
+    {
+        if (_name == name)
+        {
+            return this;
+        }
+        //
+        for(size_t i = 0; i != getChildrenNumber(); ++i)
+        {
+            Node* n = _children[i]->getNodeByName(name);
+            if(n)
+                return n;
+        }
+        return 0;
+    }
 protected:
     std::vector<Node*> _children;
     Node* _parent;
     T* _data;
     std::string _name;
+    bool _visible;
 };
 
 //template<class T>
-class TransformationNode: public Node<Entity>, public ITouch
+class TransformationNode: public Node<Entity>
 {
 public:    
     inline TransformationNode(const std::string& name)
-	:_angle(0.0), _visible(true), Node<Entity>(name)
+	:_angle(0.0), Node<Entity>(name)
     {
         
     }
-
+    
     ~TransformationNode(){};
     
     void render()
     {
-        _data->render();
-        for(size_t i = 0; i != getChildrenNumber(); ++i)
+        if (_visible)
         {
-            _children[i]->render();
+            _data->render();
+            for(size_t i = 0; i != getChildrenNumber(); ++i)
+            {
+                _children[i]->render();
+            }
         }
     }
-    virtual void setTransformation()
+    virtual void setTransformation(float s=1.0)
     {
         _data->setPosition(_position);
-        _data->setScale(_scale);
+        _data->setScale(_scale * s);
         _data->setRotation(_angle);
         for(size_t i = 0; i != getChildrenNumber(); ++i)
         {
-            _children[i]->setTransformation();
+            _children[i]->setTransformation(s);
         }
     }
     void setScale(float sx, float sy, float sz)
@@ -162,35 +249,29 @@ public:
     {
         _angle = angle;
     }
-    virtual bool touchBegin(float x, float y){return false};
-    virtual bool touchMoved(float x, float y, float previousX, float previousY){return false};
-    virtual bool touchEnd(float x, float y){return false};
-
-    void hide(){_visible = false;}
-    void show(){_visible = true;}
+    
 protected:
     Vector3 _position;
     Vector3 _scale;
     float  _angle;
-    bool _visible;
 };
 
 class ButtonNode: public TransformationNode
 {
 public:
-    ButtonNode();
+    ButtonNode(const std::string& name);
     ~ButtonNode();
-
-    virtual bool touchBegin(float x, float y);
-    virtual bool touchMoved(float x, float y, float previousX, float previousY);
-    virtual bool touchEnd(float x, float y);
-
+    
+    virtual bool touchBeginImp(float x, float y);
+    virtual bool touchMovedImp(float x, float y, float previousX, float previousY);
+    virtual bool touchEndImp(float x, float y);
+    
 private:
     bool isInside(float x, float y);
     void onHover();
     void onHoverEnd();
     void onPushed();
-
+    
 private:
     eButtonState _state;
 };

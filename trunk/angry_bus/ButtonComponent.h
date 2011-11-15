@@ -17,13 +17,13 @@ public:
     virtual bool touchMoved(float x, float y, float previousX, float previousY);
     virtual bool touchEnd(float x, float y);
     
+    virtual void onPushed();
     //
     virtual void setCallBack(IButtonPushedCallBack* cb);
 private:
     bool isInside(float x, float y);
     void onHover();
     void onHoverEnd();
-    void onPushed();
 private:
     eButtonState _state;
     Entity* _host;

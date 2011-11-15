@@ -51,6 +51,7 @@ struct IButtonComponent: public IComponent, public ITouch
 {
     virtual ~IButtonComponent(){};
     virtual void setCallBack(IButtonPushedCallBack* cb) = 0;
+    virtual void onPushed() = 0;
     
 };
 #endif

@@ -170,6 +170,12 @@ void Entity::setCallBack(IButtonPushedCallBack *cb)
         _button_component->setCallBack(cb);
 }
 
+void Entity::onPushed()
+{
+    if(_button_component)
+        _button_component->onPushed();
+}
+
 bool Entity::isInside(float x, float y)
 {
     if (_render_component)

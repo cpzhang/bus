@@ -10,36 +10,38 @@ StateEntryPoint::StateEntryPoint()
         _uiRoot->setPosition(160, 240, 0);
         _uiRoot->setScale(320, 480, 1.0);
     }
+    //
     {
-        TransformationNode* n = new TransformationNode("button_enter");
+        ButtonNode* n = new ButtonNode("button_enter");
         n->setData(EntityManager::getInstancePtr()->getEntity("button_enter"));
         n->setPosition(160, 240, 0);
         n->setScale(32, 48, 1.0);
-        _uiRoot->addChild(n);
+        _uiRoot->addChild(n); 
     }
+    //
     {
-        TransformationNode* n = new TransformationNode("button_score");
+        ButtonNode* n = new ButtonNode("button_score");
         n->setData(EntityManager::getInstancePtr()->getEntity("button_score"));
         n->setPosition(30, 275, 0);
         n->setScale(41, 47, 1.0);
         _uiRoot->addChild(n);
     }
     {
-        TransformationNode* n = new TransformationNode("button_achievement");
+        ButtonNode* n = new ButtonNode("button_achievement");
         n->setData(EntityManager::getInstancePtr()->getEntity("button_achievement"));
         n->setPosition(30, 195, 0);
         n->setScale(41, 47, 1.0);
         _uiRoot->addChild(n);
     }
     {
-        TransformationNode* n = new TransformationNode("button_network");
+        ButtonNode* n = new ButtonNode("button_network");
         n->setData(EntityManager::getInstancePtr()->getEntity("button_network"));
         n->setPosition(30, 35, 0);
         n->setScale(41, 47, 1.0);
         _uiRoot->addChild(n);
     }
     {
-        TransformationNode* n = new TransformationNode("button_setting");
+        ButtonNode* n = new ButtonNode("button_setting");
         n->setData(EntityManager::getInstancePtr()->getEntity("button_setting"));
         n->setPosition(30, 445, 0);
         n->setScale(41, 47, 1.0);
@@ -72,18 +74,30 @@ void StateEntryPoint::update(float secondsElapsed)
 
 bool StateEntryPoint::touchBegin(float x, float y)
 {
+    if (1) {
+        return _uiRoot->touchBegin(x, y);
+    }
     return _uiRoot->breadth_first(&Entity::touchBegin, x, y);
 }
 bool StateEntryPoint::touchMoved(float x, float y, float previousX, float previousY)
 {
+    
+    if (1) {
+        return _uiRoot->touchMoved(x, y, previousX, previousY);
+    }
     return _uiRoot->breadth_first(&Entity::touchMoved, x, y, previousX, previousY);
 }
 bool StateEntryPoint::touchEnd(float x, float y)
 {
+    
+    if (1) {
+        return _uiRoot->touchEnd(x, y);
+    }
     return _uiRoot->breadth_first(&Entity::touchEnd, x, y);
 }
 
 void StateEntryPoint::start()
 {
     _uiRoot->setTransformation();
+    _uiRoot->getNodeByName("background_setting")->hide();
 }
