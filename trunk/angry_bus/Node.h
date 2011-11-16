@@ -125,7 +125,7 @@ public:
                 //
                 for(size_t i = 0; i != getChildrenNumber(); ++i)
                 {
-                    if(_children[i]->touchBeginImp(x, y))
+                    if(_children[i]->touchBegin(x, y))
                         return true;
                 }
             }
@@ -145,14 +145,14 @@ public:
                 //
                 for(size_t i = 0; i != getChildrenNumber(); ++i)
                 {
-                    if(_children[i]->touchMovedImp(x, y, previousX, previousY))
+                    if(_children[i]->touchMoved(x, y, previousX, previousY))
                         return true;
                 }
             }
         }
         return false;
     }
-
+    
     virtual bool touchEnd(float x, float y)
     {
         if (_visible) 
@@ -166,14 +166,14 @@ public:
                 //
                 for(size_t i = 0; i != getChildrenNumber(); ++i)
                 {
-                    if(_children[i]->touchEndImp(x, y))
+                    if(_children[i]->touchEnd(x, y))
                         return true;
                 }
             }
         }
         return false;
     }
-
+    
     
     virtual bool touchBeginImp(float x, float y){return false;}
     virtual bool touchMovedImp(float x, float y, float previousX, float previousY){return false;}
@@ -200,6 +200,16 @@ public:
         return 0;
     }
     virtual void setCallBack(IButtonPushedCallBack* cb){};
+    
+    virtual void setScale(float sx, float sy, float sz){};
+    virtual void setPosition(float x, float y, float z){};
+    virtual void setPosition(const Vector3& p){};
+    virtual void setRotation(float angle){};
+    
+    
+    virtual Vector3 getScale(){return Vector3::ZERO;};
+    virtual Vector3 getPosition(){return Vector3::ZERO;};
+    virtual float getRotation(){return 0.0;};
 protected:
     std::vector<Node*> _children;
     Node* _parent;
@@ -241,23 +251,30 @@ public:
             _children[i]->setTransformation(s);
         }
     }
-    void setScale(float sx, float sy, float sz)
+    virtual void setScale(float sx, float sy, float sz)
     {
         _scale.x = sx;
         _scale.y = sy;
         _scale.z = sz;
     }
-    void setPosition(float x, float y, float z)
+    virtual void setPosition(float x, float y, float z)
     {
         _position.x = x;
         _position.y = y;
         _position.z = z;
     }
-    void setRotation(float angle)
+    virtual void setPosition(const Vector3& p)
+    {
+        _position = p;
+        setTransformation();
+    };
+    virtual void setRotation(float angle)
     {
         _angle = angle;
     }
-    
+    virtual Vector3 getScale(){return _scale;};
+    virtual Vector3 getPosition(){return _position;};
+    virtual float getRotation(){return _angle;};
 protected:
     Vector3 _position;
     Vector3 _scale;

@@ -7,7 +7,7 @@ NodeManager::~NodeManager()
     NameNodeMap::iterator it = _nodes.begin();
     for (; it != _nodes.end(); ++it)
     {
-        Node* e = it->second;
+        Node<Entity>* e = it->second;
         if (e)
         {
             delete e;
@@ -17,7 +17,7 @@ NodeManager::~NodeManager()
     //
     _nodes.clear();
 }
-Node* createNode(eNodeType e, const std::string& name)
+Node<Entity>* NodeManager::createNode(eNodeType e, const std::string& name)
 {
     NameNodeMap::iterator it = _nodes.find(name);
     if(it == _nodes.end())
@@ -35,7 +35,7 @@ Node* createNode(eNodeType e, const std::string& name)
     return _nodes[name];
 }
 
-Node* NodeManager::getNode(const std::string& name)
+Node<Entity>* NodeManager::getNode(const std::string& name)
 {
     NameNodeMap::iterator it = _nodes.find(name);
     if(it != _nodes.end())

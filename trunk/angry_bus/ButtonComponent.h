@@ -60,4 +60,5 @@ class ButtonPushedCallBack_Sound: public IButtonPushedCallBack
 public:
     virtual void doIt();
 };
+
 #endif

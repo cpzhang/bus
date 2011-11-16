@@ -5,7 +5,7 @@
 
 #include <iostream>
 Entity::Entity()
- :_render_component(0), _physics_component(0), //_button_component(0)
+ :_render_component(0), _physics_component(0) //_button_component(0)
 {
     
 }

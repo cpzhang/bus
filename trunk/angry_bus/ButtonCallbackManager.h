@@ -1,6 +1,8 @@
 #ifndef _ButtonCallbackManager_
 #define _ButtonCallbackManager_
 #include "Singleton.h"
+#include <string>
+#include <map>
 class IButtonPushedCallBack;
 class ButtonCallbackManager: public Singleton<ButtonCallbackManager>
 {

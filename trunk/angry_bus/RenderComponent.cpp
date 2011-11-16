@@ -91,7 +91,7 @@ bool RenderComponent::setTexture(std::string const &fileName)
 {
     if (_tex)
     {
-        TextureManager::getInstancePtr()->discardTexture(_tex);
+       TextureManager::getInstancePtr()->discardTexture(_tex);
     }
     //
     _tex = TextureManager::getInstancePtr()->createTextureFromImageFile(fileName);

@@ -1,4 +1,6 @@
 #include "ButtonCallbackManager.h"
+#include "IComponent.h"
+#include "ButtonComponent.h"
 ButtonCallbackManager::ButtonCallbackManager()
 {
 }

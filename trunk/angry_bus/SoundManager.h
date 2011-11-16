@@ -1,6 +1,7 @@
 #ifndef _SoundManager_
 #define _SoundManager_
 #include "Singleton.h"
+#include <string>
 class SoundManager: public Singleton<SoundManager>
 {
 public:

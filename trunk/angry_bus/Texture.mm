@@ -71,7 +71,7 @@ bool Texture::create2DFromFile(const std::string& fileName)
     if(e)
     {
         std::cout<<"OPenGLES Function Call Error, hint: "<<e<<std::endl;
-        return false;
+        //return false;
     }
 
     _type = eTextureType_2D;

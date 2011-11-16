@@ -23,7 +23,7 @@ StatePlaying::StatePlaying()
     }
     
     {
-        Node* n = NodeManager::getInstancePtr()->createNode(eNodeType_Button, "button_back");
+        Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Button, "button_back");
         n->setData(EntityManager::getInstancePtr()->getEntity("button_back"));
 	n->setCallBack(ButtonCallbackManager::getInstancePtr()->getCallback("go to entry point state"));
         n->setPosition(16, 450, 0);
@@ -50,29 +50,29 @@ void StatePlaying::update(float secondsElapsed)
 
 bool StatePlaying::touchBegin(float x, float y)
 {
-    if (1) {
+    //if (1) {
         return _uiRoot->touchBegin(x, y);
-    }
+    //}
 
-    return _uiRoot->breadth_first(&Entity::touchBegin, x, y);
+    //return _uiRoot->breadth_first(&Entity::touchBegin, x, y);
 }
 
 bool StatePlaying::touchMoved(float x, float y, float previousX, float previousY)
 {
-    if (1) {
+    //if (1) {
         return _uiRoot->touchMoved(x, y, previousX, previousY);
-    }
+    //}
 
-    return _uiRoot->breadth_first(&Entity::touchMoved, x, y, previousX, previousY);
+    //return _uiRoot->breadth_first(&Entity::touchMoved, x, y, previousX, previousY);
 }
 
 bool StatePlaying::touchEnd(float x, float y)
 {
-    if (1) {
+    //if (1) {
         return _uiRoot->touchEnd(x, y);
-    }
+    //}
 
-    return _uiRoot->breadth_first(&Entity::touchEnd, x, y);
+    //return _uiRoot->breadth_first(&Entity::touchEnd, x, y);
 }
 
 void StatePlaying::start()

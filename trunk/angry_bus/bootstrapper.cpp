@@ -10,6 +10,9 @@
 #include <Box2D/Box2d.h>
 #include <iostream>
 #include "StateMachine.h"
+#include "NodeManager.h"
+#include "ButtonCallbackManager.h"
+#include "SoundManager.h"
 
 BootStrapper::BootStrapper()
 :_focus(0), _mouseJoint(0)
@@ -35,12 +38,18 @@ bool BootStrapper::initSingletons()
     new ProgramManager;
     new TextureManager;
     new StateMachine;
+    new NodeManager;
+    new ButtonCallbackManager;
+    new SoundManager;
     
     return true;
 }
 
 bool BootStrapper::create()
 {
+    //
+    ButtonCallbackManager::getInstancePtr()->initCallbacks();
+    
     //
     EntityManager::getInstancePtr()->createUI();
     
@@ -135,7 +144,9 @@ void BootStrapper::destroy()
     delete ServicesProvider::getInstancePtr();
     delete EntityManager::getInstancePtr();
     delete StateMachine::getInstancePtr();
-    
+    delete NodeManager::getInstancePtr();
+    delete ButtonCallbackManager::getInstancePtr();
+    delete SoundManager::getInstancePtr();
     //
     delete _world;
     delete _box2DRender;

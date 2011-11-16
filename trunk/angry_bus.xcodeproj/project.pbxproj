@@ -16,6 +16,13 @@
 		7C2852491454EC3B00A83EBC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C2852471454EC3B00A83EBC /* InfoPlist.strings */; };
 		7C28524C1454EC3B00A83EBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C28524B1454EC3B00A83EBC /* main.m */; };
 		7C28524F1454EC3B00A83EBC /* angry_busAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C28524E1454EC3B00A83EBC /* angry_busAppDelegate.mm */; };
+		7C3AF37A1473DF1300A6F085 /* ButtonCallbackManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AF3781473DF1300A6F085 /* ButtonCallbackManager.cpp */; };
+		7C3AF37E1473DF2700A6F085 /* NodeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AF37C1473DF2700A6F085 /* NodeManager.cpp */; };
+		7C3AF3811473E28600A6F085 /* SoundManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AF3801473E28500A6F085 /* SoundManager.mm */; };
+		7C3AF3831473E7D100A6F085 /* women.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C3AF3821473E7D100A6F085 /* women.png */; };
+		7C3AF3861473E7E700A6F085 /* shengyin1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C3AF3841473E7E700A6F085 /* shengyin1.png */; };
+		7C3AF3871473E7E700A6F085 /* shengyin2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C3AF3851473E7E700A6F085 /* shengyin2.png */; };
+		7C3AF3891474081600A6F085 /* xiaoche.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C3AF3881474081600A6F085 /* xiaoche.png */; };
 		7C5CF3EB146440DE00019AE0 /* StateAboutUs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C5CF3E1146440DE00019AE0 /* StateAboutUs.cpp */; };
 		7C5CF3EC146440DE00019AE0 /* StateEntryPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C5CF3E3146440DE00019AE0 /* StateEntryPoint.cpp */; };
 		7C5CF3ED146440DE00019AE0 /* StateLevelSelection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C5CF3E5146440DE00019AE0 /* StateLevelSelection.cpp */; };
@@ -130,6 +137,16 @@
 		7C28524B1454EC3B00A83EBC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7C28524D1454EC3B00A83EBC /* angry_busAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = angry_busAppDelegate.h; sourceTree = "<group>"; };
 		7C28524E1454EC3B00A83EBC /* angry_busAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = angry_busAppDelegate.mm; sourceTree = "<group>"; };
+		7C3AF3781473DF1300A6F085 /* ButtonCallbackManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonCallbackManager.cpp; sourceTree = "<group>"; };
+		7C3AF3791473DF1300A6F085 /* ButtonCallbackManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonCallbackManager.h; sourceTree = "<group>"; };
+		7C3AF37C1473DF2700A6F085 /* NodeManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeManager.cpp; sourceTree = "<group>"; };
+		7C3AF37D1473DF2700A6F085 /* NodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeManager.h; sourceTree = "<group>"; };
+		7C3AF37F1473E28500A6F085 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		7C3AF3801473E28500A6F085 /* SoundManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SoundManager.mm; sourceTree = "<group>"; };
+		7C3AF3821473E7D100A6F085 /* women.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = women.png; sourceTree = "<group>"; };
+		7C3AF3841473E7E700A6F085 /* shengyin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shengyin1.png; sourceTree = "<group>"; };
+		7C3AF3851473E7E700A6F085 /* shengyin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shengyin2.png; sourceTree = "<group>"; };
+		7C3AF3881474081600A6F085 /* xiaoche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xiaoche.png; sourceTree = "<group>"; };
 		7C5CF3E1146440DE00019AE0 /* StateAboutUs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateAboutUs.cpp; sourceTree = "<group>"; };
 		7C5CF3E2146440DE00019AE0 /* StateAboutUs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateAboutUs.h; sourceTree = "<group>"; };
 		7C5CF3E3146440DE00019AE0 /* StateEntryPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateEntryPoint.cpp; sourceTree = "<group>"; };
@@ -433,6 +450,12 @@
 		7C84D74F145BA13D00397B7A /* game */ = {
 			isa = PBXGroup;
 			children = (
+				7C3AF37F1473E28500A6F085 /* SoundManager.h */,
+				7C3AF3801473E28500A6F085 /* SoundManager.mm */,
+				7C3AF37C1473DF2700A6F085 /* NodeManager.cpp */,
+				7C3AF37D1473DF2700A6F085 /* NodeManager.h */,
+				7C3AF3781473DF1300A6F085 /* ButtonCallbackManager.cpp */,
+				7C3AF3791473DF1300A6F085 /* ButtonCallbackManager.h */,
 				7CA86ABB146A078700414326 /* ButtonComponent.cpp */,
 				7CA86ABC146A078700414326 /* ButtonComponent.h */,
 				7C5CF3F41464465800019AE0 /* IState.h */,
@@ -467,6 +490,10 @@
 		7C84D756145BA6D300397B7A /* image */ = {
 			isa = PBXGroup;
 			children = (
+				7C3AF3881474081600A6F085 /* xiaoche.png */,
+				7C3AF3841473E7E700A6F085 /* shengyin1.png */,
+				7C3AF3851473E7E700A6F085 /* shengyin2.png */,
+				7C3AF3821473E7D100A6F085 /* women.png */,
 				7CE6823A146DFAF100DC3B35 /* beijing.png */,
 				7CE68238146DF97900DC3B35 /* settingBackground.png */,
 				7CE68234146DF5C900DC3B35 /* shezhi.png */,
@@ -780,6 +807,10 @@
 				7CE68235146DF5C900DC3B35 /* shezhi.png in Resources */,
 				7CE68239146DF97900DC3B35 /* settingBackground.png in Resources */,
 				7CE6823B146DFAF100DC3B35 /* beijing.png in Resources */,
+				7C3AF3831473E7D100A6F085 /* women.png in Resources */,
+				7C3AF3861473E7E700A6F085 /* shengyin1.png in Resources */,
+				7C3AF3871473E7E700A6F085 /* shengyin2.png in Resources */,
+				7C3AF3891474081600A6F085 /* xiaoche.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,6 +898,9 @@
 				7C8A9C60146623BF004E3AE8 /* PhysicsComponent.cpp in Sources */,
 				7C8A9C6E146685AC004E3AE8 /* Common.cpp in Sources */,
 				7CA86ABD146A078700414326 /* ButtonComponent.cpp in Sources */,
+				7C3AF37A1473DF1300A6F085 /* ButtonCallbackManager.cpp in Sources */,
+				7C3AF37E1473DF2700A6F085 /* NodeManager.cpp in Sources */,
+				7C3AF3811473E28600A6F085 /* SoundManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

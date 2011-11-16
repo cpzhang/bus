@@ -3,6 +3,8 @@
 #include "StateMachine.h"
 #include "NodeManager.h"
 #include "SoundManager.h"
+#include "EntityManager.h"
+
 ButtonComponent::ButtonComponent(Entity* e)
 :_state(eButtonState_Normal), _host(e), _callback(0)
 {
@@ -25,7 +27,7 @@ bool ButtonComponent::touchBegin(float x, float y)
         {
             onHover();
         }
-
+        
         _state = eButtonState_Hover;
         
         return true;
@@ -36,7 +38,7 @@ bool ButtonComponent::touchBegin(float x, float y)
         {
             onHoverEnd();
         }
-
+        
         _state = eButtonState_Normal;
     }
     
@@ -51,7 +53,7 @@ bool ButtonComponent::touchMoved(float x, float y, float previousX, float previo
         {
             onHover();
         }
-
+        
         _state = eButtonState_Hover;
         return true;
     }
@@ -61,7 +63,7 @@ bool ButtonComponent::touchMoved(float x, float y, float previousX, float previo
         {
             onHoverEnd();
         }
-
+        
         _state = eButtonState_Normal;
     }
     
@@ -78,7 +80,7 @@ bool ButtonComponent::touchEnd(float x, float y)
             {
                 onHoverEnd();
             }
-
+            
             _state = eButtonState_Pushed;
             onPushed();
             _state = eButtonState_Normal;
@@ -128,11 +130,11 @@ void ButtonPushedCallBack_Us::doIt()
 
 void ButtonPushedCallBack_Setting::doIt()
 {
-    Node* n = NodeManager::getInstancePtr()->getNode("button_setting");
+    Node<Entity>* n = NodeManager::getInstancePtr()->getNode("background_setting");
     if(n)
     {
-	bool b = n->isVisible();
-	n->setVisible(!b);
+        bool b = n->isVisible();
+        n->setVisible(!b);
     }
 }
 
@@ -146,10 +148,12 @@ void ButtonPushedCallBack_Sound::doIt()
     bool b =SoundManager::getInstancePtr()->isEnable();
     if(b)
     {
-	SoundManager::getInstancePtr()->stop();
+        SoundManager::getInstancePtr()->stop();
+        EntityManager::getInstancePtr()->getEntity("button_sound")->setTexture("shengyin2.png");
     }
     else
     {
-	SoundManager::getInstancePtr()->play();
+        SoundManager::getInstancePtr()->play();
+        EntityManager::getInstancePtr()->getEntity("button_sound")->setTexture("shengyin1.png");
     }
 }

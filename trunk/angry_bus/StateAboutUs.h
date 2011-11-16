@@ -1,7 +1,7 @@
 #ifndef _StateAboutUs__
 #define _StateAboutUs___
 #include "IState.h"
-class TransformationNode;
+#include "Node.h"
 
 class StateAboutUs : public IState
 {
@@ -17,7 +17,7 @@ public:
     virtual bool touchMoved(float x, float y, float previousX, float previousY);
     virtual bool touchEnd(float x, float y);
 private:
-    TransformationNode* _uiRoot;
+    Node<Entity>* _uiRoot;
 };
 #endif
 
