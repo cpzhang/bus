@@ -88,13 +88,15 @@ void EntityManager::createUI()
 
     // button
     EntityManager::getInstancePtr()->createEntity("button_enter", true, false, true)->setTexture("start.png");
-    EntityManager::getInstancePtr()->getEntity("button_enter")->setCallBack(new ButtonPushedCallBack_Enter);
+    // EntityManager::getInstancePtr()->getEntity("button_enter")->setCallBack(new ButtonPushedCallBack_Enter);
 
     EntityManager::getInstancePtr()->createEntity("button_us", true, false, true)->setTexture("women.png");
+    // EntityManager::getInstancePtr()->getEntity("button_setting")->setCallBack(new ButtonPushedCallBack_Us);
 
     EntityManager::getInstancePtr()->createEntity("button_sound", true, false, true)->setTexture("shengyin1.png");
     
     EntityManager::getInstancePtr()->createEntity("button_setting", true, false, true)->setTexture("shezhi.png");
+    // EntityManager::getInstancePtr()->getEntity("button_setting")->setCallBack(new ButtonPushedCallBack_Setting);
     
     EntityManager::getInstancePtr()->createEntity("button_score", true, false, true)->setTexture("fenshu.png");
     
@@ -102,7 +104,7 @@ void EntityManager::createUI()
     EntityManager::getInstancePtr()->createEntity("button_network", true, false, true)->setTexture("wangluo.png");
     
     EntityManager::getInstancePtr()->createEntity("button_back", true, false, true)->setTexture("fanhui.png");
-    EntityManager::getInstancePtr()->getEntity("button_back")->setCallBack(new ButtonPushedCallBack_GotoEntryPoint);
+    // EntityManager::getInstancePtr()->getEntity("button_back")->setCallBack(new ButtonPushedCallBack_GotoEntryPoint);
     
     // sprite
     EntityManager::getInstancePtr()->createEntity("sprite_tree_bamboo", true, false, false)->setTexture("zhuzi.png");

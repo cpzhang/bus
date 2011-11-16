@@ -1,16 +1,18 @@
 #include "Node.h"
 ButtonNode::ButtonNode(const std::string& name)
-:TransformationNode(name)
+    :TransformationNode(name), _callback(0)
 {
 }
 
 ButtonNode::~ButtonNode()
 {
 }
-
+void ButtonNode::setCallBack(IButtonPushedCallBack* cb)
+{
+    _callback = cb;
+}
 bool ButtonNode::touchBeginImp(float x, float y)
 {
-    
     if(isInside(x, y))
     {
         if (_state != eButtonState_Hover) 
@@ -96,6 +98,8 @@ void ButtonNode::onHoverEnd()
 }
 void ButtonNode::onPushed()
 {
+    return _callback->doIt();
+
     if (_data)
     {
         _data->onPushed();

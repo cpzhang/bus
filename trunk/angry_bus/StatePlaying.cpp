@@ -2,11 +2,13 @@
 #include "EntityManager.h"
 #include "Entity.h"
 #include "Node.h"
+#include "NodeManager.h"
+#include "ButtonCallbackManager.h"
 
 StatePlaying::StatePlaying()
 {
     {
-        _uiRoot = new TransformationNode("background_playing");
+        _uiRoot = NodeManager::getInstancePtr()->createNode(eNodeType_Transformation, "background_playing");
         _uiRoot->setData(EntityManager::getInstancePtr()->getEntity("background_playing"));
         _uiRoot->setPosition(160, 240, 0);
         _uiRoot->setScale(320, 480, 1.0);
@@ -21,8 +23,9 @@ StatePlaying::StatePlaying()
     }
     
     {
-        TransformationNode* n = new TransformationNode("button_back");
+        Node* n = NodeManager::getInstancePtr()->createNode(eNodeType_Button, "button_back");
         n->setData(EntityManager::getInstancePtr()->getEntity("button_back"));
+	n->setCallBack(ButtonCallbackManager::getInstancePtr()->getCallback("go to entry point state"));
         n->setPosition(16, 450, 0);
         n->setScale(32, 48, 1.0);
         _uiRoot->addChild(n);
@@ -47,16 +50,28 @@ void StatePlaying::update(float secondsElapsed)
 
 bool StatePlaying::touchBegin(float x, float y)
 {
+    if (1) {
+        return _uiRoot->touchBegin(x, y);
+    }
+
     return _uiRoot->breadth_first(&Entity::touchBegin, x, y);
 }
 
 bool StatePlaying::touchMoved(float x, float y, float previousX, float previousY)
 {
+    if (1) {
+        return _uiRoot->touchMoved(x, y, previousX, previousY);
+    }
+
     return _uiRoot->breadth_first(&Entity::touchMoved, x, y, previousX, previousY);
 }
 
 bool StatePlaying::touchEnd(float x, float y)
 {
+    if (1) {
+        return _uiRoot->touchEnd(x, y);
+    }
+
     return _uiRoot->breadth_first(&Entity::touchEnd, x, y);
 }
 

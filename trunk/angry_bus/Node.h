@@ -6,7 +6,13 @@
 #include "Vector3.h"
 #include "Entity.h"
 #include "ITouch.h"
-
+enum eNodeType
+{
+    eNodeType_Normal,
+    eNodeType_Transformation,
+    eNodeType_Button,
+    eNodeType_Size,
+};
 template <class T>
 class Node: public ITouch
 {
@@ -176,7 +182,8 @@ public:
     
     void hide(){_visible = false;}
     void show(){_visible = true;}
-    
+    void setVisible(bool b){_visible = b;}
+    bool isVisible(){return _visible;}
     Node* getNodeByName(const std::string& name)
     {
         if (_name == name)
@@ -192,6 +199,7 @@ public:
         }
         return 0;
     }
+    virtual void setCallBack(IButtonPushedCallBack* cb){};
 protected:
     std::vector<Node*> _children;
     Node* _parent;
@@ -265,7 +273,7 @@ public:
     virtual bool touchBeginImp(float x, float y);
     virtual bool touchMovedImp(float x, float y, float previousX, float previousY);
     virtual bool touchEndImp(float x, float y);
-    
+    virtual void setCallBack(IButtonPushedCallBack* cb);
 private:
     bool isInside(float x, float y);
     void onHover();
@@ -274,5 +282,6 @@ private:
     
 private:
     eButtonState _state;
+    IButtonPushedCallBack* _callback;
 };
 #endif

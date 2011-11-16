@@ -38,6 +38,12 @@ public:
     virtual void doIt();
 };
 
+class ButtonPushedCallBack_Setting: public IButtonPushedCallBack
+{
+public:
+    virtual void doIt();
+};
+
 class ButtonPushedCallBack_Us: public IButtonPushedCallBack
 {
 public:
@@ -45,6 +51,11 @@ public:
 };
 
 class ButtonPushedCallBack_GotoEntryPoint: public IButtonPushedCallBack
+{
+public:
+    virtual void doIt();
+};
+class ButtonPushedCallBack_Sound: public IButtonPushedCallBack
 {
 public:
     virtual void doIt();

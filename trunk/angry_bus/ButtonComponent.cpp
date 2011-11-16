@@ -1,7 +1,8 @@
 #include "ButtonComponent.h"
 #include "Entity.h"
 #include "StateMachine.h"
-
+#include "NodeManager.h"
+#include "SoundManager.h"
 ButtonComponent::ButtonComponent(Entity* e)
 :_state(eButtonState_Normal), _host(e), _callback(0)
 {
@@ -125,7 +126,30 @@ void ButtonPushedCallBack_Us::doIt()
     StateMachine::getInstancePtr()->goNext(eState_AboutUs);
 }
 
+void ButtonPushedCallBack_Setting::doIt()
+{
+    Node* n = NodeManager::getInstancePtr()->getNode("button_setting");
+    if(n)
+    {
+	bool b = n->isVisible();
+	n->setVisible(!b);
+    }
+}
+
 void ButtonPushedCallBack_GotoEntryPoint::doIt()
 {
     StateMachine::getInstancePtr()->goNext(eState_EntryPoint);
+}
+
+void ButtonPushedCallBack_Sound::doIt()
+{
+    bool b =SoundManager::getInstancePtr()->isEnable();
+    if(b)
+    {
+	SoundManager::getInstancePtr()->stop();
+    }
+    else
+    {
+	SoundManager::getInstancePtr()->play();
+    }
 }
