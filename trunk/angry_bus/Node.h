@@ -206,6 +206,10 @@ public:
     virtual void setPosition(const Vector3& p){};
     virtual void setRotation(float angle){};
     
+    //
+    virtual void translate(float x, float y, float z){};
+    virtual void translate(const Vector3& p){};
+    virtual void rotateZ(float angle){};
     
     virtual Vector3 getScale(){return Vector3::ZERO;};
     virtual Vector3 getPosition(){return Vector3::ZERO;};
@@ -275,6 +279,22 @@ public:
     virtual Vector3 getScale(){return _scale;};
     virtual Vector3 getPosition(){return _position;};
     virtual float getRotation(){return _angle;};
+//
+    virtual void translate(float x, float y, float z)
+{
+    _position.x += x;
+    _position.y += y;
+    _position.z += z;
+}
+    virtual void translate(const Vector3& p)
+{
+    _position += p;
+}
+    virtual void rotateZ(float angle)
+{
+    _angle += angle;
+}
+    
 protected:
     Vector3 _position;
     Vector3 _scale;

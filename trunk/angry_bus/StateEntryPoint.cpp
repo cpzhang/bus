@@ -97,11 +97,44 @@ void StateEntryPoint::render()
     _uiRoot->render();
     _spriteRoot->render();
 }
-
-void StateEntryPoint::update(float secondsElapsed)
+void StateEntryPoint::updateTree()
 {
-    {
-        Vector3 p = NodeManager::getInstancePtr()->getNode("sprite_car")->getPosition();
+    static const float speed = 0.8f;
+    static const float edge = 500.0f;
+    static const float edgeOffset = 128.0f;
+    //
+#define TranslateTree(tree)			\
+    tree->translate(0, speed);			\
+    if (tree->getCenterY() >= edge)		\
+    {						\
+	tree->translate(0, -edge - edgeOffset);	\
+    }
+    //
+    TranslateTree(_tree1);
+    TranslateTree(_tree2);
+    TranslateTree(_tree3);
+    TranslateTree(_tree4);
+}
+void StateEntryPoint::updateLeaf()
+{
+  for (size_t i = 0; i != _leaf.size(); ++i)
+  {
+                srand(time(NULL) + i * rand());
+                int j = rand() % 100;
+                float y = j < 90 ? 1 : -1;  
+                float speedX = -0.02f * j;
+                float speedY = 0.005f * j * y;
+                _leaf[i]->translate(speedX, speedY, 0.0);
+                _leaf[i]->rotateZ(j*0.01f);
+                if (_leaf[i]->getPosition().x < 0 || _leaf[i]->getPosition().y > 480 || _leaf[i]->getPosition().y < 0)
+                {
+                    _leaf[i]->setPosition(320, rand() % 480, 0.0f);
+                }
+  }
+}
+void StateEntryPoint::updateCar()
+{
+       Vector3 p = NodeManager::getInstancePtr()->getNode("sprite_car")->getPosition();
         
         srand(time(NULL) + rand());
         static int threshold = 80;
@@ -119,7 +152,12 @@ void StateEntryPoint::update(float secondsElapsed)
        
         p.y += speed * secondsElapsed;
         NodeManager::getInstancePtr()->getNode("sprite_car")->setPosition(p);
-    }
+}
+void StateEntryPoint::update(float secondsElapsed)
+{
+    updateCar();
+    updateLeaf();
+    updateTree();
 }
 
 bool StateEntryPoint::touchBegin(float x, float y)

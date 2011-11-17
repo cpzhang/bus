@@ -5,7 +5,7 @@
 #include "b2Body.h"
 #include "Vector3.h"
 
-class Entity: public IRenderComponent, public IPhysicsComponent//, public IButtonComponent
+class Entity: public IRenderComponent, public IPhysicsComponent
 {
 public:
     Entity();
@@ -30,18 +30,9 @@ public:
     virtual void startContact();
     virtual void endContact();
     
-    //
-    /* virtual bool touchBegin(float x, float y); */
-    /* virtual bool touchMoved(float x, float y, float previousX, float previousY); */
-    /* virtual bool touchEnd(float x, float y); */
-
-    //
-    /* virtual void setCallBack(IButtonPushedCallBack* cb); */
-    /* virtual void onPushed(); */
 private:
     IRenderComponent*   _render_component;
     IPhysicsComponent*  _physics_component;
-    /* IButtonComponent*   _button_component; */
 };
 
 #endif
