@@ -31,6 +31,11 @@ public:
         return Vector3(x / s, y / s, z / s);
     }
     
+    inline Vector3 operator += (const Vector3& p)
+    {
+        x += p.x; y += p.y; z += p.z;
+        return *this;
+    }
     static const Vector3 ZERO;
 };
 #endif
