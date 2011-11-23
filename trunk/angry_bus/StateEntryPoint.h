@@ -20,11 +20,13 @@ public:
     virtual bool touchMoved(float x, float y, float previousX, float previousY);
     virtual bool touchEnd(float x, float y);
 private:
-    void updateCar();
-    void updateLeaf();
-    void updateTree();
+    void updateCar(float secondsElapsed);
+    void updateLeaf(float secondsElapsed);
+    void updateTree(float secondsElapsed);
 private:
     Node<Entity>* _uiRoot;
     Node<Entity>* _spriteRoot;
+    std::vector<std::string> _trees;
+    std::vector<std::string> _leaves;
 };
 #endif

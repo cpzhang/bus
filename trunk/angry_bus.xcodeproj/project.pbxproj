@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C01C540147D360F002770AB /* zhuzi.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C01C53F147D360F002770AB /* zhuzi.png */; };
+		7C01C543147D3A95002770AB /* fengshu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C01C542147D3A95002770AB /* fengshu.png */; };
+		7C01C545147D3E85002770AB /* ziseyezi.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C01C544147D3E85002770AB /* ziseyezi.png */; };
+		7C01C547147D4070002770AB /* lvseyezi.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C01C546147D4070002770AB /* lvseyezi.png */; };
+		7C01C549147D40BE002770AB /* huangseyezi.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C01C548147D40BE002770AB /* huangseyezi.png */; };
+		7C01C54B147D4988002770AB /* s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C01C54A147D4988002770AB /* s.mp3 */; };
 		7C113B7A1459ADD200B581B6 /* RenderES1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C113B781459ADD200B581B6 /* RenderES1.cpp */; };
 		7C21DBD8146C389C00B64B8D /* chebeijing.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C21DBD7146C389C00B64B8D /* chebeijing.png */; };
 		7C21DBDB146C3CC900B64B8D /* che.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C21DBDA146C3CC900B64B8D /* che.png */; };
@@ -111,6 +117,7 @@
 		7CC3C786146062D0006BCB8E /* b2WheelJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3C4BD146062CF006BCB8E /* b2WheelJoint.cpp */; };
 		7CC3C787146062D0006BCB8E /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3C4C0146062CF006BCB8E /* b2Rope.cpp */; };
 		7CC3C9DE14606A29006BCB8E /* box2DRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3C9DC14606A29006BCB8E /* box2DRender.cpp */; };
+		7CD48E55147D506B0014D8D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD48E54147D506B0014D8D6 /* AVFoundation.framework */; };
 		7CE6822E146DF2F100DC3B35 /* fenshu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CE6822D146DF2F000DC3B35 /* fenshu.png */; };
 		7CE68231146DF3EC00DC3B35 /* chengjiu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CE68230146DF3EC00DC3B35 /* chengjiu.png */; };
 		7CE68233146DF4B600DC3B35 /* wangluo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CE68232146DF4B600DC3B35 /* wangluo.png */; };
@@ -122,6 +129,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C01C53F147D360F002770AB /* zhuzi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhuzi.png; sourceTree = "<group>"; };
+		7C01C542147D3A95002770AB /* fengshu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fengshu.png; sourceTree = "<group>"; };
+		7C01C544147D3E85002770AB /* ziseyezi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ziseyezi.png; sourceTree = "<group>"; };
+		7C01C546147D4070002770AB /* lvseyezi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lvseyezi.png; sourceTree = "<group>"; };
+		7C01C548147D40BE002770AB /* huangseyezi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = huangseyezi.png; sourceTree = "<group>"; };
+		7C01C54A147D4988002770AB /* s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = s.mp3; sourceTree = "<group>"; };
 		7C113B761459A20D00B581B6 /* IRender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = IRender.h; sourceTree = "<group>"; };
 		7C113B781459ADD200B581B6 /* RenderES1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderES1.cpp; sourceTree = "<group>"; };
 		7C113B791459ADD200B581B6 /* RenderES1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderES1.h; sourceTree = "<group>"; };
@@ -310,6 +323,7 @@
 		7CC3C4C1146062CF006BCB8E /* b2Rope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Rope.h; sourceTree = "<group>"; };
 		7CC3C9DC14606A29006BCB8E /* box2DRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = box2DRender.cpp; sourceTree = "<group>"; };
 		7CC3C9DD14606A29006BCB8E /* box2DRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = box2DRender.h; sourceTree = "<group>"; };
+		7CD48E54147D506B0014D8D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7CE6822D146DF2F000DC3B35 /* fenshu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fenshu.png; sourceTree = "<group>"; };
 		7CE68230146DF3EC00DC3B35 /* chengjiu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chengjiu.png; sourceTree = "<group>"; };
 		7CE68232146DF4B600DC3B35 /* wangluo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wangluo.png; sourceTree = "<group>"; };
@@ -333,6 +347,7 @@
 				7C2852431454EC3B00A83EBC /* CoreGraphics.framework in Frameworks */,
 				7C8830F81455A71A0044D0FA /* OpenGLES.framework in Frameworks */,
 				7C8830F91455A71A0044D0FA /* QuartzCore.framework in Frameworks */,
+				7CD48E55147D506B0014D8D6 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +395,7 @@
 		7C28523D1454EC3B00A83EBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7CD48E54147D506B0014D8D6 /* AVFoundation.framework */,
 				7C8830F61455A71A0044D0FA /* OpenGLES.framework */,
 				7C8830F71455A71A0044D0FA /* QuartzCore.framework */,
 				7C28523E1454EC3B00A83EBC /* UIKit.framework */,
@@ -490,6 +506,11 @@
 		7C84D756145BA6D300397B7A /* image */ = {
 			isa = PBXGroup;
 			children = (
+				7C01C548147D40BE002770AB /* huangseyezi.png */,
+				7C01C546147D4070002770AB /* lvseyezi.png */,
+				7C01C544147D3E85002770AB /* ziseyezi.png */,
+				7C01C542147D3A95002770AB /* fengshu.png */,
+				7C01C53F147D360F002770AB /* zhuzi.png */,
 				7C3AF3881474081600A6F085 /* xiaoche.png */,
 				7C3AF3841473E7E700A6F085 /* shengyin1.png */,
 				7C3AF3851473E7E700A6F085 /* shengyin2.png */,
@@ -515,6 +536,7 @@
 		7C84D757145BA70100397B7A /* music */ = {
 			isa = PBXGroup;
 			children = (
+				7C01C54A147D4988002770AB /* s.mp3 */,
 			);
 			name = music;
 			sourceTree = "<group>";
@@ -811,6 +833,12 @@
 				7C3AF3861473E7E700A6F085 /* shengyin1.png in Resources */,
 				7C3AF3871473E7E700A6F085 /* shengyin2.png in Resources */,
 				7C3AF3891474081600A6F085 /* xiaoche.png in Resources */,
+				7C01C540147D360F002770AB /* zhuzi.png in Resources */,
+				7C01C543147D3A95002770AB /* fengshu.png in Resources */,
+				7C01C545147D3E85002770AB /* ziseyezi.png in Resources */,
+				7C01C547147D4070002770AB /* lvseyezi.png in Resources */,
+				7C01C549147D40BE002770AB /* huangseyezi.png in Resources */,
+				7C01C54B147D4988002770AB /* s.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -957,6 +985,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "angry_bus/angry_bus-Prefix.pch";
@@ -972,6 +1004,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "angry_bus/angry_bus-Prefix.pch";
 				HEADER_SEARCH_PATHS = Box2D_v2.2.1;

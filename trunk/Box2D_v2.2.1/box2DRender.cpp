@@ -73,7 +73,7 @@ void box2DRender::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2
         p->setVertexAttributePointer("aPosition", 2, GL_FLOAT, GL_FALSE, 0, &vertices[0]);
         
         p->setUniformMatrixfv("uModelViewProjection", 1, false, _mvp.transpose()._m);
-        p->setUniformf("uColor", color.r, color.g, color.b, 0.1);
+        p->setUniformf("uColor", color.r, color.g, color.b, 0.8);
         //
         ServicesProvider::getInstancePtr()->getRender()->enable(GL_BLEND);
         ServicesProvider::getInstancePtr()->getRender()->blendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

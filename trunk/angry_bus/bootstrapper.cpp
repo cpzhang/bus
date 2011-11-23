@@ -48,6 +48,12 @@ bool BootStrapper::initSingletons()
 bool BootStrapper::create()
 {
     //
+    if (!SoundManager::getInstancePtr()->create())
+    {
+        return false;
+    }
+    SoundManager::getInstancePtr()->play();
+    //
     ButtonCallbackManager::getInstancePtr()->initCallbacks();
     
     //

@@ -82,6 +82,51 @@ StateEntryPoint::StateEntryPoint()
         n->setScale(32, 64, 1.0);
         _spriteRoot = n;
     }
+    // tree 1
+    {
+        Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Transformation, "sprite_tree_bamboo");
+        n->setData(EntityManager::getInstancePtr()->getEntity("sprite_tree_bamboo"));
+        n->setPosition(130, 340, 0);
+        n->setScale(128, 64, 1.0);
+        _spriteRoot->addChild(n);
+        _trees.push_back("sprite_tree_bamboo");
+    }
+    // tree 2
+    {
+        Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Transformation, "sprite_tree_maple");
+        n->setData(EntityManager::getInstancePtr()->getEntity("sprite_tree_maple"));
+        n->setPosition(130, 80, 0);
+        n->setScale(128, 128, 1.0);
+        _spriteRoot->addChild(n);
+        _trees.push_back("sprite_tree_maple");
+    }
+    // leaf 1
+    {
+        Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Transformation, "sprite_leaf_purple");
+        n->setData(EntityManager::getInstancePtr()->getEntity("sprite_leaf_purple"));
+        n->setPosition(320, 80, 0);
+        n->setScale(32, 32, 1.0);
+        _spriteRoot->addChild(n);
+        _leaves.push_back("sprite_leaf_purple");
+    }
+    // leaf 2
+    {
+        Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Transformation, "sprite_leaf_green");
+        n->setData(EntityManager::getInstancePtr()->getEntity("sprite_leaf_green"));
+        n->setPosition(320, 120, 0);
+        n->setScale(32, 32, 1.0);
+        _spriteRoot->addChild(n);
+        _leaves.push_back("sprite_leaf_green");
+    }
+    // leaf 3
+    {
+        Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Transformation, "sprite_leaf_yellow");
+        n->setData(EntityManager::getInstancePtr()->getEntity("sprite_leaf_yellow"));
+        n->setPosition(320, 200, 0);
+        n->setScale(32, 32, 1.0);
+        _spriteRoot->addChild(n);
+        _leaves.push_back("sprite_leaf_yellow");
+    }
 }
 
 StateEntryPoint::~StateEntryPoint()
@@ -97,67 +142,62 @@ void StateEntryPoint::render()
     _uiRoot->render();
     _spriteRoot->render();
 }
-void StateEntryPoint::updateTree()
+
+void StateEntryPoint::updateTree(float secondsElapsed)
 {
-    static const float speed = 0.8f;
-    static const float edge = 500.0f;
-    static const float edgeOffset = 128.0f;
-    //
-#define TranslateTree(tree)			\
-    tree->translate(0, speed);			\
-    if (tree->getCenterY() >= edge)		\
-    {						\
-	tree->translate(0, -edge - edgeOffset);	\
-    }
-    //
-    TranslateTree(_tree1);
-    TranslateTree(_tree2);
-    TranslateTree(_tree3);
-    TranslateTree(_tree4);
-}
-void StateEntryPoint::updateLeaf()
-{
-  for (size_t i = 0; i != _leaf.size(); ++i)
-  {
-                srand(time(NULL) + i * rand());
-                int j = rand() % 100;
-                float y = j < 90 ? 1 : -1;  
-                float speedX = -0.02f * j;
-                float speedY = 0.005f * j * y;
-                _leaf[i]->translate(speedX, speedY, 0.0);
-                _leaf[i]->rotateZ(j*0.01f);
-                if (_leaf[i]->getPosition().x < 0 || _leaf[i]->getPosition().y > 480 || _leaf[i]->getPosition().y < 0)
-                {
-                    _leaf[i]->setPosition(320, rand() % 480, 0.0f);
-                }
-  }
-}
-void StateEntryPoint::updateCar()
-{
-       Vector3 p = NodeManager::getInstancePtr()->getNode("sprite_car")->getPosition();
-        
-        srand(time(NULL) + rand());
-        static int threshold = 80;
-        float speed = rand() % 100 - threshold;
-        if(p.y < 50)
-        {
-            speed = abs(speed);
-            threshold = 35;
-        }
-        else if(p.y > 430)
-        {
-            speed = -abs(speed);
-            threshold = 60;
-        }
-       
+    for (size_t i = 0; i != _trees.size(); ++i)
+    {
+        Vector3 p = NodeManager::getInstancePtr()->getNode(_trees[i])->getPosition();
+        static float speed = -18.0;
         p.y += speed * secondsElapsed;
-        NodeManager::getInstancePtr()->getNode("sprite_car")->setPosition(p);
+        if(p.y < -50)
+        {
+            p.y = 550;
+        }
+        if(p.y > 550)
+        {
+            p.y = -50;
+        }
+        NodeManager::getInstancePtr()->getNode(_trees[i])->setPosition(p);
+    }
 }
+
+void StateEntryPoint::updateLeaf(float secondsElapsed)
+{
+    for (size_t i = 0; i != _leaves.size(); ++i)
+    {
+        Vector3 p = NodeManager::getInstancePtr()->getNode(_leaves[i])->getPosition();
+        srand(time(NULL) + i * rand());
+        int j = rand() % 100;
+        float y = j < 90 ? 1 : -1;  
+        float speedX = -0.02f * j;
+        float speedY = 0.005f * j * y;
+        NodeManager::getInstancePtr()->getNode(_leaves[i])->translate(speedX, speedY, 0.0);
+        NodeManager::getInstancePtr()->getNode(_leaves[i])->rotateZ(j*0.001f);
+        if (p.x < 0 || p.y > 480 || p.y < 0)
+        {
+            NodeManager::getInstancePtr()->getNode(_leaves[i])->setPosition(320, rand() % 480, 0.0);
+        }
+    }
+}
+
+void StateEntryPoint::updateCar(float secondsElapsed)
+{
+    Vector3 p = NodeManager::getInstancePtr()->getNode("sprite_car")->getPosition();
+    static float speed = 20.0;
+    p.y += speed * secondsElapsed;
+    if(p.y < 50 || p.y > 430)
+    {
+        speed *= -1.0;
+    }
+    NodeManager::getInstancePtr()->getNode("sprite_car")->setPosition(p);
+}
+
 void StateEntryPoint::update(float secondsElapsed)
 {
-    updateCar();
-    updateLeaf();
-    updateTree();
+    updateCar(secondsElapsed);
+    updateLeaf(secondsElapsed);
+    updateTree(secondsElapsed);
 }
 
 bool StateEntryPoint::touchBegin(float x, float y)

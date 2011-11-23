@@ -2,12 +2,13 @@
 #define _SoundManager_
 #include "Singleton.h"
 #include <string>
+
 class SoundManager: public Singleton<SoundManager>
 {
 public:
     SoundManager();
     ~SoundManager();
-    
+    bool create();
     void play(const std::string& name);
     void play();
     void stop();
