@@ -15,7 +15,8 @@ StatePlaying::StatePlaying()
     }
     
     {
-        TransformationNode* n = new TransformationNode("sprite_bus");
+        Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Transformation, "sprite_bus");
+        // TransformationNode* n = new TransformationNode("sprite_bus");
         n->setData(EntityManager::getInstancePtr()->getEntity("sprite_bus"));
         n->setPosition(80, 240, 0);
         n->setScale(160, 480, 1.0);
