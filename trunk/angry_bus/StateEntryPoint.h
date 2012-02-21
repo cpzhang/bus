@@ -26,6 +26,7 @@ private:
 private:
     Node<Entity>* _uiRoot;
     Node<Entity>* _spriteRoot;
+    Node<Entity>* _background;
     std::vector<std::string> _trees;
     std::vector<std::string> _leaves;
 };

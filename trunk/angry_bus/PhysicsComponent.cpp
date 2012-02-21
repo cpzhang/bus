@@ -16,6 +16,7 @@ PhysicsComponent::~PhysicsComponent()
 void PhysicsComponent::setBody(b2Body *b)
 {
     _body = b;
+    _body->SetUserData(_host);
 }
 
 void PhysicsComponent::startContact()
@@ -37,4 +38,12 @@ void PhysicsComponent::update()
         _host->setPosition(m2p(p.x), m2p(p.y), 0.0);
         _host->setRotation(a);
     }
+}
+
+void PhysicsComponent::setPosition(float x, float y)
+{
+    b2Vec2 p;
+    p.x = p2m(x);
+    p.y = p2m(y);
+    _body->SetTransform(p, 0.0f);
 }

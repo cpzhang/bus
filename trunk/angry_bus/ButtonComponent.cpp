@@ -1,6 +1,5 @@
 #include "ButtonComponent.h"
 #include "Entity.h"
-#include "StateMachine.h"
 #include "NodeManager.h"
 #include "SoundManager.h"
 #include "EntityManager.h"
@@ -118,16 +117,6 @@ void ButtonComponent::onPushed()
     }
 }
 
-void ButtonPushedCallBack_Enter::doIt()
-{
-    StateMachine::getInstancePtr()->goNext(eState_Playing);
-}
-
-void ButtonPushedCallBack_Us::doIt()
-{
-    StateMachine::getInstancePtr()->goNext(eState_AboutUs);
-}
-
 void ButtonPushedCallBack_Setting::doIt()
 {
     Node<Entity>* n = NodeManager::getInstancePtr()->getNode("background_setting");
@@ -136,11 +125,6 @@ void ButtonPushedCallBack_Setting::doIt()
         bool b = n->isVisible();
         n->setVisible(!b);
     }
-}
-
-void ButtonPushedCallBack_GotoEntryPoint::doIt()
-{
-    StateMachine::getInstancePtr()->goNext(eState_EntryPoint);
 }
 
 void ButtonPushedCallBack_Sound::doIt()
@@ -156,4 +140,18 @@ void ButtonPushedCallBack_Sound::doIt()
         SoundManager::getInstancePtr()->play();
         EntityManager::getInstancePtr()->getEntity("button_sound")->setTexture("shengyin1.png");
     }
+}
+
+void ButtonPushedCallStatePlaying_NextLevel::doIt()
+{
+    IState* t = StateMachine::getInstancePtr()->getState(eState_Playing);
+    StatePlaying* sp = (StatePlaying*)t;
+    sp->nextLevel();
+}
+
+void ButtonPushedCallStatePlaying_DoTheSameLevelAgain::doIt()
+{
+    IState* t = StateMachine::getInstancePtr()->getState(eState_Playing);
+    StatePlaying* sp = (StatePlaying*)t;
+    sp->theSameLevelAgain();
 }

@@ -89,6 +89,11 @@ void RenderComponent::updateModelMatrix()
 
 bool RenderComponent::setTexture(std::string const &fileName)
 {
+    if (fileName == _texName)
+    {
+        return true;
+    }
+    _texName = fileName;
     if (_tex)
     {
        TextureManager::getInstancePtr()->discardTexture(_tex);
@@ -125,7 +130,9 @@ void RenderComponent::render()
         //
         ServicesProvider::getInstancePtr()->getRender()->enable(GL_BLEND);
         ServicesProvider::getInstancePtr()->getRender()->blendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        //ServicesProvider::getInstancePtr()->getRender()->blendFunc(GL_SRC_COLOR, GL_ONE_MINUS_SRC_COLOR);
 
+        //
         p->setVertexAttributePointer("aPosition", 3, GL_FLOAT, GL_FALSE, 0, &_vertices[0]);
         p->setVertexAttributePointer("aTexCoord", 2, GL_FLOAT, GL_FALSE, 0, &_texCoords[0]);
         Matrix4 mv = _modelMatrix * _viewMatrix;
@@ -139,7 +146,6 @@ void RenderComponent::render()
         }
         
         ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_TRIANGLES, 0, 6);
-        //glBindTexture(GL_TEXTURE_2D, 0);
         p->disableVertexAttribArray("aPosition");
         p->disableVertexAttribArray("aTexCoord");
         ServicesProvider::getInstancePtr()->getRender()->disable(GL_BLEND);
@@ -165,4 +171,9 @@ bool RenderComponent::isInside(float x, float y)
 Vector3 RenderComponent::getScale()
 {
     return _scale;
+}
+
+Vector3 RenderComponent::getPosition()
+{
+    return _position;
 }

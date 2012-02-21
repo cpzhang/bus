@@ -2,6 +2,7 @@
 #include "StateEntryPoint.h"
 #include "StateAboutUs.h"
 #include "StatePlaying.h"
+#include "StateLevelSelection.h"
 
 StateMachine::StateMachine()
 :_currentState(eState_EntryPoint)
@@ -26,7 +27,7 @@ bool StateMachine::createStates()
 {
     _states.push_back(new StateEntryPoint);
     _states.push_back(new StateAboutUs);
-    _states.push_back(0);
+    _states.push_back(new StateLevelSelection);
     _states.push_back(new StatePlaying);
     
     return true;
@@ -67,3 +68,10 @@ void StateMachine::start()
 {
     
 }
+
+IState* StateMachine::getState(eState s)
+{
+    return _states[s];
+}
+
+bool IState::_IsReady(false);

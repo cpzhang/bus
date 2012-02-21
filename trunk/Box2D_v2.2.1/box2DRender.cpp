@@ -78,7 +78,7 @@ void box2DRender::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2
         ServicesProvider::getInstancePtr()->getRender()->enable(GL_BLEND);
         ServicesProvider::getInstancePtr()->getRender()->blendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         
-        ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_TRIANGLE_FAN, 0, vertices.size());
+        //ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_TRIANGLE_FAN, 0, vertices.size());
         
         //
         p->setUniformf("uColor", color.r, color.g, color.b, 1.0);
@@ -89,7 +89,22 @@ void box2DRender::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2
 
 void box2DRender::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& color)
 {
-    
+    Program* p = ProgramManager::getInstancePtr()->getProgram("diffuse");
+    if (p)
+    {
+        b2Vec2 vertices[2];
+        vertices[0].x = m2p(p1.x);
+        vertices[0].y = m2p(p1.y);
+        vertices[1].x = m2p(p2.x);
+        vertices[1].y = m2p(p2.y);
+        p->apply();
+        p->setVertexAttributePointer("aPosition", 2, GL_FLOAT, GL_FALSE, 0, vertices);
+        
+        p->setUniformMatrixfv("uModelViewProjection", 1, false, _mvp.transpose()._m);
+        //
+        p->setUniformf("uColor", color.r, color.g, color.b, 1.0);
+        ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_LINES, 0, 2);
+    } 
 }
 
 void box2DRender::DrawTransform(const b2Transform& xf)

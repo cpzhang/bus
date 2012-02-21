@@ -4,16 +4,8 @@
 #include "IRender.h"
 #include <vector>
 #include "ITouch.h"
-#include "b2WorldCallbacks.h"
-#include "b2MouseJoint.h"
-#include "b2DistanceJoint.h"
 
-class Entity;
-class b2World;
-class b2Draw;
-class b2Fixture;
-
-class BootStrapper: public ITouch, public b2QueryCallback
+class BootStrapper: public ITouch
 {
 public:
     BootStrapper();
@@ -30,18 +22,10 @@ public:
     virtual bool touchMoved(float x, float y, float previousX, float previousY);
     virtual bool touchEnd(float x, float y);
     
-    //
-    virtual bool ReportFixture(b2Fixture* fixture);
 private:
     void update(float secondsElapsed);
     void render();
     bool registerPrograms();
-private:
-    b2World*    _world;
-    b2Draw*     _box2DRender;
-    b2Body*     _focus;
-    b2Body*     _groundBody;
-    b2MouseJoint* _mouseJoint;
 };
 
 #endif

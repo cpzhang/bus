@@ -11,15 +11,17 @@ StateEntryPoint::StateEntryPoint()
         _uiRoot->setData(EntityManager::getInstancePtr()->getEntity("background_entry_state"));
         _uiRoot->setPosition(160, 240, 0);
         _uiRoot->setScale(320, 480, 1.0);
+        _background = _uiRoot;
     }
     //
     {
         Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Button, "button_enter");
         n->setData(EntityManager::getInstancePtr()->getEntity("button_enter"));
-        n->setCallBack(ButtonCallbackManager::getInstancePtr()->getCallback("go to playing state"));
-        n->setPosition(160, 240, 0);
-        n->setScale(32, 48, 1.0);
-        _uiRoot->addChild(n); 
+        n->setCallBack(ButtonCallbackManager::getInstancePtr()->getCallback("go to level selection state"));
+        n->setPosition(150, 240, 0);
+        n->setScale(64, 64, 1.0);
+        _uiRoot = n;
+        //_uiRoot->addChild(n); 
     }
     //
     {
@@ -86,19 +88,37 @@ StateEntryPoint::StateEntryPoint()
     {
         Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Transformation, "sprite_tree_bamboo");
         n->setData(EntityManager::getInstancePtr()->getEntity("sprite_tree_bamboo"));
-        n->setPosition(130, 340, 0);
+        n->setPosition(130, 400, 0);
         n->setScale(128, 64, 1.0);
         _spriteRoot->addChild(n);
         _trees.push_back("sprite_tree_bamboo");
     }
     // tree 2
     {
-        Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Transformation, "sprite_tree_maple");
+        Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Transformation, "sprite_tree_maple_0");
         n->setData(EntityManager::getInstancePtr()->getEntity("sprite_tree_maple"));
-        n->setPosition(130, 80, 0);
+        n->setPosition(130, 280, 0);
         n->setScale(128, 128, 1.0);
         _spriteRoot->addChild(n);
-        _trees.push_back("sprite_tree_maple");
+        _trees.push_back("sprite_tree_maple_0");
+    }
+    // tree 3
+    {
+        Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Transformation, "sprite_tree_bamboo_1");
+        n->setData(EntityManager::getInstancePtr()->getEntity("sprite_tree_bamboo_1"));
+        n->setPosition(130, 170, 0);
+        n->setScale(128, 64, 1.0);
+        _spriteRoot->addChild(n);
+        _trees.push_back("sprite_tree_bamboo_1");
+    }
+    // tree 4
+    {
+        Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Transformation, "sprite_tree_maple_1");
+        n->setData(EntityManager::getInstancePtr()->getEntity("sprite_tree_maple_1"));
+        n->setPosition(130, 30, 0);
+        n->setScale(128, 128, 1.0);
+        _spriteRoot->addChild(n);
+        _trees.push_back("sprite_tree_maple_1");
     }
     // leaf 1
     {
@@ -135,12 +155,15 @@ StateEntryPoint::~StateEntryPoint()
     _uiRoot = 0;
     _spriteRoot->release();
     _spriteRoot = 0;
+    _background->release();
+    _background = 0;
 }
 
 void StateEntryPoint::render()
 {
-    _uiRoot->render();
+    _background->render();
     _spriteRoot->render();
+    _uiRoot->render();
 }
 
 void StateEntryPoint::updateTree(float secondsElapsed)
@@ -148,7 +171,7 @@ void StateEntryPoint::updateTree(float secondsElapsed)
     for (size_t i = 0; i != _trees.size(); ++i)
     {
         Vector3 p = NodeManager::getInstancePtr()->getNode(_trees[i])->getPosition();
-        static float speed = -18.0;
+        static float speed = 34.0;
         p.y += speed * secondsElapsed;
         if(p.y < -50)
         {
@@ -186,7 +209,7 @@ void StateEntryPoint::updateCar(float secondsElapsed)
     Vector3 p = NodeManager::getInstancePtr()->getNode("sprite_car")->getPosition();
     static float speed = 20.0;
     p.y += speed * secondsElapsed;
-    if(p.y < 50 || p.y > 430)
+    if(p.y < 200 || p.y > 300)
     {
         speed *= -1.0;
     }
@@ -217,6 +240,7 @@ bool StateEntryPoint::touchEnd(float x, float y)
 
 void StateEntryPoint::start()
 {
+    _background->setTransformation();
     _uiRoot->setTransformation();
     _uiRoot->getNodeByName("background_setting")->hide();
     _spriteRoot->setTransformation();

@@ -21,6 +21,7 @@ struct IRenderComponent : public IComponent
     virtual Vector3 getScale() = 0;
     virtual void setPosition(float x, float y, float z) = 0;
     virtual void setRotation(float angle) = 0;
+    virtual Vector3 getPosition() = 0;
     virtual void setScale(const Vector3& s) = 0;
     virtual void setPosition(const Vector3& p) = 0;
     virtual bool isInside(float x, float y) = 0;
@@ -32,6 +33,7 @@ struct IPhysicsComponent: public IComponent
     virtual void setBody(b2Body* b) = 0;
     virtual void startContact() = 0;
     virtual void endContact() = 0;
+    virtual void setPosition(float x, float y) = 0;
 };
 
 enum eButtonState

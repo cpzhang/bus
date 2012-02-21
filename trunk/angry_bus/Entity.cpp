@@ -4,7 +4,7 @@
 
 #include <iostream>
 Entity::Entity()
- :_render_component(0), _physics_component(0)
+ :_render_component(0), _physics_component(0), _hide(false), _isInBus(false)
 {
     
 }
@@ -55,7 +55,7 @@ void Entity::update()
 
 void Entity::render()
 {
-    if (_render_component)
+    if (!_hide && _render_component)
     {
         _render_component->render();
     }
@@ -117,6 +117,12 @@ void Entity::endContact()
         _physics_component->endContact();
 }
 
+void Entity::setPosition(float x, float y)
+{
+    if (_physics_component)
+        _physics_component->setPosition(x, y);
+}
+
 void Entity::setBody(b2Body* b)
 {
     if (_physics_component)
@@ -137,4 +143,55 @@ Vector3 Entity::getScale()
         return _render_component->getScale();
     
     return Vector3::ZERO;
+}
+
+Vector3 Entity::getPosition()
+{
+    if (_render_component)
+        return _render_component->getPosition();
+    
+    return Vector3::ZERO;
+}
+
+void Entity::hide()
+{
+    _hide = true;
+}
+
+void Entity::show()
+{
+    _hide = false;
+}
+
+void Entity::setExpression(eExpression e)
+{
+    if (!_expressions[e].empty()) 
+    {
+        setTexture(_expressions[e]); 
+    }
+}
+void Entity::setExpression(eExpression e,const std::string &s)
+{
+    _expressions[e] = s;
+}
+void Entity::setValue(eValueProperty property, int value)
+{
+    _property = property;
+    _value = value;
+}
+int Entity::getValue()
+{
+    return _value;
+}
+eValueProperty Entity::getProperty()
+{
+    return _property;
+}
+void Entity::setInBus(bool inBus)
+{
+    _isInBus = inBus;
+}
+bool Entity::isInBus()
+{
+    return _isInBus;
 }

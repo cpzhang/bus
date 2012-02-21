@@ -5,6 +5,7 @@
 #include <OpenGLES/ES2/glext.h>
 #include "IRender.h"
 #include "Color.h"
+#define MSAA
 class RenderES2 : public IRender
 {
 public:
@@ -36,5 +37,9 @@ private:
     GLint   _width;
     GLint   _height;
     Color   _clearColor;
+#ifdef MSAA
+    GLuint   _resolve_fbo;
+    GLuint   _resolve_color_buffer;
+#endif
 };
 #endif

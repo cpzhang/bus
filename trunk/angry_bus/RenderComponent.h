@@ -22,6 +22,7 @@ public:
     virtual bool setTexture(const std::string& fileName);
     virtual void setScale(float sx, float sy, float sz);
     virtual void setPosition(float x, float y, float z);
+    virtual Vector3 getPosition();
     virtual void setRotation(float angle);
     virtual void setScale(const Vector3& s);
     virtual void setPosition(const Vector3& p);
@@ -37,6 +38,7 @@ private:
     Matrix4 _modelMatrix;
     Matrix4 _projectionMatrix;
     Texture* _tex;
+    std::string _texName;
     Vector3 _position;
     Vector3 _scale;
     float   _angle;

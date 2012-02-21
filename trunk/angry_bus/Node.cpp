@@ -94,7 +94,7 @@ bool ButtonNode::isInside(float x, float y)
 
 void ButtonNode::onHover()
 {
-    setTransformation(1.33);
+    setTransformation(1.33, false);
 }
 
 void ButtonNode::onHoverEnd()

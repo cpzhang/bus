@@ -14,11 +14,11 @@ StateAboutUs::StateAboutUs()
         _uiRoot->setScale(320, 480, 1.0);
     }
     {
-        Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Button, "button_back");
+        Node<Entity>* n = NodeManager::getInstancePtr()->createNode(eNodeType_Button, "button_back_entrystate_from_aboutus");
         n->setData(EntityManager::getInstancePtr()->getEntity("button_back"));
         n->setCallBack(ButtonCallbackManager::getInstancePtr()->getCallback("go to entry point state"));
-        n->setPosition(16, 450, 0);
-        n->setScale(32, 48, 1.0);
+        n->setPosition(30, 455, 0);
+        n->setScale(32, 32, 1.0);
         _uiRoot->addChild(n);
     }
     

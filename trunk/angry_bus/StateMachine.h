@@ -23,6 +23,8 @@ public:
     virtual bool touchMoved(float x, float y, float previousX, float previousY);
     virtual bool touchEnd(float x, float y);
 
+public:
+    IState* getState(eState s);
 private:
     std::vector<IState*> _states;
     eState _currentState;

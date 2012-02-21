@@ -48,7 +48,16 @@ bool Texture::create2DFromFile(const std::string& fileName)
         // Allocated memory needed for the bitmap context
         data = (GLubyte *) calloc(width * height * bytes, sizeof(GLubyte));
         // Uses the bitmap creation function provided by the Core Graphics framework. 
-        CGContextRef spriteContext = CGBitmapContextCreate(data, width, height, 8, width * bytes, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
+        CGContextRef spriteContext;
+        if (pf == GL_RGB) 
+        {
+             spriteContext = CGBitmapContextCreate(data, width, height, 8, width * bytes, CGImageGetColorSpace(spriteImage), kCGImageAlphaNone);
+        }
+        else
+        {
+            spriteContext = CGBitmapContextCreate(data, width, height, 8, width * bytes, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
+            
+        }
         if (!spriteContext)
         {
             delete data;
@@ -59,19 +68,19 @@ bool Texture::create2DFromFile(const std::string& fileName)
         // You don't need the context at this point, so you need to release it to avoid memory leaks.
         CGContextRelease(spriteContext);
     }
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     
     glTexImage2D(GL_TEXTURE_2D, 0, pf, width, height, border, pf, GL_UNSIGNED_BYTE, data);
-    //delete data;
-    //glBindTexture(GL_TEXTURE_2D, 0);
     GLenum e = glGetError();
     if(e)
     {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexImage2D(GL_TEXTURE_2D, 0, pf, width, height, border, pf, GL_UNSIGNED_BYTE, data);
         std::cout<<"OPenGLES Function Call Error, hint: "<<e<<std::endl;
-        //return false;
     }
 
     _type = eTextureType_2D;

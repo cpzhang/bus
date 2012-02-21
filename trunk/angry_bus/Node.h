@@ -18,7 +18,7 @@ class Node: public ITouch
 {
 public:
     Node(const std::string& name)
-	:_name(name), _visible(true)
+	:_name(name), _visible(true), _data(0)
     {
         
     }
@@ -110,7 +110,7 @@ public:
         delete this;
     }
     virtual void render(){};
-    virtual void setTransformation(float s=1.0){};
+    virtual void setTransformation(float s=1.0, bool inherit = true){};
     
     virtual bool touchBegin(float x, float y)
     {
@@ -238,22 +238,29 @@ public:
     {
         if (_visible)
         {
-            _data->render();
+            if(_data)
+                _data->render();
             for(size_t i = 0; i != getChildrenNumber(); ++i)
             {
                 _children[i]->render();
             }
         }
     }
-    virtual void setTransformation(float s=1.0)
+    virtual void setTransformation(float s=1.0, bool inherit = true)
     {
-        _data->setPosition(_position);
-        _data->setScale(_scale * s);
-        _data->setRotation(_angle);
-        for(size_t i = 0; i != getChildrenNumber(); ++i)
+        if(_data)
         {
-            _children[i]->setTransformation(s);
+            _data->setPosition(_position);
+            _data->setScale(_scale * s);
+            _data->setRotation(_angle);
         }
+        if (inherit)
+        {
+            for(size_t i = 0; i != getChildrenNumber(); ++i)
+            {
+                _children[i]->setTransformation(s);
+            }
+        }   
     }
     virtual void setScale(float sx, float sy, float sz)
     {
