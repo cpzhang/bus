@@ -18,7 +18,7 @@ class Node: public ITouch
 {
 public:
     Node(const std::string& name)
-	:_name(name), _visible(true), _data(0)
+	:_name(name), _visible(true), _data(0), _enable(true)
     {
         
     }
@@ -114,7 +114,7 @@ public:
     
     virtual bool touchBegin(float x, float y)
     {
-        if (_visible) 
+        if (_visible && _enable) 
         {
             if(touchBeginImp(x, y))
             {
@@ -134,7 +134,7 @@ public:
     }
     virtual bool touchMoved(float x, float y, float previousX, float previousY)
     {
-        if (_visible) 
+        if (_visible && _enable) 
         {
             if(touchMovedImp(x, y, previousX, previousY))
             {
@@ -155,7 +155,7 @@ public:
     
     virtual bool touchEnd(float x, float y)
     {
-        if (_visible) 
+        if (_visible && _enable) 
         {
             if(touchEndImp(x, y))
             {
@@ -184,6 +184,18 @@ public:
     void show(){_visible = true;}
     void setVisible(bool b){_visible = b;}
     bool isVisible(){return _visible;}
+    inline void enable()
+    {
+        _enable = true;
+    }
+    inline void disable()
+    {
+        _enable = false;
+    }
+    inline bool isEnable()
+    {
+        return _enable;
+    }
     Node* getNodeByName(const std::string& name)
     {
         if (_name == name)
@@ -220,6 +232,7 @@ protected:
     T* _data;
     std::string _name;
     bool _visible;
+    bool _enable;
 };
 
 //template<class T>
@@ -239,7 +252,16 @@ public:
         if (_visible)
         {
             if(_data)
-                _data->render();
+            {
+                if (_enable)
+                {
+                    _data->render();
+                }
+                else
+                {
+                    _data->render(Color(0.5, 0.5, 0.5, 1.0));
+                }
+            }
             for(size_t i = 0; i != getChildrenNumber(); ++i)
             {
                 _children[i]->render();

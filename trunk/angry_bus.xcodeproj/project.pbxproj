@@ -101,6 +101,7 @@
 		7C88903414E3FA2500177B01 /* ui_beijing01.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C88903314E3FA2500177B01 /* ui_beijing01.png */; };
 		7C88903614E3FBAB00177B01 /* ui_chenggong_xiao.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C88903514E3FBAB00177B01 /* ui_chenggong_xiao.png */; };
 		7C88903814E3FBB300177B01 /* ui_shibai_ku.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C88903714E3FBB300177B01 /* ui_shibai_ku.png */; };
+		7C88ED5714F46950009EF7B6 /* Net.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C88ED5614F46950009EF7B6 /* Net.cpp */; };
 		7C8A9C60146623BF004E3AE8 /* PhysicsComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A9C5E146623BF004E3AE8 /* PhysicsComponent.cpp */; };
 		7C8A9C6E146685AC004E3AE8 /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A9C6D146685AC004E3AE8 /* Common.cpp */; };
 		7C8ADD0014C05D8D00419F06 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C8ADCFF14C05D8D00419F06 /* Timer.cpp */; };
@@ -221,8 +222,8 @@
 		7C5CF3E6146440DE00019AE0 /* StateLevelSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateLevelSelection.h; sourceTree = "<group>"; };
 		7C5CF3E7146440DE00019AE0 /* StateMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateMachine.cpp; sourceTree = "<group>"; };
 		7C5CF3E8146440DE00019AE0 /* StateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateMachine.h; sourceTree = "<group>"; };
-		7C5CF3E9146440DE00019AE0 /* StatePlaying.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StatePlaying.cpp; sourceTree = "<group>"; };
-		7C5CF3EA146440DE00019AE0 /* StatePlaying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatePlaying.h; sourceTree = "<group>"; };
+		7C5CF3E9146440DE00019AE0 /* StatePlaying.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = StatePlaying.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		7C5CF3EA146440DE00019AE0 /* StatePlaying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = StatePlaying.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		7C5CF3F1146440ED00019AE0 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
 		7C5CF3F2146440ED00019AE0 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		7C5CF3F41464465800019AE0 /* IState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IState.h; sourceTree = "<group>"; };
@@ -283,11 +284,11 @@
 		7C84D753145BA44700397B7A /* ServicesProvider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ServicesProvider.cpp; sourceTree = "<group>"; };
 		7C84D754145BA44700397B7A /* ServicesProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesProvider.h; sourceTree = "<group>"; };
 		7C84D758145BA73A00397B7A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		7C84D75B145C032400397B7A /* IComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IComponent.h; sourceTree = "<group>"; };
-		7C84D75D145C048000397B7A /* RenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderComponent.cpp; sourceTree = "<group>"; };
-		7C84D75E145C048000397B7A /* RenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderComponent.h; sourceTree = "<group>"; };
-		7C84D760145C052700397B7A /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
-		7C84D761145C052700397B7A /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		7C84D75B145C032400397B7A /* IComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = IComponent.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		7C84D75D145C048000397B7A /* RenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = RenderComponent.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		7C84D75E145C048000397B7A /* RenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = RenderComponent.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		7C84D760145C052700397B7A /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Entity.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		7C84D761145C052700397B7A /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Entity.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		7C84D763145C0F6500397B7A /* IRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IRender.cpp; sourceTree = "<group>"; };
 		7C84D766145C1B4600397B7A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		7C86320B14BC766A0063635E /* go.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = go.png; sourceTree = "<group>"; };
@@ -299,6 +300,8 @@
 		7C88903314E3FA2500177B01 /* ui_beijing01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui_beijing01.png; sourceTree = "<group>"; };
 		7C88903514E3FBAB00177B01 /* ui_chenggong_xiao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui_chenggong_xiao.png; sourceTree = "<group>"; };
 		7C88903714E3FBB300177B01 /* ui_shibai_ku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui_shibai_ku.png; sourceTree = "<group>"; };
+		7C88ED5614F46950009EF7B6 /* Net.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Net.cpp; sourceTree = "<group>"; };
+		7C88ED5814F46966009EF7B6 /* Net.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Net.h; sourceTree = "<group>"; };
 		7C8A9C5E146623BF004E3AE8 /* PhysicsComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsComponent.cpp; sourceTree = "<group>"; };
 		7C8A9C5F146623BF004E3AE8 /* PhysicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsComponent.h; sourceTree = "<group>"; };
 		7C8A9C6214663F5F004E3AE8 /* ITouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITouch.h; sourceTree = "<group>"; };
@@ -691,6 +694,8 @@
 				7C8ADD0214C05DA000419F06 /* Timer.h */,
 				7C8ADDB714F1CC88006A1084 /* Event.h */,
 				7C8ADDB914F1CC9B006A1084 /* Event.cpp */,
+				7C88ED5614F46950009EF7B6 /* Net.cpp */,
+				7C88ED5814F46966009EF7B6 /* Net.h */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -1103,6 +1108,7 @@
 				7C8F41F314B4AE930031C1BF /* PhysicsManager.cpp in Sources */,
 				7C8ADD0014C05D8D00419F06 /* Timer.cpp in Sources */,
 				7C8ADDBA14F1CC9B006A1084 /* Event.cpp in Sources */,
+				7C88ED5714F46950009EF7B6 /* Net.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

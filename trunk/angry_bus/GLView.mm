@@ -108,5 +108,8 @@
     [_context release];
     [super dealloc];
 }
-
+- (void)memoryWarning
+{
+    _boot.memoryWarning();
+}
 @end

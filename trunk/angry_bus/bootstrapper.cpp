@@ -169,3 +169,8 @@ bool BootStrapper::touchMoved(float x, float y, float previousX, float previousY
         PhysicsManager::getInstancePtr()->touchMoved(x, y, previousX, previousY);
     return true;
 }
+
+void BootStrapper::memoryWarning()
+{
+    return;
+}

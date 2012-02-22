@@ -30,7 +30,7 @@ public:
     
     virtual void update();
     //
-    virtual void render();
+    virtual void render(const Color& c = Color::White);
     virtual void setProgram(const std::string& name);
     virtual bool setTexture(const std::string& fileName);
     virtual void setScale(float sx, float sy, float sz);

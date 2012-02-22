@@ -109,7 +109,7 @@ void RenderComponent::update()
     
 }
 
-void RenderComponent::render()
+void RenderComponent::render(const Color& c /*= Color::white*/)
 {
    
     if (0) 
@@ -143,6 +143,7 @@ void RenderComponent::render()
         {
             _tex->apply(0);
             p->setUniformi("uSampler", 0);
+            p->setUniformf("uBlendColor", c.red, c.green, c.blue, c.alpha);
         }
         
         ServicesProvider::getInstancePtr()->getRender()->drawArrays(GL_TRIANGLES, 0, 6);

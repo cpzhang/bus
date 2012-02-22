@@ -53,11 +53,11 @@ void Entity::update()
     }
 }
 
-void Entity::render()
+void Entity::render(const Color& c /*= Color::white*/)
 {
     if (!_hide && _render_component)
     {
-        _render_component->render();
+        _render_component->render(c);
     }
 }
 

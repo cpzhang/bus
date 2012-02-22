@@ -494,11 +494,13 @@ void StatePlaying::onWinner()
 {
     EntityManager::getInstancePtr()->getEntity("background_success")->setTexture("ui_chenggong_xiao.png");
     _uiResult->getNodeByName("button_statePlaying_goOn")->show();
+    _uiResult->getNodeByName("button_statePlaying_goOn")->enable();
 }
 void StatePlaying::onLoser()
 {
     EntityManager::getInstancePtr()->getEntity("background_success")->setTexture("ui_shibai_ku.png");    
-    _uiResult->getNodeByName("button_statePlaying_goOn")->hide();
+    _uiResult->getNodeByName("button_statePlaying_goOn")->show();
+    _uiResult->getNodeByName("button_statePlaying_goOn")->disable();
 }
 void StatePlaying::stopThisLevel()
 {
@@ -543,10 +545,13 @@ void StatePlaying::onTimer(int sequence)
             }
             else
             {
-                _working_time--;
                 if (_working_time <= 0)
                 {
                     stopThisLevel();
+                }
+                else
+                {
+                    --_working_time;       
                 }
             }
             

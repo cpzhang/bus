@@ -4,7 +4,7 @@
 #include "b2Body.h"
 #include "Vector3.h"
 #include "ITouch.h"
-
+#include "Color.h"
 struct IComponent
 {
     virtual ~IComponent(){};
@@ -14,7 +14,7 @@ struct IComponent
 struct IRenderComponent : public IComponent
 {
     virtual ~IRenderComponent(){};
-    virtual void render() = 0;
+    virtual void render(const Color& c = Color::White) = 0;
     virtual void setProgram(const std::string& name) = 0;
     virtual bool setTexture(const std::string& fileName) = 0;
     virtual void setScale(float sx, float sy, float sz) = 0;

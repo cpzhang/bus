@@ -17,6 +17,7 @@ public:
     void applyRender(eRender e);
     void setViewPort(int width, int height);
     void run(float secondsElapsed);
+    void memoryWarning();
     //
     virtual bool touchBegin(float x, float y);
     virtual bool touchMoved(float x, float y, float previousX, float previousY);

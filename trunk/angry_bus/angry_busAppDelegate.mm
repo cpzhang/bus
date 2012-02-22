@@ -19,7 +19,7 @@
     _view = [[GLView alloc] initWithFrame:b];
     [_window addSubview:_view];
     [_window makeKeyAndVisible];
-
+    
     return YES;
 }
 
@@ -29,6 +29,18 @@
      Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
      Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
      */
+    UIAlertView *alert = [[UIAlertView alloc] 
+                          initWithTitle:@"Resuming Game" 
+                          message:@"Click OK to resume the game" 
+                          delegate:self
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles: nil];
+    [alert show];
+    [alert release];
+}
+// ok, resume this game
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{ 
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -62,6 +74,13 @@
      */
 }
 
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    if (_view)
+    {
+        [_view memoryWarning];
+    }
+}
 - (void)dealloc
 {
     [_view release];

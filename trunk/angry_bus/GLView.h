@@ -14,5 +14,5 @@
 }
     // public
 - (void) drawView: (CADisplayLink*) displayLink;
-
+- (void) memoryWarning;
 @end

@@ -14,3 +14,8 @@ Color::Color()
     blue = 0.0;
     alpha = 0.0;
 }
+Color::Color(float r, float g, float b, float a)
+{
+    red = r; green = g; blue = b; alpha = a;
+}
+const Color Color::White(1.0, 1.0, 1.0, 1.0);
